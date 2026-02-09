@@ -2,14 +2,15 @@ using UnityEngine;
 
 public class PlayerCharacterController : MonoBehaviour
 {
-    private float movementSpeed = 3;
     private Rigidbody rb;
     private Animator animator;
+    private PlayerStats stats;
 
     void Start()
     {
         animator = GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody>();
+        stats = GameManager.instance.player.stats;
     }
 
     // Update is called once per frame
@@ -30,7 +31,7 @@ public class PlayerCharacterController : MonoBehaviour
         float x = Input.GetAxis("Horizontal");
         float y = Input.GetAxis("Vertical");
         Vector3 direction = (transform.forward * y + transform.right * x).normalized;
-        rb.linearVelocity = direction * movementSpeed;
+        rb.linearVelocity = direction * stats.movmentSpeed;
         animator.SetFloat("moveX", x);
         animator.SetFloat("moveY", y);
     }

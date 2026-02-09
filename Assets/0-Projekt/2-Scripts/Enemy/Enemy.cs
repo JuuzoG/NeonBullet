@@ -17,6 +17,7 @@ public class Enemy : MonoBehaviour
         player = GameManager.instance.player;
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponentInChildren<Animator>();
+        agent.speed = stats.movmentSpeed;
     }
 
     void Update()
@@ -59,7 +60,9 @@ public class Enemy : MonoBehaviour
         Destroy(GetComponent<Rigidbody>());
         Destroy(GetComponent<Collider>());
         Destroy(agent);
-        Instantiate(lootTable.GetDrop(), transform.position, Quaternion.identity);
+        GameObject loot = lootTable.GetDrop();
+        if (loot == null) return;
+        Instantiate(loot, transform.position, Quaternion.identity);
     }
 
     public void Attack()

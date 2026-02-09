@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: LootTable
   m_EditorClassIdentifier: 
   dropTables:
-  - chance: 0
+  - chance: 0.25
     drops:
     - {fileID: 4342896712014242402, guid: 9bd31e8b287934f4ab9d4b62790bb1ac, type: 3}
     - {fileID: 5753976690498857922, guid: d3da21df6124e4844ae62ceb144150aa, type: 3}
-  - chance: 1
+  - chance: 0.05
     drops:
     - {fileID: 5835664455233354533, guid: 658e8e9702344874ebcc856d23aa07b6, type: 3}
