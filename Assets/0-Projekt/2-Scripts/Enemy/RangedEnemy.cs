@@ -50,46 +50,56 @@ public class RangedEnemy : MonoBehaviour
 
     private void Update()
     {
+        if (GameManager.instance != null)
+        {
+            if (GameManager.instance.state == GameStates.GameOver)
+                return;
+
+            if (GameManager.instance.state == GameStates.paused)
+                return;
+        }
+
         if (player == null)
             return;
 
-        float distance = Vector3.Distance(
-            transform.position,
-            player.transform.position
-        );
+        if (health <= 0)
+            return;
+
+        if (animator != null)
+        {
+            animator.SetFloat("speed", agent.velocity.magnitude);
+        }
+
+        Vector3 direction = player.transform.position - transform.position;
+        float distance = direction.magnitude;
 
         // Player too far away
         if (distance > aggroRange)
         {
             agent.isStopped = true;
+
+            if (animator != null)
+            {
+                animator.SetFloat("speed", 0f);
+            }
+
             return;
         }
 
-        // Chase until within attack range
+        // Move toward player
         if (distance > attackRange)
         {
             agent.isStopped = false;
             agent.SetDestination(player.transform.position);
-
-            if (animator != null)
-            {
-                animator.SetBool("Moving", true);
-            }
         }
         else
         {
-            // Stop and attack
+            // Stop moving and attack
             agent.isStopped = true;
 
             Vector3 lookPosition = player.transform.position;
             lookPosition.y = transform.position.y;
-
             transform.LookAt(lookPosition);
-
-            if (animator != null)
-            {
-                animator.SetBool("Moving", false);
-            }
 
             TryShoot();
         }
@@ -118,6 +128,7 @@ public class RangedEnemy : MonoBehaviour
 
         if (rb != null)
         {
+            // Use velocity for most Rigidbody projectiles
             rb.linearVelocity = direction * projectileSpeed;
         }
 
@@ -125,8 +136,6 @@ public class RangedEnemy : MonoBehaviour
         {
             audioSource.PlayOneShot(shootSound);
         }
-
-        Debug.Log($"{gameObject.name} fired a projectile!");
     }
 
     public void TakeDamage(float damage)
@@ -141,7 +150,20 @@ public class RangedEnemy : MonoBehaviour
 
     private void Die()
     {
-        // Add loot drops here if needed
+        // Spawn loot
+        if (lootTable != null)
+        {
+            GameObject loot = lootTable.GetDrop();
+
+            if (loot != null)
+            {
+                Instantiate(
+                    loot,
+                    transform.position,
+                    Quaternion.identity
+                );
+            }
+        }
 
         Destroy(gameObject);
     }
