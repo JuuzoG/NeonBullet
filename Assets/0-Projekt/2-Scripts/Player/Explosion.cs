@@ -18,9 +18,9 @@ public class Explosion : MonoBehaviour
 
         if (damageable == null) return;
 
-        Vector3 direction =
+        Vector3 dir =
             (other.transform.position - transform.position).normalized;
 
-        damageable.TakeDamageWithKnockback(damage, direction, knockbackPower);
+        damageable.TakeDamageWithKnockback(damage, dir, knockbackPower);
     }
 }
