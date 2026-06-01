@@ -3,41 +3,42 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     public GameObject munitionDropPrefab;
+
     private Rigidbody rb;
-    private float remainingLifetime = 2; 
-    private float movementSpeed = 5;
-    private float damage = 2;
+    private float lifetime = 2f;
+    private float speed = 5f;
+    private float damage = 2f;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        rb.linearVelocity = transform.forward * movementSpeed;
-        
-        remainingLifetime -= Time.deltaTime;
-        if (remainingLifetime <= 0)
-        {
+        rb.linearVelocity = transform.forward * speed;
+
+        lifetime -= Time.deltaTime;
+        if (lifetime <= 0)
             EndTravel();
-        }
     }
 
     void OnCollisionEnter(Collision collision)
     {
-        Enemy enemy = collision.gameObject.GetComponent<Enemy>();
-        if (enemy != null)
-        {
-            enemy.RecieveHit(damage, Vector3.zero, 0);
-        }    
-        EndTravel();    
+        IDamageable damageable =
+            collision.gameObject.GetComponentInParent<IDamageable>();
+
+        if (damageable != null)
+            damageable.TakeDamage(damage);
+
+        EndTravel();
     }
 
     void EndTravel()
     {
-        Instantiate(munitionDropPrefab, transform.position, Quaternion.identity);
+        if (munitionDropPrefab != null)
+            Instantiate(munitionDropPrefab, transform.position, Quaternion.identity);
+
         Destroy(gameObject);
     }
 }

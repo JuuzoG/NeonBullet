@@ -1,77 +1,144 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Enemy : MonoBehaviour
+public class Enemy : MonoBehaviour, IDamageable
 {
     public EnemyStats stats;
     public LootTable lootTable;
+
     private Player player;
     private NavMeshAgent agent;
     private Animator animator;
+
     private float health;
     public bool attacking;
+    private bool isDead;
 
     void Start()
     {
         health = stats.maxHealth;
+
         player = GameManager.instance.player;
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponentInChildren<Animator>();
-        agent.speed = stats.movementSpeed;
+
+        if (agent != null)
+            agent.speed = stats.movementSpeed;
     }
 
     void Update()
     {
+        if (isDead) return;
+
         if (GameManager.instance.state == GameStates.GameOver) return;
         if (GameManager.instance.state == GameStates.paused) return;
         if (health <= 0) return;
         if (attacking) return;
 
-        animator.SetFloat("speed", agent.velocity.magnitude);
-        Vector3 direction = player.transform.position - transform.position;
+        if (!CanUseAgent()) return;
 
-        if (direction.magnitude > stats.detectionRange) return;
-        if (direction.magnitude <= stats.aggroRange)
+        animator.SetFloat("speed", agent.velocity.magnitude);
+
+        Vector3 direction = player.transform.position - transform.position;
+        float distance = direction.magnitude;
+
+        if (distance > stats.detectionRange) return;
+
+        if (distance <= stats.aggroRange)
         {
             attacking = true;
             animator.SetTrigger("attacking");
-            agent.isStopped = true;
+
+            if (CanUseAgent())
+                agent.isStopped = true;
         }
         else
         {
-            agent.isStopped = false;
-            agent.SetDestination(player.transform.position);            
-        }        
+            if (CanUseAgent())
+            {
+                agent.isStopped = false;
+                agent.SetDestination(player.transform.position);
+            }
+        }
     }
 
-    public void RecieveHit(float damage, Vector3 knockbackDirection, float knockbackPower)
+    public void TakeDamage(float damage)
     {
-        health -= damage;
-        agent.velocity = knockbackDirection*knockbackPower;
-        if (health <= 0)
+        ApplyDamage(damage);
+    }
+
+    public void TakeDamageWithKnockback(float damage, Vector3 dir, float force)
+    {
+        ApplyDamage(damage);
+
+        if (CanUseAgent())
         {
-            Die();
+            agent.isStopped = true;
+            agent.velocity = dir * force;
+            StartCoroutine(ResumeAgent());
         }
+    }
+
+    private void ApplyDamage(float damage)
+    {
+        if (isDead) return;
+
+        health -= damage;
+
+        if (health <= 0)
+            Die();
+    }
+
+    private System.Collections.IEnumerator ResumeAgent()
+    {
+        yield return new WaitForSeconds(0.2f);
+
+        if (isDead) yield break;
+
+        if (CanUseAgent())
+            agent.isStopped = false;
     }
 
     public void Die()
     {
+        if (isDead) return;
+
+        isDead = true;
+        health = 0;
+        attacking = true;
+
         animator.SetTrigger("die");
+
+        StopAllCoroutines();
+
+        if (agent != null)
+        {
+            agent.isStopped = true;
+            agent.ResetPath();
+            agent.enabled = false;
+        }
+
         Destroy(GetComponent<Rigidbody>());
         Destroy(GetComponent<Collider>());
-        Destroy(agent);
+
         GameObject loot = lootTable.GetDrop();
-        if (loot == null) return;
-        Instantiate(loot, transform.position, Quaternion.identity);
+        if (loot != null)
+            Instantiate(loot, transform.position, Quaternion.identity);
+
+        this.enabled = false;
     }
 
     public void Attack()
     {
+        if (isDead) return;
+
         Vector3 dir = player.transform.position - transform.position;
+
         if (health <= 0) return;
         if (dir.magnitude > stats.attackRange) return;
         if (Vector3.Angle(transform.forward, dir) > stats.attackRadius * 0.5f) return;
-        player.GainHealth(stats.attackDamage*-1);
+
+        player.GainHealth(-stats.attackDamage);
     }
 
     public void EndAttack()
@@ -79,4 +146,8 @@ public class Enemy : MonoBehaviour
         attacking = false;
     }
 
+    private bool CanUseAgent()
+    {
+        return agent != null && agent.enabled && agent.isOnNavMesh;
+    }
 }

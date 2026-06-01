@@ -1,8 +1,8 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
-public class RangedEnemy : MonoBehaviour
+public class RangedEnemy : MonoBehaviour, IDamageable
 {
     [Header("Ranges")]
     [SerializeField] private float aggroRange = 15f;
@@ -30,63 +30,39 @@ public class RangedEnemy : MonoBehaviour
 
     private float health;
     private float lastAttackTime;
+    private bool isDead;
 
     private void Start()
     {
-        if (GameManager.instance != null)
-        {
-            player = GameManager.instance.player;
-        }
+        player = GameManager.instance.player;
 
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponentInChildren<Animator>();
 
-        if (stats != null)
-        {
-            health = stats.maxHealth;
-            agent.speed = stats.movementSpeed;
-        }
+        health = stats.maxHealth;
+        agent.speed = stats.movementSpeed;
     }
 
     private void Update()
     {
-        if (GameManager.instance != null)
-        {
-            if (GameManager.instance.state == GameStates.GameOver)
-                return;
+        if (isDead) return;
 
-            if (GameManager.instance.state == GameStates.paused)
-                return;
-        }
+        if (GameManager.instance.state == GameStates.GameOver) return;
+        if (GameManager.instance.state == GameStates.paused) return;
 
-        if (player == null)
-            return;
+        if (!CanUseAgent()) return;
+        if (player == null) return;
 
-        if (health <= 0)
-            return;
+        animator.SetFloat("speed", agent.velocity.magnitude);
 
-        if (animator != null)
-        {
-            animator.SetFloat("speed", agent.velocity.magnitude);
-        }
+        float distance = Vector3.Distance(transform.position, player.transform.position);
 
-        Vector3 direction = player.transform.position - transform.position;
-        float distance = direction.magnitude;
-
-        // Player too far away
         if (distance > aggroRange)
         {
             agent.isStopped = true;
-
-            if (animator != null)
-            {
-                animator.SetFloat("speed", 0f);
-            }
-
             return;
         }
 
-        // Move toward player
         if (distance > attackRange)
         {
             agent.isStopped = false;
@@ -94,12 +70,11 @@ public class RangedEnemy : MonoBehaviour
         }
         else
         {
-            // Stop moving and attack
             agent.isStopped = true;
 
-            Vector3 lookPosition = player.transform.position;
-            lookPosition.y = transform.position.y;
-            transform.LookAt(lookPosition);
+            Vector3 look = player.transform.position;
+            look.y = transform.position.y;
+            transform.LookAt(look);
 
             TryShoot();
         }
@@ -107,64 +82,96 @@ public class RangedEnemy : MonoBehaviour
 
     private void TryShoot()
     {
-        if (Time.time < lastAttackTime + attackCooldown)
-            return;
+        if (isDead) return;
+        if (Time.time < lastAttackTime + attackCooldown) return;
+        if (projectilePrefab == null || shootPoint == null) return;
 
         lastAttackTime = Time.time;
 
-        if (projectilePrefab == null || shootPoint == null)
-            return;
+        Vector3 dir = (player.transform.position - shootPoint.position).normalized;
 
-        Vector3 direction =
-            (player.transform.position - shootPoint.position).normalized;
-
-        GameObject projectile = Instantiate(
+        GameObject proj = Instantiate(
             projectilePrefab,
             shootPoint.position,
-            Quaternion.LookRotation(direction)
+            Quaternion.LookRotation(dir)
         );
 
-        Rigidbody rb = projectile.GetComponent<Rigidbody>();
-
+        Rigidbody rb = proj.GetComponent<Rigidbody>();
         if (rb != null)
-        {
-            // Use velocity for most Rigidbody projectiles
-            rb.linearVelocity = direction * projectileSpeed;
-        }
+            rb.linearVelocity = dir * projectileSpeed;
 
-        if (audioSource != null && shootSound != null)
-        {
+        if (audioSource && shootSound)
             audioSource.PlayOneShot(shootSound);
-        }
     }
 
     public void TakeDamage(float damage)
     {
+        ApplyDamage(damage);
+    }
+
+    public void TakeDamageWithKnockback(float damage, Vector3 dir, float force)
+    {
+        ApplyDamage(damage);
+
+        if (CanUseAgent())
+        {
+            agent.isStopped = true;
+            agent.velocity = dir * force;
+            StartCoroutine(ResumeAgent());
+        }
+    }
+
+    private void ApplyDamage(float damage)
+    {
+        if (isDead) return;
+
         health -= damage;
 
         if (health <= 0)
-        {
             Die();
-        }
+    }
+
+    private System.Collections.IEnumerator ResumeAgent()
+    {
+        yield return new WaitForSeconds(0.2f);
+
+        if (isDead) yield break;
+
+        if (CanUseAgent())
+            agent.isStopped = false;
     }
 
     private void Die()
     {
-        // Spawn loot
-        if (lootTable != null)
-        {
-            GameObject loot = lootTable.GetDrop();
+        if (isDead) return;
 
-            if (loot != null)
-            {
-                Instantiate(
-                    loot,
-                    transform.position,
-                    Quaternion.identity
-                );
-            }
+        isDead = true;
+        health = 0;
+
+        if (animator != null)
+            animator.SetTrigger("die");
+
+        StopAllCoroutines();
+
+        if (agent != null)
+        {
+            agent.isStopped = true;
+            agent.ResetPath();
+            agent.enabled = false;
         }
 
-        Destroy(gameObject);
+        Destroy(GetComponent<Rigidbody>());
+        Destroy(GetComponent<Collider>());
+
+        GameObject loot = lootTable.GetDrop();
+        if (loot != null)
+            Instantiate(loot, transform.position, Quaternion.identity);
+
+        this.enabled = false;
+    }
+
+    private bool CanUseAgent()
+    {
+        return agent != null && agent.enabled && agent.isOnNavMesh;
     }
 }
