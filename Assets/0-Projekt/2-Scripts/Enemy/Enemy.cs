@@ -17,7 +17,7 @@ public class Enemy : MonoBehaviour
         player = GameManager.instance.player;
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponentInChildren<Animator>();
-        agent.speed = stats.movmentSpeed;
+        agent.speed = stats.movementSpeed;
     }
 
     void Update()

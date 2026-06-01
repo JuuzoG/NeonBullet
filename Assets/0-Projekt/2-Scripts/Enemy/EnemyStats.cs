@@ -4,7 +4,7 @@ using UnityEngine;
 public class EnemyStats : ScriptableObject
 {
     public float maxHealth;
-    public float movmentSpeed;
+    public float movementSpeed;
     public float detectionRange;
     public float aggroRange;
     public float attackRange;
