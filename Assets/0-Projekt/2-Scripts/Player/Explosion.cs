@@ -21,6 +21,6 @@ public class Explosion : MonoBehaviour
         Vector3 dir =
             (other.transform.position - transform.position).normalized;
 
-        damageable.TakeDamageWithKnockback(damage, dir, knockbackPower);
+        damageable.TakeDamageWithKnockback(damage, dir, knockbackPower); //e
     }
 }
