@@ -14,7 +14,6 @@ public class RangedEnemy : MonoBehaviour, IDamageable
     [Header("Projectile")]
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private Transform shootPoint;
-    [SerializeField] private float projectileSpeed = 15f;
 
     [Header("Audio")]
     [SerializeField] private AudioSource audioSource;
@@ -102,7 +101,6 @@ public class RangedEnemy : MonoBehaviour, IDamageable
 
         Rigidbody rb = proj.GetComponent<Rigidbody>();
         if (rb != null)
-            rb.linearVelocity = dir * projectileSpeed;
 
         if (audioSource && shootSound)
             audioSource.PlayOneShot(shootSound);
