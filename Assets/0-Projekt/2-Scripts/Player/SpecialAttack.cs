@@ -7,30 +7,37 @@ public class SpecialAttack : MonoBehaviour
     public float cooldownTime;
     public GameObject attackPrefab;
 
-
     private Player player;
     private float cooldown = 0;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         player = GetComponent<Player>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (GameManager.instance.state == GameStates.GameOver) return;
         if (GameManager.instance.state == GameStates.paused) return;
-        
+
         cooldown -= Time.deltaTime;
-        if (energyCost > player.GainEnergy(0)) return;
+
         if (cooldown > 0) return;
+
+        if (energyCost > player.GainEnergy(0)) return;
+
         if (Input.GetKeyDown(inputKey))
         {
-            Instantiate(attackPrefab, transform.position, Quaternion.identity);
+            GameObject obj =
+                Instantiate(attackPrefab, transform.position, Quaternion.identity);
+
+            Explosion explosion = obj.GetComponent<Explosion>();
+            if (explosion != null)
+                explosion.SetOwner(gameObject);
+
             cooldown = cooldownTime;
-            player.GainEnergy(energyCost*-1);
+
+            player.GainEnergy(-energyCost);
         }
     }
 }

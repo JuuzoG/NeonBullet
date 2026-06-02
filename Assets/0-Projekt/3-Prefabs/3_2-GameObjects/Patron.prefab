@@ -137,7 +137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71bd54c8232ffe14892c8d4e87831c6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  neonPinkColor: {r: 2, g: 0, b: 1.5, a: 1}
-  grayColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
-  normalDuration: 2
+  neonMaterial: {fileID: 2100000, guid: 21ab27571a1273549b25844badbf66ea, type: 2}
+  grayMaterial: {fileID: 2100000, guid: f861fdcef40113c4aa8fa14ea1c9da74, type: 2}
+  normalDuration: 1.5
   flashDuration: 0.3
