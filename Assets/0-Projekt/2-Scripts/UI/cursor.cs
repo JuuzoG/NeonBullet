@@ -1,8 +1,7 @@
-using Unity.VisualScripting;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class cursor : MonoBehaviour
 {
@@ -15,6 +14,15 @@ public class cursor : MonoBehaviour
     public TMP_Text textField;
     public Image cursorImage;
     public Player player;
+    private Enemy emy;
+
+    private Color mouseColor;
+
+    void Start()
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("Enemy");
+        emy = player.GetComponent<Enemy>();
+    }
 
     private void Awake()
     {
@@ -58,8 +66,10 @@ public class cursor : MonoBehaviour
     {
         textField.text = "" + player.munition;
 
-        if (player.munition == 0) {textField.color = new Color(1, 0, 0, 1); cursorImage.tintColor = new Color(1, 0, 0, 1);}
-        else if (player.munition <= 5) {textField.color = new Color(1, 0.92f, 0.016f, 1); cursorImage.tintColor = new Color(1, 1, 1, 1);}
-        else {textField.color = new Color(1, 1, 1, 1); cursorImage.tintColor = new Color(1, 1, 1, 1);}
+        if (emy.onEnemy) mouseColor = new Color(1, 0, 0, 1);
+        else if (player.munition == 0) {textField.color = new Color(1, 0, 0, 1); mouseColor = new Color(1, 1, 1, 0.5f);}
+        else if (player.munition <= 5) {textField.color = new Color(1, 0.92f, 0.016f, 1); mouseColor = new Color(1, 1, 1, 1);}
+        else {textField.color = new Color(1, 1, 1, 1); mouseColor = new Color(1, 1, 1, 1);}
+        cursorImage.color = mouseColor;
     }
 }

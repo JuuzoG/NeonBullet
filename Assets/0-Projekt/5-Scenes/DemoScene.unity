@@ -2923,6 +2923,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4da691fad332177408a44d764eb9d953, type: 3}
+--- !u!114 &1347423956 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2745510185303211245, guid: 58a5161d4dfb95d49b4fa63578110bc2, type: 3}
+  m_PrefabInstance: {fileID: 3518879309053546751}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1349669007 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3241571945679622637, guid: 4da691fad332177408a44d764eb9d953, type: 3}
@@ -4809,6 +4820,26 @@ PrefabInstance:
       propertyPath: textField
       value: 
       objectReference: {fileID: 1011087032}
+    - target: {fileID: 2732896089794379414, guid: 58a5161d4dfb95d49b4fa63578110bc2, type: 3}
+      propertyPath: cursorImage
+      value: 
+      objectReference: {fileID: 1347423956}
+    - target: {fileID: 2745510185303211245, guid: 58a5161d4dfb95d49b4fa63578110bc2, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2745510185303211245, guid: 58a5161d4dfb95d49b4fa63578110bc2, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2745510185303211245, guid: 58a5161d4dfb95d49b4fa63578110bc2, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2745510185303211245, guid: 58a5161d4dfb95d49b4fa63578110bc2, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3124668983499972046, guid: 58a5161d4dfb95d49b4fa63578110bc2, type: 3}
       propertyPath: m_Name
       value: Canvas

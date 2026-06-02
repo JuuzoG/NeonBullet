@@ -6,7 +6,7 @@ public class Player : MonoBehaviour
     public PlayerStats stats;
     public float health;
     private float energy;
-    private int munition = 10;
+    public int munition = 10;
 
     [Header("Additionals")]
     public GameObject projectilePrefab;
