@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 31907826169829636}
   - component: {fileID: 6069649090913241159}
   - component: {fileID: 2129103105338039602}
+  - component: {fileID: 5337574920468172572}
   m_Layer: 0
   m_Name: Patron
   m_TagString: Untagged
@@ -124,3 +125,19 @@ MonoBehaviour:
   minAmount: 1
   maxAmount: 1
   type: 0
+--- !u!114 &5337574920468172572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3906748167072172469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71bd54c8232ffe14892c8d4e87831c6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  neonPinkColor: {r: 2, g: 0, b: 1.5, a: 1}
+  grayColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
+  normalDuration: 2
+  flashDuration: 0.3

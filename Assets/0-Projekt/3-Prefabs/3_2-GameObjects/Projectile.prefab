@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4132676988596038410}
   - component: {fileID: 4972368821113608351}
   - component: {fileID: 8230346691329593091}
+  - component: {fileID: -4379141378377287516}
   m_Layer: 0
   m_Name: Projectile
   m_TagString: Untagged
@@ -150,3 +151,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   munitionDropPrefab: {fileID: 3906748167072172469, guid: 391e5cce46149f24492b6e51df8a395a, type: 3}
+--- !u!114 &-4379141378377287516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4605803923660264602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71bd54c8232ffe14892c8d4e87831c6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  neonPinkColor: {r: 2, g: 0, b: 1.5, a: 1}
+  grayColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
+  normalDuration: 2
+  flashDuration: 0.3
