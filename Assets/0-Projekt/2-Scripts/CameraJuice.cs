@@ -6,9 +6,8 @@ public class CameraJuice : MonoBehaviour
     [SerializeField] private Transform playerTransform; 
 
     [Header("Lean Settings (Drehung)")]
-    // Ein kleinerer Wert (z.B. 0.5 oder 1) macht den Schwenk jetzt spürbar schwächer!
-    [SerializeField] private float leanAmount = 0.1f;      
-    [SerializeField] private float leanSpeed = 15f;       
+    [SerializeField] private float leanAmount = 1.5f;      
+    [SerializeField] private float leanSpeed = 5f;       
 
     [Header("Shift Settings (Verschiebung)")]
     [SerializeField] private float shiftAmount = 0.2f;   
@@ -33,25 +32,35 @@ public class CameraJuice : MonoBehaviour
 
     void LateUpdate()
     {
+        // NEU: Wenn der GameManager im Pausenmodus ist (z.B. Inventar offen), 
+        // brechen wir sofort ab und bewegen die Kamera nicht weiter!
+        if (GameManager.instance != null)
+        {
+            if (GameManager.instance.state == GameStates.paused || 
+                GameManager.instance.state == GameStates.GameOver)
+            {
+                // Wir merken uns trotzdem die aktuelle Position des Spielers, 
+                // damit es beim Schließen des Inventars keinen riesigen Ruckler gibt
+                if (playerTransform != null)
+                {
+                    lastPlayerPosition = playerTransform.position;
+                }
+                return; 
+            }
+        }
+
         if (playerTransform == null) return;
 
         // 1. Bewegung berechnen
         Vector3 playerMovement = playerTransform.position - lastPlayerPosition;
-        
-        // Umrechnung in lokale Kamerarichtung
         Vector3 localMovement = transform.InverseTransformDirection(playerMovement);
 
-        // 2. KAMERA-SCHWENK (Überarbeitete Berechnung)
-        // Wir nutzen Time.deltaTime, damit die Geschwindigkeit des Spielers den Schwenk nicht extrem verzerrt
+        // 2. KAMERA-SCHWENK
         float targetLeanZ = -localMovement.x * leanAmount * 10f;
-        
-        // Das Limit fängt den Wert jetzt sauber ab
         targetLeanZ = Mathf.Clamp(targetLeanZ, -leanAmount, leanAmount);
-        
-        // Sanftes Einschwenken
         currentLeanZ = Mathf.Lerp(currentLeanZ, targetLeanZ, Time.deltaTime * leanSpeed);
 
-        // 3. KAMERA-SHIFT (Vorschauen)
+        // 3. KAMERA-SHIFT
         Vector3 targetShift = playerMovement * shiftAmount * 10f;
         currentShift = Vector3.Lerp(currentShift, targetShift, Time.deltaTime * shiftSpeed);
 
