@@ -9,6 +9,7 @@ public class PlayerStats : ScriptableObject
 
     [Header("Current Stats")]
     public float movmentSpeed;
+    public float acceleration;
     public float energyRecoverRate;
     public float health;
     public float energy;

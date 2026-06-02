@@ -41,6 +41,8 @@ public class PlayerCharacterController : MonoBehaviour
 
         animator.SetFloat("moveX", -y);
         animator.SetFloat("moveY", x);
-
+        
     }
+
+    
 }
