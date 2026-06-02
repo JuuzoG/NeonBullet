@@ -15,7 +15,6 @@ public class Enemy : MonoBehaviour, IDamageable
     public bool attacking;
     private bool isDead;
 
-    public bool onEnemy;
 
     void Start()
     {
@@ -152,15 +151,5 @@ public class Enemy : MonoBehaviour, IDamageable
     private bool CanUseAgent()
     {
         return agent != null && agent.enabled && agent.isOnNavMesh;
-    }
-
-    void OnMouseEnter()
-    {
-        onEnemy = true;
-    }
-
-    void OnMouseExit()
-    {
-        onEnemy = false;
     }
 }
