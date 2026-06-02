@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: PlayerStats
   m_EditorClassIdentifier: 
   maxHealth: 10
-  movmentSpeed: 4
   maxEnergy: 10
+  movmentSpeed: 4
   energyRecoverRate: 1
+  health: 10
+  energy: 10
