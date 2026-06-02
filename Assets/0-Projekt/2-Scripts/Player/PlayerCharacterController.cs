@@ -28,11 +28,19 @@ public class PlayerCharacterController : MonoBehaviour
         }
 
         // Move the Character
-        float x = Input.GetAxis("Horizontal");
-        float y = Input.GetAxis("Vertical");
-        Vector3 direction = (Vector3.right * -y + Vector3.forward * x).normalized + new Vector3(0,rb.linearVelocity.y,0);
-        rb.linearVelocity = direction * stats.movmentSpeed;
+        float x = Input.GetAxisRaw("Horizontal");
+        float y = Input.GetAxisRaw("Vertical");
+
+        Vector3 moveDirection = new Vector3(x, 0f, y).normalized;
+
+        rb.linearVelocity = new Vector3(
+            moveDirection.x * stats.movmentSpeed,
+            rb.linearVelocity.y,
+            moveDirection.z * stats.movmentSpeed
+        );
+
         animator.SetFloat("moveX", -y);
         animator.SetFloat("moveY", x);
+
     }
 }
