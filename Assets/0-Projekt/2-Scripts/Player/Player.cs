@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, IDamageable
 {
     [Header("Stats")]
     public PlayerStats stats;
@@ -38,7 +38,12 @@ public class Player : MonoBehaviour
                 transform.forward +
                 Vector3.up;
 
-            Instantiate(projectilePrefab, position, transform.rotation);
+            GameObject proj =
+                Instantiate(projectilePrefab, position, transform.rotation);
+
+            Projectile p = proj.GetComponent<Projectile>();
+            if (p != null)
+                p.SetOwner(gameObject);
 
             munition--;
         }
@@ -79,5 +84,15 @@ public class Player : MonoBehaviour
         }
 
         return energy;
+    }
+
+    public void TakeDamage(DamageInfo info)
+    {
+        GainHealth(-info.damage);
+    }
+
+    public void TakeDamageWithKnockback(DamageInfo info, float force)
+    {
+        GainHealth(-info.damage);
     }
 }

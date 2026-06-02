@@ -96,6 +96,10 @@ public class RangedEnemy : MonoBehaviour, IDamageable
             Quaternion.LookRotation(dir)
         );
 
+        EnemyProjectile ep = proj.GetComponent<EnemyProjectile>();
+        if (ep != null)
+            ep.SetOwner(gameObject);
+
         Rigidbody rb = proj.GetComponent<Rigidbody>();
         if (rb != null)
             rb.linearVelocity = dir * projectileSpeed;
@@ -104,19 +108,20 @@ public class RangedEnemy : MonoBehaviour, IDamageable
             audioSource.PlayOneShot(shootSound);
     }
 
-    public void TakeDamage(float damage)
+ 
+    public void TakeDamage(DamageInfo info)
     {
-        ApplyDamage(damage);
+        ApplyDamage(info.damage);
     }
 
-    public void TakeDamageWithKnockback(float damage, Vector3 dir, float force)
+    public void TakeDamageWithKnockback(DamageInfo info, float force)
     {
-        ApplyDamage(damage);
+        ApplyDamage(info.damage);
 
         if (CanUseAgent())
         {
             agent.isStopped = true;
-            agent.velocity = dir * force;
+            agent.velocity = info.direction * force;
             StartCoroutine(ResumeAgent());
         }
     }

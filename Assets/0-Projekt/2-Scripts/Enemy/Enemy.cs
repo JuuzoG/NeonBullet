@@ -65,22 +65,23 @@ public class Enemy : MonoBehaviour, IDamageable
         }
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(DamageInfo info)
     {
-        ApplyDamage(damage);
+        ApplyDamage(info.damage);
     }
 
-    public void TakeDamageWithKnockback(float damage, Vector3 dir, float force)
+    public void TakeDamageWithKnockback(DamageInfo info, float force)
     {
-        ApplyDamage(damage);
+        ApplyDamage(info.damage);
 
         if (CanUseAgent())
         {
             agent.isStopped = true;
-            agent.velocity = dir * force;
+            agent.velocity = info.direction * force;
             StartCoroutine(ResumeAgent());
         }
     }
+
 
     private void ApplyDamage(float damage)
     {
@@ -131,6 +132,7 @@ public class Enemy : MonoBehaviour, IDamageable
         this.enabled = false;
     }
 
+
     public void Attack()
     {
         if (isDead) return;
@@ -154,13 +156,6 @@ public class Enemy : MonoBehaviour, IDamageable
         return agent != null && agent.enabled && agent.isOnNavMesh;
     }
 
-    void OnMouseEnter()
-    {
-        onEnemy = true;
-    }
-
-    void OnMouseExit()
-    {
-        onEnemy = false;
-    }
+    void OnMouseEnter() => onEnemy = true;
+    void OnMouseExit() => onEnemy = false;
 }

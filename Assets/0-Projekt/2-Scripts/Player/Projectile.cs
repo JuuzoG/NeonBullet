@@ -9,9 +9,16 @@ public class Projectile : MonoBehaviour
     private float speed = 5f;
     private float damage = 2f;
 
+    private GameObject owner;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+    }
+
+    public void SetOwner(GameObject newOwner)
+    {
+        owner = newOwner;
     }
 
     void Update()
@@ -25,11 +32,24 @@ public class Projectile : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
+        if (collision.gameObject == owner) return;
+
         IDamageable damageable =
             collision.gameObject.GetComponentInParent<IDamageable>();
 
         if (damageable != null)
-            damageable.TakeDamage(damage);
+        {
+            Vector3 dir = transform.forward;
+
+            DamageInfo info = new DamageInfo(
+                damage,
+                owner,
+                collision.GetContact(0).point,
+                dir
+            );
+
+            damageable.TakeDamage(info);
+        }
 
         EndTravel();
     }

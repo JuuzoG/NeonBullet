@@ -6,13 +6,22 @@ public class Explosion : MonoBehaviour
     private float damage = 5f;
     private float knockbackPower = 8f;
 
+    private GameObject owner;
+
     void Start()
     {
         Destroy(gameObject, duration);
     }
 
+    public void SetOwner(GameObject newOwner)
+    {
+        owner = newOwner;
+    }
+
     void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject == owner) return;
+
         IDamageable damageable =
             other.GetComponentInParent<IDamageable>();
 
@@ -21,6 +30,13 @@ public class Explosion : MonoBehaviour
         Vector3 dir =
             (other.transform.position - transform.position).normalized;
 
-        damageable.TakeDamageWithKnockback(damage, dir, knockbackPower); //e
+        DamageInfo info = new DamageInfo(
+            damage,
+            owner,
+            other.ClosestPoint(transform.position),
+            dir
+        );
+
+        damageable.TakeDamageWithKnockback(info, knockbackPower);
     }
 }

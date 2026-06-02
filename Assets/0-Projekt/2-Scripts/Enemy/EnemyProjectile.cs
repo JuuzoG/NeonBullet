@@ -3,12 +3,19 @@ using UnityEngine;
 public class EnemyProjectile : MonoBehaviour
 {
     [SerializeField] private float speed = 10f;
-    [SerializeField] private int damage = 10;
+    [SerializeField] private float damage = 10f;
     [SerializeField] private float lifeTime = 5f;
+
+    private GameObject owner;
 
     private void Start()
     {
         Destroy(gameObject, lifeTime);
+    }
+
+    public void SetOwner(GameObject newOwner)
+    {
+        owner = newOwner;
     }
 
     private void Update()
@@ -18,11 +25,23 @@ public class EnemyProjectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Player player = other.GetComponentInParent<Player>();
+        if (other.gameObject == owner) return;
 
-        if (player != null)
+        IDamageable damageable =
+            other.GetComponentInParent<IDamageable>();
+
+        if (damageable != null)
         {
-            player.GainHealth(-damage);
+            Vector3 dir = transform.forward;
+
+            DamageInfo info = new DamageInfo(
+                damage,
+                owner,
+                other.ClosestPoint(transform.position),
+                dir
+            );
+
+            damageable.TakeDamage(info);
         }
 
         Destroy(gameObject);
