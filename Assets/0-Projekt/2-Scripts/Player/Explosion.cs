@@ -8,17 +8,17 @@ public class Explosion : MonoBehaviour
     private float radius = 3f;
 
     private GameObject owner;
+
+    public void SetOwner(GameObject newOwner)
+    {
+        owner = newOwner;
+    }
     private bool hasExploded;
 
     void Start()
     {
         Invoke(nameof(Explode), 0.05f); // slight delay so spawn is stable
         Destroy(gameObject, duration);
-    }
-
-    public void SetOwner(GameObject newOwner)
-    {
-        owner = newOwner;
     }
 
     void Explode()
