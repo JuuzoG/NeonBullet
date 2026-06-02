@@ -112,9 +112,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b45775273eaf9c48aadd2760149ae9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
   stats: {fileID: 11400000, guid: ae0cd2b9a429c7546969cc30bbfe9355, type: 2}
+  health: 0
+  munition: 10
   projectilePrefab: {fileID: 4605803923660264602, guid: 8fe629540e53875488b308e440badb8e, type: 3}
+  ui: {fileID: 0}
 --- !u!114 &3675448477761170151
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -469,6 +471,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3853268898807207900, guid: bff893ca2ea1bbf41a58f7218638d24a, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 8c02f0402c1f50d4bbdd138504c200f0, type: 2}
     - target: {fileID: 3882815353823017779, guid: bff893ca2ea1bbf41a58f7218638d24a, type: 3}
       propertyPath: m_Layer
       value: 2
@@ -501,6 +507,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6148737315974723067, guid: bff893ca2ea1bbf41a58f7218638d24a, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 72ae61645b95724418e8f6906d2d04c6, type: 2}
     - target: {fileID: 6240733294840144465, guid: bff893ca2ea1bbf41a58f7218638d24a, type: 3}
       propertyPath: m_Layer
       value: 2
