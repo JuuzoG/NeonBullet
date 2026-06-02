@@ -13,15 +13,16 @@ public class cursor : MonoBehaviour
     private Camera _canvasCamera;
     public TMP_Text textField;
     public Image cursorImage;
-    public Player player;
-    private Enemy emy;
+    public Image clickedCursorImage;
+    private Player player;
+    public bool check;
 
     private Color mouseColor;
 
-    void Start()
+    private void Start()
     {
-        GameObject enemy = GameObject.FindGameObjectWithTag("Enemy");
-        emy = enemy.GetComponent<Enemy>();
+        GameObject playerGEt = GameObject.FindGameObjectWithTag("Player");
+        player = playerGEt.GetComponent<Player>();
     }
 
     private void Awake()
@@ -66,10 +67,20 @@ public class cursor : MonoBehaviour
     {
         textField.text = "" + player.munition;
 
-        if (emy.onEnemy) mouseColor = new Color(1, 0, 0, 1);
-        else if (player.munition == 0) {textField.color = new Color(1, 0, 0, 1); mouseColor = new Color(1, 1, 1, 0.5f);}
-        else if (player.munition <= 5) {textField.color = new Color(1, 0.92f, 0.016f, 1); mouseColor = new Color(1, 1, 1, 1);}
-        else {textField.color = new Color(1, 1, 1, 1); mouseColor = new Color(1, 1, 1, 1);}
-        cursorImage.color = mouseColor;
+        if (Input.GetKey(KeyCode.Mouse0))
+        {
+            cursorImage.color = new Color(0,0,0,0);
+            clickedCursorImage.color = new Color(1, 1, 1, 1);
+        }
+        else
+        {
+            clickedCursorImage.color = new Color(0,0,0,0);
+            if (player.munition == 0) {textField.color = new Color(1, 0, 0, 1); mouseColor = new Color(1, 1, 1, 0.6f);}
+            else if (player.munition <= 5) {textField.color = new Color(1, 0.92f, 0.016f, 1); mouseColor = new Color(1, 1, 1, 1);}
+            else {textField.color = new Color(1, 1, 1, 1); mouseColor = new Color(1, 1, 1, 1);}
+            cursorImage.color = mouseColor;
+        }
+
+        
     }
 }

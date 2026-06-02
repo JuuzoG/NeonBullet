@@ -256,7 +256,6 @@ MonoBehaviour:
   stats: {fileID: 11400000, guid: 9f68d19a70b32794e88370b60a59fd55, type: 2}
   lootTable: {fileID: 11400000, guid: 038b4b700abcf764eae08abe6783aa05, type: 2}
   attacking: 0
-  onEnemy: 0
 --- !u!65 &2130520025960485429
 BoxCollider:
   m_ObjectHideFlags: 0
