@@ -3,13 +3,14 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour, IDamageable
 {
+    [Header("Needs")]
     public EnemyStats stats;
     public LootTable lootTable;
-
     private Player player;
     private NavMeshAgent agent;
     private Animator animator;
 
+    [Header("Stats + Bools")]
     private float health;
     public bool attacking;
     private bool isDead;

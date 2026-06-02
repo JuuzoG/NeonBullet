@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5959805456826774725}
   - component: {fileID: 5652402214448549396}
   - component: {fileID: 4522074763927918088}
-  - component: {fileID: 3131586780963732481}
+  - component: {fileID: -2807881420264730251}
   m_Layer: 7
   m_Name: ProjectileEnemy
   m_TagString: BulletE
@@ -118,13 +118,13 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &3131586780963732481
+--- !u!54 &-2807881420264730251
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
