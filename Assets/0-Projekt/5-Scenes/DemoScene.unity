@@ -2216,6 +2216,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4da691fad332177408a44d764eb9d953, type: 3}
+--- !u!114 &1011087032 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2372621147405018902, guid: 58a5161d4dfb95d49b4fa63578110bc2, type: 3}
+  m_PrefabInstance: {fileID: 3518879309053546751}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1022293311
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4790,6 +4801,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2732896089794379414, guid: 58a5161d4dfb95d49b4fa63578110bc2, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 6726494919873137737}
+    - target: {fileID: 2732896089794379414, guid: 58a5161d4dfb95d49b4fa63578110bc2, type: 3}
+      propertyPath: textField
+      value: 
+      objectReference: {fileID: 1011087032}
     - target: {fileID: 3124668983499972046, guid: 58a5161d4dfb95d49b4fa63578110bc2, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -4931,7 +4950,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6323993348451191622, guid: be731c627218c72458c99b5c3c62a7d5, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

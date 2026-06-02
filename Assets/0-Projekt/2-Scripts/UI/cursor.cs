@@ -1,6 +1,8 @@
 using Unity.VisualScripting;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 public class cursor : MonoBehaviour
 {
@@ -10,7 +12,9 @@ public class cursor : MonoBehaviour
     private Canvas _parentCanvas;
     private RectTransform _canvasRectTransform;
     private Camera _canvasCamera;
-
+    public TMP_Text textField;
+    public Image cursorImage;
+    public Player player;
 
     private void Awake()
     {
@@ -27,13 +31,13 @@ public class cursor : MonoBehaviour
 
     private void OnEnable()
     {
-        Cursor.visible = false;
+        UnityEngine.Cursor.visible = false;
         pointerPositionAction.action.performed += OnPointerPositionChanged;
     }
 
     private void OnDisable()
     {
-        Cursor.visible = true;
+        UnityEngine.Cursor.visible = true;
         pointerPositionAction.action.performed -= OnPointerPositionChanged;
     }
 
@@ -48,5 +52,14 @@ public class cursor : MonoBehaviour
         {
             _cursorTransform.anchoredPosition = localPoint;
         }
+    }
+
+    private void Update()
+    {
+        textField.text = "" + player.munition;
+
+        if (player.munition == 0) {textField.color = new Color(1, 0, 0, 1); cursorImage.tintColor = new Color(1, 0, 0, 1);}
+        else if (player.munition <= 5) {textField.color = new Color(1, 0.92f, 0.016f, 1); cursorImage.tintColor = new Color(1, 1, 1, 1);}
+        else {textField.color = new Color(1, 1, 1, 1); cursorImage.tintColor = new Color(1, 1, 1, 1);}
     }
 }
