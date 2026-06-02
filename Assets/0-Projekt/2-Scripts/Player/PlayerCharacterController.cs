@@ -31,13 +31,14 @@ public class PlayerCharacterController : MonoBehaviour
         float x = Input.GetAxisRaw("Horizontal");
         float y = Input.GetAxisRaw("Vertical");
 
-        Vector3 moveDirection = new Vector3(x, 0f, y).normalized;
+        Vector3 moveDirection =
+            (transform.forward * y + transform.right * x).normalized;
 
-        rb.linearVelocity = new Vector3(
+            rb.linearVelocity = new Vector3(
             moveDirection.x * stats.movmentSpeed,
             rb.linearVelocity.y,
             moveDirection.z * stats.movmentSpeed
-        );
+            );
 
         animator.SetFloat("moveX", -y);
         animator.SetFloat("moveY", x);
