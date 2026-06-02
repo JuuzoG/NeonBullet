@@ -19,7 +19,7 @@ public class Inventory : MonoBehaviour
     {
         if (GameManager.instance.state == GameStates.GameOver) return;
         
-        if (Input.GetKeyDown(KeyCode.I))
+        if (Input.GetKeyDown(KeyCode.I) || Input.GetKeyDown(KeyCode.Escape))
         {
             isVisible = !isVisible;
             selectedItem = null;

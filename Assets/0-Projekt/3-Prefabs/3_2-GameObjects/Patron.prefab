@@ -67,7 +67,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 21ab27571a1273549b25844badbf66ea, type: 2}
+  - {fileID: 2100000, guid: 993ddbe32c2d40643880ac64bfb9910f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -137,7 +137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71bd54c8232ffe14892c8d4e87831c6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  neonMaterial: {fileID: 2100000, guid: 21ab27571a1273549b25844badbf66ea, type: 2}
+  neonMaterial: {fileID: 2100000, guid: 993ddbe32c2d40643880ac64bfb9910f, type: 2}
   grayMaterial: {fileID: 2100000, guid: f861fdcef40113c4aa8fa14ea1c9da74, type: 2}
   normalDuration: 1.5
   flashDuration: 0.3
