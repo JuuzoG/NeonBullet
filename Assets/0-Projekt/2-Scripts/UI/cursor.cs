@@ -20,8 +20,8 @@ public class cursor : MonoBehaviour
 
     void Start()
     {
-        GameObject player = GameObject.FindGameObjectWithTag("Enemy");
-        emy = player.GetComponent<Enemy>();
+        GameObject enemy = GameObject.FindGameObjectWithTag("Enemy");
+        emy = enemy.GetComponent<Enemy>();
     }
 
     private void Awake()
