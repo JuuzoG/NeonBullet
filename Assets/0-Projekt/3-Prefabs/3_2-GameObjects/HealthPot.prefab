@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5255310407257393566}
   - component: {fileID: 595021523168307181}
   - component: {fileID: 440777771832589608}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,7 +115,7 @@ GameObject:
   - component: {fileID: 6770178338577941224}
   - component: {fileID: 8069766305455148870}
   - component: {fileID: 8076591378041004345}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: HealthPot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -239,7 +239,7 @@ GameObject:
   - component: {fileID: 4831683302766142057}
   - component: {fileID: 5629746144411842499}
   - component: {fileID: 5069430068957746625}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
