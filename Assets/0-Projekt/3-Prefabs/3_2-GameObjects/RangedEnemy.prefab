@@ -151,7 +151,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -7557540490364101082, guid: bff893ca2ea1bbf41a58f7218638d24a, type: 3}
+  - {fileID: 2100000, guid: b9c613514af6c20429d126b6f621baaf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1643,7 +1643,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -8474651742996372913, guid: bff893ca2ea1bbf41a58f7218638d24a, type: 3}
+  - {fileID: 2100000, guid: 69ba37831d6a98140accfbbcf3fe7e51, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2286,7 +2286,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8085788741359751926}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.9986248, z: -0, w: -0.0524264}
+  m_LocalRotation: {x: -0, y: -0.998625, z: 0, w: -0.052423052}
   m_LocalPosition: {x: 0, y: 0.17, z: 14.336}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2356,9 +2356,8 @@ MonoBehaviour:
   aggroRange: 15
   attackRange: 5
   attackCooldown: 1.5
-  projectilePrefab: {fileID: 7131353308944520651, guid: 5acbd1b94717c204cba6d56e3be17ed8, type: 3}
+  projectilePrefab: {fileID: 8001054034615774265, guid: 6101f247c2aece14c80d062cd5b5d32c, type: 3}
   shootPoint: {fileID: 5459326984448798912}
-  projectileSpeed: 15
   audioSource: {fileID: 7039233019486543615}
   shootSound: {fileID: 0}
   stats: {fileID: 11400000, guid: 9f68d19a70b32794e88370b60a59fd55, type: 2}

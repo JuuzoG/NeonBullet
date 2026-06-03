@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 8030364197629939816}
   - component: {fileID: 5939003927198839662}
   - component: {fileID: 7776023040022272708}
-  m_Layer: 5
-  m_Name: mouse
+  m_Layer: 6
+  m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -60,7 +60,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &5939003927198839662
 MonoBehaviour:
@@ -92,7 +92,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3622216632614529319}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
   m_Name: 
@@ -101,7 +101,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 0
 --- !u!1 &4708178661871539329
 GameObject:
   m_ObjectHideFlags: 0
@@ -113,7 +113,7 @@ GameObject:
   - component: {fileID: 5775394618684899132}
   - component: {fileID: 1961308370091893033}
   - component: {fileID: 6053248085401625388}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -250,7 +250,7 @@ GameObject:
   - component: {fileID: 9115223762664543509}
   - component: {fileID: 8275546949340984985}
   - component: {fileID: 5605665287355060017}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: ClickImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -325,7 +325,7 @@ GameObject:
   - component: {fileID: 199771744877247243}
   - component: {fileID: 4577183702452445967}
   - component: {fileID: 4598928759844880517}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -399,7 +399,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7665420249964477800}
   - component: {fileID: 7549530423074254835}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Cursor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -444,5 +444,4 @@ MonoBehaviour:
   textField: {fileID: 6053248085401625388}
   cursorImage: {fileID: 4598928759844880517}
   clickedCursorImage: {fileID: 5605665287355060017}
-  player: {fileID: 0}
   check: 0

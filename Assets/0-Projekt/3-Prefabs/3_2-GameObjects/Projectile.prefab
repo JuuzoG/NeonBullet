@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8230346691329593091}
   - component: {fileID: 8610414107040534565}
   - component: {fileID: 3619878723242518919}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4958,7 +4958,7 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 2100000, guid: bdbf13a27b16e79479b89f3eb7458a3a, type: 2}
+  - {fileID: 2100000, guid: 154e017c7297cdb47940f99239132642, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
