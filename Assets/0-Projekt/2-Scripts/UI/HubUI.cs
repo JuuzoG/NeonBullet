@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class UI : MonoBehaviour
+public class HubUI : MonoBehaviour
 {
     public RectTransform healthBar;
     public RectTransform energyBar;

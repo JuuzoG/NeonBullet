@@ -3060,6 +3060,7 @@ GameObject:
   - component: {fileID: 1415661515}
   - component: {fileID: 1415661514}
   - component: {fileID: 1415661513}
+  - component: {fileID: 1415661517}
   m_Layer: 5
   m_Name: HubUI
   m_TagString: Untagged
@@ -3149,6 +3150,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1415661517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1415661512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acc9e893292ad3849bddb3d9fd395ca8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBar: {fileID: 0}
+  energyBar: {fileID: 0}
 --- !u!4 &1440840563 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3241571945679622637, guid: 4da691fad332177408a44d764eb9d953, type: 3}
@@ -5126,6 +5141,10 @@ PrefabInstance:
       propertyPath: WorldMove
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5239581649267997967, guid: be731c627218c72458c99b5c3c62a7d5, type: 3}
+      propertyPath: ui
+      value: 
+      objectReference: {fileID: 1415661517}
     m_RemovedComponents:
     - {fileID: 6323993348451191622, guid: be731c627218c72458c99b5c3c62a7d5, type: 3}
     m_RemovedGameObjects: []

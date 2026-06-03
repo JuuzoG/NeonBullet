@@ -10,7 +10,7 @@ public class Player : MonoBehaviour, IDamageable
 
     [Header("Additionals")]
     public GameObject projectilePrefab;
-    public UI ui;
+    public HubUI ui;
 
     void Awake()
     {
