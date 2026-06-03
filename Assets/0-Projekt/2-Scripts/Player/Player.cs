@@ -35,7 +35,6 @@ public class Player : MonoBehaviour, IDamageable
         {
             Vector3 position =
                 transform.position +
-                transform.forward +
                 Vector3.up;
 
             GameObject proj =
