@@ -4964,30 +4964,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
-    - target: {fileID: 5775394618684899132, guid: d37e7cce8db1dea4aa226223e3176825, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 69.899994
-      objectReference: {fileID: 0}
-    - target: {fileID: 5775394618684899132, guid: d37e7cce8db1dea4aa226223e3176825, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 65.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 7665420249964477800, guid: d37e7cce8db1dea4aa226223e3176825, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -15.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 7665420249964477800, guid: d37e7cce8db1dea4aa226223e3176825, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 34.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7758488025025330599, guid: d37e7cce8db1dea4aa226223e3176825, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0.06002426
-      objectReference: {fileID: 0}
-    - target: {fileID: 7758488025025330599, guid: d37e7cce8db1dea4aa226223e3176825, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 6
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
