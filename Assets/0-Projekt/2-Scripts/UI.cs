@@ -1,19 +1,33 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UI : MonoBehaviour
 {
     public RectTransform healthBar;
-    public RectTransform energyBar;
+    private float maxWidth;
+
+    public Image[] energyIcons;
+
+
+    private void Start()
+    {
+        maxWidth = healthBar.sizeDelta.x;
+    }
 
     public void UpdateHealth(int current, int max)
     {
         float percent = (float)current / max;
-        healthBar.localScale = new Vector3(percent, 1f, 1f);
+
+        Vector2 size = healthBar.sizeDelta;
+        size.x = maxWidth * percent;
+        healthBar.sizeDelta = size;
     }
 
     public void UpdateEnergy(int current, int max)
     {
-        float percent = (float)current / max;
-        energyBar.localScale = new Vector3(percent, 1f, 1f);
+        for (int i = 0; i < energyIcons.Length; i++)
+        {
+            energyIcons[i].enabled = i < current;
+        }
     }
 }
