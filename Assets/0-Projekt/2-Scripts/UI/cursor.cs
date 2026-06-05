@@ -12,17 +12,18 @@ public class cursor : MonoBehaviour
     private RectTransform _canvasRectTransform;
     private Camera _canvasCamera;
     public TMP_Text textField;
-    public Image cursorImage;
-    public Image clickedCursorImage;
+    public GameObject cursorObj;
+    private Image cursorImage;
     private Player player;
-    public bool check;
-
+    private Animation cursorAnim;
     private Color mouseColor;
 
     private void Start()
     {
         GameObject playerGEt = GameObject.FindGameObjectWithTag("Player");
         player = playerGEt.GetComponent<Player>();
+        cursorImage = cursorObj.GetComponent<Image>();
+        cursorAnim = cursorObj.GetComponent<Animation>();
     }
 
     private void Awake()
@@ -69,12 +70,10 @@ public class cursor : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Mouse0))
         {
-            cursorImage.color = new Color(0,0,0,0);
-            clickedCursorImage.color = new Color(1, 1, 1, 1);
+            cursorAnim.CursorAnim();
         }
         else
         {
-            clickedCursorImage.color = new Color(0,0,0,0);
             if (player.munition == 0) {textField.color = new Color(1, 0, 0, 1); mouseColor = new Color(1, 1, 1, 0.6f);}
             else if (player.munition <= 5) {textField.color = new Color(1, 0.92f, 0.016f, 1); mouseColor = new Color(1, 1, 1, 1);}
             else {textField.color = new Color(1, 1, 1, 1); mouseColor = new Color(1, 1, 1, 1);}

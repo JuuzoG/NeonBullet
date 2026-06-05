@@ -10,7 +10,7 @@ public class Player : MonoBehaviour, IDamageable
 
     [Header("Additionals")]
     public GameObject projectilePrefab;
-    public UI ui;
+    public HubUI ui;
 
     void Awake()
     {
@@ -35,7 +35,6 @@ public class Player : MonoBehaviour, IDamageable
         {
             Vector3 position =
                 transform.position +
-                transform.forward +
                 Vector3.up;
 
             GameObject proj =
