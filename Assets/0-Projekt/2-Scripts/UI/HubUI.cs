@@ -3,28 +3,42 @@ using UnityEngine.UI;
 
 public class HubUI : MonoBehaviour
 {
-    public RectTransform healthBar;
-    private float maxWidth;
+    [Header("Health")]
+    public RectMask2D hpMask;
+    public RectTransform hpBarRect;
 
+    [Header("Energy")]
     public Image[] energyIcons;
 
+    private float maxVisibleWidth;
+    private float initialRightPadding;
 
     private void Start()
     {
-        maxWidth = healthBar.sizeDelta.x;
+        initialRightPadding = hpMask.padding.z;
+
+        maxVisibleWidth = hpBarRect.rect.width
+                        - hpMask.padding.x
+                        - initialRightPadding;
     }
 
     public void UpdateHealth(int current, int max)
     {
-        float percent = (float)current / max;
+        float percent = Mathf.Clamp01((float)current / max);
 
-        Vector2 size = healthBar.sizeDelta;
-        size.x = maxWidth * percent;
-        healthBar.sizeDelta = size;
+        Vector4 padding = hpMask.padding;
+
+        // Full HP = initial padding
+        // Empty HP = initial padding + maxVisibleWidth
+        padding.z = initialRightPadding + (1f - percent) * maxVisibleWidth;
+
+        hpMask.padding = padding;
     }
 
     public void UpdateEnergy(int current, int max)
     {
+        current = Mathf.Clamp(current, 0, energyIcons.Length);
+
         for (int i = 0; i < energyIcons.Length; i++)
         {
             energyIcons[i].enabled = i < current;
