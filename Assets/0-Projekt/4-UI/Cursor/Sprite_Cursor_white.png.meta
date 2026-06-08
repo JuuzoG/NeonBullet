@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 48362ca68f75c68418d13d213edbe624
+guid: acf3ad1bc2fcbd8429986f0ab733e696
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 10
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -97,7 +97,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Sprite_Cursor_0
+      name: Sprite_Cursor_white_0
       rect:
         serializedVersion: 2
         x: 0
@@ -112,14 +112,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c0a915b384fbfba43b9e57439a945249
-      internalID: -489511134
+      spriteID: 07c22345fcd5af941afe80ddb0c76dbf
+      internalID: 1651779105
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Cursor_1
+      name: Sprite_Cursor_white_1
       rect:
         serializedVersion: 2
         x: 984
@@ -134,14 +134,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3188263654e617541b73739cbc1a3dec
-      internalID: 872532916
+      spriteID: 147979277cb1b1045ad0d79b23da0c94
+      internalID: 1113845577
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Cursor_2
+      name: Sprite_Cursor_white_2
       rect:
         serializedVersion: 2
         x: 1968
@@ -156,8 +156,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e10cfc4e65d02a443bd0fd9329657fd7
-      internalID: -1410925355
+      spriteID: 36eeda851f538b54dbbba75d70cb712a
+      internalID: -1380859168
       vertices: []
       indices: 
       edges: []
@@ -166,7 +166,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: ddf90f9b0a7436d409e39fad8e43ab2c
+    spriteID: 2c99b3aef9e8b554ab3f7d00ea196e46
     internalID: 0
     vertices: []
     indices: 
@@ -176,9 +176,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Sprite_Cursor_0: -489511134
-      Sprite_Cursor_1: 872532916
-      Sprite_Cursor_2: -1410925355
+      Sprite_Cursor_white_0: 1651779105
+      Sprite_Cursor_white_1: 1113845577
+      Sprite_Cursor_white_2: -1380859168
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
