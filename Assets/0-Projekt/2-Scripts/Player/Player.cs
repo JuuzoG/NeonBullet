@@ -8,9 +8,19 @@ public class Player : MonoBehaviour, IDamageable
     private float energy;
     public int munition = 10;
 
+    [Header("Input")]
+    public KeyCode shot;
+    public KeyCode Ability;
+
     [Header("Additionals")]
     public GameObject projectilePrefab;
     public HubUI ui;
+
+    void Start()
+    {
+        shot = KeyCode.Mouse0;
+        Ability = KeyCode.Mouse1;
+    }
 
     void Awake()
     {

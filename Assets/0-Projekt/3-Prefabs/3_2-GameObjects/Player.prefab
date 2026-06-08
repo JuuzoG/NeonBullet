@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b14b1ef717a003f45a102520c900fbc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  WorldMove: 1
 --- !u!114 &5239581649267997967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,6 +116,8 @@ MonoBehaviour:
   stats: {fileID: 11400000, guid: ae0cd2b9a429c7546969cc30bbfe9355, type: 2}
   health: 0
   munition: 10
+  shot: 323
+  Ability: 324
   projectilePrefab: {fileID: 4605803923660264602, guid: 8fe629540e53875488b308e440badb8e, type: 3}
   ui: {fileID: 0}
 --- !u!114 &3675448477761170151
@@ -129,7 +132,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31585e7ee71aeb54cac3206a6a27dc2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputKey: 324
   energyCost: 5
   cooldownTime: 2
   attackPrefab: {fileID: 5248535632084003900, guid: 742f454fe152eee4bb0219b7e33aa488, type: 3}

@@ -6,11 +6,11 @@ public class CameraJuice : MonoBehaviour
     [SerializeField] private Transform playerTransform; 
 
     [Header("Lean Settings (Drehung)")]
-    [SerializeField] private float leanAmount = 1.5f;      
-    [SerializeField] private float leanSpeed = 5f;       
+    [SerializeField] private float leanAmount = 0.05f;      
+    [SerializeField] private float leanSpeed = 10f;       
 
     [Header("Shift Settings (Verschiebung)")]
-    [SerializeField] private float shiftAmount = 0.2f;   
+    [SerializeField] private float shiftAmount = 0.09f;   
     [SerializeField] private float shiftSpeed = 4f;      
 
     private Vector3 lastPlayerPosition;

@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class SpecialAttack : MonoBehaviour
 {
-    public KeyCode inputKey;
     public float energyCost;
     public float cooldownTime;
     public GameObject attackPrefab;
@@ -26,7 +25,7 @@ public class SpecialAttack : MonoBehaviour
 
         if (energyCost > player.GainEnergy(0)) return;
 
-        if (Input.GetKeyDown(inputKey))
+        if (Input.GetKeyDown(player.Ability))
         {
             GameObject obj =
                 Instantiate(attackPrefab, transform.position, Quaternion.identity);

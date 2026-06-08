@@ -68,13 +68,13 @@ public class cursor : MonoBehaviour
     {
         textField.text = "" + player.munition;
 
-        if (Input.GetKey(KeyCode.Mouse0))
+        if (Input.GetKey(player.shot))
         {
             cursorAnim.CursorAnim();
         }
         else
         {
-            if (player.munition == 0) {textField.color = new Color(1, 0, 0, 1); mouseColor = new Color(1, 1, 1, 0.6f);}
+            if (player.munition == 0) {textField.color = new Color(1, 0, 0, 1); mouseColor = new Color(1, 1, 1, 0.3f);}
             else if (player.munition <= 5) {textField.color = new Color(1, 0.92f, 0.016f, 1); mouseColor = new Color(1, 1, 1, 1);}
             else {textField.color = new Color(1, 1, 1, 1); mouseColor = new Color(1, 1, 1, 1);}
             cursorImage.color = mouseColor;
