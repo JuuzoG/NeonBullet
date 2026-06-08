@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour, IDamageable
     private Player player;
     private NavMeshAgent agent;
     private Animator animator;
+    public GameObject enemyAlert;
 
     [Header("Stats + Bools")]
     private float health;
@@ -19,6 +20,7 @@ public class Enemy : MonoBehaviour, IDamageable
     void Start()
     {
         health = stats.maxHealth;
+        enemyAlert.SetActive(false);
 
         player = GameManager.instance.player;
         agent = GetComponent<NavMeshAgent>();
@@ -45,6 +47,7 @@ public class Enemy : MonoBehaviour, IDamageable
         float distance = direction.magnitude;
 
         if (distance > stats.detectionRange) return;
+        if (enemyAlert != null) if (distance < stats.detectionRange) enemyAlert.SetActive(true);
 
         if (distance <= stats.aggroRange)
         {

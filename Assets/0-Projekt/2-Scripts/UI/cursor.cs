@@ -68,7 +68,7 @@ public class cursor : MonoBehaviour
     {
         textField.text = "" + player.munition;
 
-        if (Input.GetKey(KeyCode.Mouse0))
+        if (Input.GetKey(player.shot))
         {
             cursorAnim.CursorAnim();
         }

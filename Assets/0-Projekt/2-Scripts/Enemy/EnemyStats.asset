@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 10
   movementSpeed: 2
-  detectionRange: 20
+  detectionRange: 10
   aggroRange: 1.25
   attackRange: 1.5
   attackRadius: 120
