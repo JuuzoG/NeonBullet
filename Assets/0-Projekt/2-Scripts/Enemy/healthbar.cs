@@ -1,77 +1,110 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-// Packe dieses Skript auf das World-Space-Canvas über dem Gegner.
 public class EnemyHealthBar : MonoBehaviour
 {
     [Header("UI Elements")]
     [SerializeField] private Slider healthSlider;
     
     private Camera mainCamera;
-
-    // Referenzen auf die möglichen Gegnertypen
-    private Enemy meleeEnemy;
-    private RangedEnemy rangedEnemy;
+    private Component targetEnemy; // Wir speichern den Gegner als allgemeine Komponente
     private bool isRanged;
+    private bool enemyInitialized = false;
 
     void Start()
     {
         mainCamera = Camera.main;
+        FindEnemy();
+    }
 
-        // Wir suchen die Gegner-Komponente auf dem Parent-Objekt
-        meleeEnemy = GetComponentInParent<Enemy>();
-        if (meleeEnemy != null)
+    void FindEnemy()
+    {
+        // Wir suchen zuerst nach dem Melee-Enemy
+        targetEnemy = GetComponentInParent<Enemy>();
+        if (targetEnemy != null)
         {
             isRanged = false;
+            enemyInitialized = true;
+            return;
         }
-        else
+
+        // Wenn nicht gefunden, suchen wir nach dem Ranged-Enemy
+        targetEnemy = GetComponentInParent<RangedEnemy>();
+        if (targetEnemy != null)
         {
-            rangedEnemy = GetComponentInParent<RangedEnemy>();
-            if (rangedEnemy != null)
-            {
-                isRanged = true;
-            }
+            isRanged = true;
+            enemyInitialized = true;
         }
     }
 
     void Update()
     {
-        // 1. Billboarding: Dreht die Healthbar immer zur Kamera
+        // 1. Billboard-Effekt: Health Bar schaut immer zur Kamera
         if (mainCamera != null)
         {
             transform.LookAt(transform.position + mainCamera.transform.rotation * Vector3.forward,
                              mainCamera.transform.rotation * Vector3.up);
         }
 
-        // 2. Lebensbalken automatisch aktualisieren
-        UpdateHealthFromEnemy();
+        // 2. Lebensbalken aktualisieren
+        UpdateHealth();
     }
 
-    private void UpdateHealthFromEnemy()
+    private void UpdateHealth()
     {
         if (healthSlider == null) return;
 
-        if (!isRanged && meleeEnemy != null)
+        // Sicherheitscheck: Wenn der Gegner zerstört wurde, lösche sofort diese Health Bar!
+        if (enemyInitialized && targetEnemy == null)
         {
-            // Holt sich die private 'health' Variable geht in C# nicht direkt, 
-            // aber wir tricksen nicht, sondern nutzen die Werte, die da sind.
-            // Da 'health' in deinen Skripten private ist, müssen wir einen kleinen Umweg gehen:
-            // Falls du 'health' in Enemy/RangedEnemy nicht 'public' machen darfst,
-            // können wir das über System.Reflection auslesen, damit deine Skripte zu 100% gleich bleiben!
-            
-            float currentHealth = (float)meleeEnemy.GetType()
-                .GetField("health", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)
-                .GetValue(meleeEnemy);
-
-            healthSlider.value = currentHealth / meleeEnemy.stats.maxHealth;
+            Destroy(gameObject);
+            return;
         }
-        else if (isRanged && rangedEnemy != null)
-        {
-            float currentHealth = (float)rangedEnemy.GetType()
-                .GetField("health", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)
-                .GetValue(rangedEnemy);
 
-            healthSlider.value = currentHealth / rangedEnemy.stats.maxHealth;
+        // Falls beim Start noch kein Gegner da war, versuchen wir es nochmal
+        if (!enemyInitialized)
+        {
+            FindEnemy();
+            return;
+        }
+
+        try 
+        {
+            float currentHealth = 0;
+            float maxHealth = 1;
+
+            // Wir holen uns die Werte sicher über Reflection
+            if (!isRanged)
+            {
+                var enemyScript = (Enemy)targetEnemy;
+                currentHealth = (float)enemyScript.GetType()
+                    .GetField("health", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)
+                    .GetValue(enemyScript);
+                maxHealth = enemyScript.stats.maxHealth;
+            }
+            else
+            {
+                var rangedScript = (RangedEnemy)targetEnemy;
+                currentHealth = (float)rangedScript.GetType()
+                    .GetField("health", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)
+                    .GetValue(rangedScript);
+                maxHealth = rangedScript.stats.maxHealth;
+            }
+
+            // Slider aktualisieren
+            healthSlider.value = currentHealth / maxHealth;
+
+            // Falls der Gegner im selben Frame stirbt, blenden wir die Bar schon mal aus
+            if (currentHealth <= 0)
+            {
+                gameObject.SetActive(false);
+            }
+        }
+        catch (System.Exception)
+        {
+            // Falls IRGENDEIN Fehler auftritt (z.B. weil der Gegner genau JETZT gelöscht wird),
+            // zerstören wir die Health Bar einfach direkt, damit sie nicht hängen bleibt.
+            Destroy(gameObject);
         }
     }
 }
