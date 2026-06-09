@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class DashAbility : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class DashAbility : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKeyDown(player.Ability))
+        if (Gamepad.current.leftTrigger.wasPressedThisFrame || Input.GetKeyDown(KeyCode.Mouse1))
         {
             Dash();
         }

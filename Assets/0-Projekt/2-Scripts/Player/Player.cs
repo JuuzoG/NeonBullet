@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour, IDamageable
 {
@@ -9,18 +10,12 @@ public class Player : MonoBehaviour, IDamageable
     public int munition = 10;
 
     [Header("Input")]
-    public KeyCode shot;
-    public KeyCode Ability;
+    public InputActionReference shot;
+    public InputActionReference Ability;
 
     [Header("Additionals")]
     public GameObject projectilePrefab;
     public HubUI ui;
-
-    void Start()
-    {
-        shot = KeyCode.Mouse0;
-        Ability = KeyCode.Mouse1;
-    }
 
     void Awake()
     {
@@ -41,7 +36,7 @@ public class Player : MonoBehaviour, IDamageable
         if (GameManager.instance.state == GameStates.GameOver) return;
         if (GameManager.instance.state == GameStates.paused) return;
 
-        if (Input.GetKeyDown(KeyCode.Mouse0) && munition > 0)
+        if (Gamepad.current.rightTrigger.wasPressedThisFrame || Input.GetKeyDown(KeyCode.Mouse0) && munition > 0)
         {
             Vector3 position =
                 transform.position +

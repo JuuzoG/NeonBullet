@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class SpecialAttack : MonoBehaviour
 {
@@ -25,7 +26,7 @@ public class SpecialAttack : MonoBehaviour
 
         if (energyCost > player.GainEnergy(0)) return;
 
-        if (Input.GetKeyDown(player.Ability))
+        if (Gamepad.current.leftTrigger.wasPressedThisFrame || Input.GetKeyDown(KeyCode.Mouse1))
         {
             GameObject obj =
                 Instantiate(attackPrefab, transform.position, Quaternion.identity);

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Inventory : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class Inventory : MonoBehaviour
     {
         if (GameManager.instance.state == GameStates.GameOver) return;
         
-        if (Input.GetKeyDown(KeyCode.I) || Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.I) || Input.GetKeyDown(KeyCode.Escape) || Gamepad.current.buttonNorth.wasPressedThisFrame)
         {
             isVisible = !isVisible;
             selectedItem = null;
