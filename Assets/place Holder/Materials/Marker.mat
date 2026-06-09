@@ -22,7 +22,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Marker
   m_Shader: {fileID: 4800000, guid: 7f0ab0133ecadb24aa3b5d35c855f3df, type: 3}
-  m_Parent: {fileID: 2100000, guid: 2b78c928eb2e1e14fbeb18be28e575fe, type: 2}
+  m_Parent: {fileID: 2100000, guid: d180731dd9771d94ea34887cd047ae4a, type: 2}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords:
