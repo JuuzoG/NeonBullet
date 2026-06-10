@@ -34,6 +34,7 @@ public class Inventory : MonoBehaviour
         {
             inventoryButton.image.color = normalColor;
         }
+        hoverPanel.SetActive(false);
     }
 
     void Update()
