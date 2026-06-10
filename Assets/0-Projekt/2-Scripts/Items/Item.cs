@@ -17,6 +17,7 @@ public class Item : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             GameManager.instance.inventory.CollectItem(itemData);
+            ItemNote.instance.Show(itemData.id);
             Destroy(gameObject);
         }
     }

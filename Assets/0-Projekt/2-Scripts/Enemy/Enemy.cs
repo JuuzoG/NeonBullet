@@ -1,5 +1,9 @@
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Rendering;
+using UnityEngine.UI;
+
 
 public class Enemy : MonoBehaviour, IDamageable
 {
@@ -15,6 +19,8 @@ public class Enemy : MonoBehaviour, IDamageable
     private float health;
     public bool attacking;
     private bool isDead;
+
+    public Image healthbar;
 
 
     void Start()
@@ -65,6 +71,8 @@ public class Enemy : MonoBehaviour, IDamageable
                 agent.SetDestination(player.transform.position);
             }
         }
+        healthbar.fillAmount = health /stats.maxHealth;
+
     }
 
     public void TakeDamage(DamageInfo info)
@@ -126,12 +134,14 @@ public class Enemy : MonoBehaviour, IDamageable
 
         Destroy(GetComponent<Rigidbody>());
         Destroy(GetComponent<Collider>());
+        Destroy(healthbar, 0);
 
         GameObject loot = lootTable.GetDrop();
         if (loot != null)
             Instantiate(loot, transform.position, Quaternion.identity);
 
         this.enabled = false;
+        
     }
 
 
