@@ -29,6 +29,7 @@ public class PickUp : MonoBehaviour
                     player.GainHealth(amount);
                     break;
             }
+            ItemNote.instance.Show(type.ToString());
             Destroy(gameObject);
         }
     }
