@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -9,6 +10,12 @@ public class Inventory : MonoBehaviour
     public InventorySlot[] InventorySlots;
     public Button inventoryButton;
 
+    [Header("HoverUI")]
+    [SerializeField] private GameObject hoverPanel;
+    [SerializeField] private TextMeshProUGUI hoverText;
+    [SerializeField] private TextMeshProUGUI hoverTextDescription;
+
+    [Header("Color")]
     [SerializeField] private Color pressedColor = Color.yellow;
     [SerializeField] private Color normalColor = Color.white;
 
@@ -46,6 +53,18 @@ public class Inventory : MonoBehaviour
         {
             ToggleInventoryFromKeyboard();
         }
+    }
+
+    public void OnSlotHover(CollectedItem item)
+    {
+        hoverPanel.SetActive(true);
+        hoverText.text = item.data.id;
+        hoverTextDescription.text = item.data.description;
+    }
+
+    public void OnSlotHoverExit()
+    {
+        hoverPanel.SetActive(false);
     }
 
     public void ToggleInventory()
