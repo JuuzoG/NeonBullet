@@ -1,6 +1,7 @@
 using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Animations;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
 
@@ -73,6 +74,8 @@ public class Enemy : MonoBehaviour, IDamageable
         }
         healthbar.fillAmount = health /stats.maxHealth;
 
+        healthbar.transform.parent.gameObject.transform.LookAt(Camera.main.transform);
+
     }
 
     public void TakeDamage(DamageInfo info)
@@ -134,7 +137,7 @@ public class Enemy : MonoBehaviour, IDamageable
 
         Destroy(GetComponent<Rigidbody>());
         Destroy(GetComponent<Collider>());
-        Destroy(healthbar, 0);
+        Destroy(healthbar.transform.parent.gameObject, 0);
 
         GameObject loot = lootTable.GetDrop();
         if (loot != null)
