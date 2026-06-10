@@ -15,5 +15,5 @@ MonoBehaviour:
   prefab: {fileID: 5835664455233354533, guid: 658e8e9702344874ebcc856d23aa07b6, type: 3}
   image: {fileID: 21300000, guid: 5143ef194d58d184e940dec80915eac8, type: 3}
   id: HealthPot
-  description: 
+  description: A HealthPot usfull
   useable: 1
