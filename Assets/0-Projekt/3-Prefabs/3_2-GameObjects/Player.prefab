@@ -119,7 +119,10 @@ MonoBehaviour:
   health: 0
   munition: 10
   shot: 323
-  Ability: 324
+  Ability: 113
+  Inventar: 105
+  Dash: 324
+  Menu: 27
   projectilePrefab: {fileID: 4605803923660264602, guid: 8fe629540e53875488b308e440badb8e, type: 3}
   ui: {fileID: 0}
 --- !u!114 &3675448477761170151
