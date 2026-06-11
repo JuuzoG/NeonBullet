@@ -27,7 +27,8 @@ public class Inventory : MonoBehaviour
     void Awake()
     {
         GameManager.instance.inventory = this;
-        player = GetComponent<Player>();
+        GameObject playerGEt = GameObject.FindGameObjectWithTag("Player");
+        player = playerGEt.GetComponent<Player>();
     }
 
     void Start()
@@ -46,7 +47,7 @@ public class Inventory : MonoBehaviour
 
         if (isVisible)
         {
-            if (Input.GetKeyDown(player.Menu))
+            if (Input.GetKeyDown(player.Menu) || Input.GetKeyDown(player.Inventar))
             {
                 ToggleInventoryFromKeyboard();
             }

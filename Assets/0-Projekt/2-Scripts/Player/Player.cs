@@ -22,8 +22,7 @@ public class Player : MonoBehaviour, IDamageable
 
     void Start()
     {
-        shot = KeyCode.Mouse0;
-        Ability = KeyCode.Mouse1;
+
     }
 
     void Awake()
