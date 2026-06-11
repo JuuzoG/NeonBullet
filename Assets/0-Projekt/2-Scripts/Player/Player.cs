@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour, IDamageable
 {
@@ -11,6 +12,9 @@ public class Player : MonoBehaviour, IDamageable
     [Header("Input")]
     public KeyCode shot;
     public KeyCode Ability;
+    public KeyCode Inventar;
+    public KeyCode Dash;
+    public KeyCode Menu;
 
     [Header("Additionals")]
     public GameObject projectilePrefab;
@@ -41,7 +45,7 @@ public class Player : MonoBehaviour, IDamageable
         if (GameManager.instance.state == GameStates.GameOver) return;
         if (GameManager.instance.state == GameStates.paused) return;
 
-        if (Input.GetKeyDown(KeyCode.Mouse0) && munition > 0)
+        if (Input.GetKeyDown(shot) && munition > 0)
         {
             Vector3 position =
                 transform.position +

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerCharacterController : MonoBehaviour
 {
-    private Rigidbody rb;
+    public Rigidbody rb;
     private Animator animator;
     private PlayerStats stats;
     public bool WorldMove = true;

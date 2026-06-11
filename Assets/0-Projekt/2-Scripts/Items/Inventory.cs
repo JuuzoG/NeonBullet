@@ -22,10 +22,12 @@ public class Inventory : MonoBehaviour
     private List<CollectedItem> items = new List<CollectedItem>();
     private CollectedItem selectedItem;
     private bool isVisible;
+    private Player player;
 
     void Awake()
     {
         GameManager.instance.inventory = this;
+        player = GetComponent<Player>();
     }
 
     void Start()
@@ -42,17 +44,20 @@ public class Inventory : MonoBehaviour
         if (GameManager.instance.state == GameStates.GameOver)
             return;
 
-        if (Input.GetKeyDown(KeyCode.I))
+        if (isVisible)
         {
-            Debug.Log("I key pressed");
-
-            ToggleInventoryFromKeyboard();
-            StartCoroutine(FlashButtonColor());
+            if (Input.GetKeyDown(player.Menu))
+            {
+                ToggleInventoryFromKeyboard();
+            }
         }
-
-        if (Input.GetKeyDown(KeyCode.Escape))
+        else
         {
-            ToggleInventoryFromKeyboard();
+            if (Input.GetKeyDown(player.Inventar))
+            {
+                ToggleInventoryFromKeyboard();
+                StartCoroutine(FlashButtonColor());
+            }
         }
     }
 
