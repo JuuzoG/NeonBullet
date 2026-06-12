@@ -1,13 +1,18 @@
 using UnityEngine;
+using System.Collections;
+using UnityEngine.UI;
 
 public class SpecialAttack : MonoBehaviour
 {
     public float energyCost;
     public float cooldownTime;
     public GameObject attackPrefab;
-
     private Player player;
     private float cooldown = 0;
+    public Button MouseButton;
+    [Header("Color")]
+    [SerializeField] private Color pressedColor = Color.yellow;
+    [SerializeField] private Color normalColor = Color.white;
 
     void Start()
     {
@@ -37,6 +42,18 @@ public class SpecialAttack : MonoBehaviour
             cooldown = cooldownTime;
 
             player.GainEnergy(-energyCost);
+            FlashButtonColor();
         }
+    }
+    private IEnumerator FlashButtonColor()
+    {
+        if (MouseButton == null)
+            yield break;
+
+        MouseButton.image.color = pressedColor;
+
+        yield return new WaitForSecondsRealtime(0.15f);
+
+        MouseButton.image.color = normalColor;
     }
 }

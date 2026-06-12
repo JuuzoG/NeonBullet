@@ -15,9 +15,6 @@ public class Inventory : MonoBehaviour
     [SerializeField] private TextMeshProUGUI hoverText;
     [SerializeField] private TextMeshProUGUI hoverTextDescription;
 
-    [Header("Animations")]
-    [SerializeField] private Animator inventoryAnimator;
-
     [Header("Color")]
     [SerializeField] private Color pressedColor = Color.yellow;
     [SerializeField] private Color normalColor = Color.white;
@@ -55,6 +52,7 @@ public class Inventory : MonoBehaviour
             if (Input.GetKeyDown(player.Menu) || Input.GetKeyDown(player.Inventar))
             {
                 ToggleInventoryFromKeyboard();
+                StartCoroutine(FlashButtonColor());
             }
         }
         else
@@ -113,11 +111,6 @@ public class Inventory : MonoBehaviour
 
             SetSlotsVisible(false);
 
-            if (inventoryAnimator != null)
-            {
-                inventoryAnimator.SetBool("isOpen", true);
-            }
-
             GameManager.instance.state = GameStates.paused;
             Time.timeScale = 0;
 
@@ -125,11 +118,6 @@ public class Inventory : MonoBehaviour
         }
         else
         {
-            if (inventoryAnimator != null)
-            {
-                inventoryAnimator.SetBool("isOpen", false);
-            }
-
             StartCoroutine(HideInventoryAfterDelay());
 
             GameManager.instance.state = GameStates.inGame;
@@ -165,13 +153,10 @@ public class Inventory : MonoBehaviour
 
     private IEnumerator FlashButtonColor()
     {
-        if (inventoryButton == null)
-            yield break;
+        if (inventoryButton == null) yield break;
 
         inventoryButton.image.color = pressedColor;
-
         yield return new WaitForSecondsRealtime(0.15f);
-
         inventoryButton.image.color = normalColor;
     }
 

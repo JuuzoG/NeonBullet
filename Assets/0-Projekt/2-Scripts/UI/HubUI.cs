@@ -28,11 +28,11 @@ public class HubUI : MonoBehaviour
 
         Vector4 padding = hpMask.padding;
 
-        // Full HP = initial padding
-        // Empty HP = initial padding + maxVisibleWidth
         padding.z = initialRightPadding + (1f - percent) * maxVisibleWidth;
 
         hpMask.padding = padding;
+
+        
     }
 
     public void UpdateEnergy(int current, int max)
