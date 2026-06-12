@@ -2733,7 +2733,6 @@ MonoBehaviour:
   hoverPanel: {fileID: 8013197827552319536}
   hoverText: {fileID: 8348397235773425275}
   hoverTextDescription: {fileID: 188344012711731604}
-  inventoryAnimator: {fileID: 0}
   pressedColor: {r: 0.21960784, g: 0.21960784, b: 0.2901961, a: 1}
   normalColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &6110801740292712247

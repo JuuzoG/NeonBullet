@@ -9,7 +9,7 @@ public class SpecialAttack : MonoBehaviour
     public GameObject attackPrefab;
     private Player player;
     private float cooldown = 0;
-    public Button MouseButton;
+    public Button QButton;
     [Header("Color")]
     [SerializeField] private Color pressedColor = Color.yellow;
     [SerializeField] private Color normalColor = Color.white;
@@ -47,13 +47,13 @@ public class SpecialAttack : MonoBehaviour
     }
     private IEnumerator FlashButtonColor()
     {
-        if (MouseButton == null)
+        if (QButton == null)
             yield break;
 
-        MouseButton.image.color = pressedColor;
+        QButton.image.color = pressedColor;
 
         yield return new WaitForSecondsRealtime(0.15f);
 
-        MouseButton.image.color = normalColor;
+        QButton.image.color = normalColor;
     }
 }
