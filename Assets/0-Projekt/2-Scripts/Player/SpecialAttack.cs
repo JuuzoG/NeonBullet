@@ -4,15 +4,25 @@ using UnityEngine.UI;
 
 public class SpecialAttack : MonoBehaviour
 {
+    [Header("Explosion Ability")]
     public float energyCost;
     public float cooldownTime;
     public GameObject attackPrefab;
-    private Player player;
-    private float cooldown = 0;
+
+    [Header("Dash Reference")]
+    public DashAbility dashAbility;
+
+    [Header("UI Buttons")]
     public Button QButton;
-    [Header("Color")]
+    public Button DashButton;
+
+    [Header("Flash Colors")]
     [SerializeField] private Color pressedColor = Color.yellow;
     [SerializeField] private Color normalColor = Color.white;
+    [SerializeField] private float flashDuration = 0.15f;
+
+    private Player player;
+    private float cooldown = 0f;
 
     void Start()
     {
@@ -26,34 +36,40 @@ public class SpecialAttack : MonoBehaviour
 
         cooldown -= Time.deltaTime;
 
-        if (cooldown > 0) return;
-
-        if (energyCost > player.GainEnergy(0)) return;
-
-        if (Input.GetKeyDown(player.Ability))
+        // Exoploooosiooon
+        if (cooldown <= 0 && energyCost <= player.GainEnergy(0))
         {
-            GameObject obj =
-                Instantiate(attackPrefab, transform.position, Quaternion.identity);
+            if (Input.GetKeyDown(player.Ability))
+            {
+                GameObject obj = Instantiate(attackPrefab, transform.position, Quaternion.identity);
+                Explosion explosion = obj.GetComponent<Explosion>();
+                if (explosion != null)
+                    explosion.SetOwner(gameObject);
 
-            Explosion explosion = obj.GetComponent<Explosion>();
-            if (explosion != null)
-                explosion.SetOwner(gameObject);
+                cooldown = cooldownTime;
+                player.GainEnergy(-energyCost);
 
-            cooldown = cooldownTime;
+                StartCoroutine(FlashButton(QButton));
+            }
+        }
 
-            player.GainEnergy(-energyCost);
-            FlashButtonColor();
+        // swoosh
+        if (Input.GetKeyDown(player.Dash))
+        {
+            if (dashAbility != null)
+            {
+                dashAbility.Dash();
+                StartCoroutine(FlashButton(DashButton));
+            }
         }
     }
-    private IEnumerator FlashButtonColor()
+
+    private IEnumerator FlashButton(Button button)
     {
-        if (QButton == null)
-            yield break;
+        if (button == null) yield break;
 
-        QButton.image.color = pressedColor;
-
-        yield return new WaitForSecondsRealtime(0.15f);
-
-        QButton.image.color = normalColor;
+        button.image.color = pressedColor;
+        yield return new WaitForSecondsRealtime(flashDuration);
+        button.image.color = normalColor;
     }
 }
