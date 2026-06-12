@@ -17,6 +17,10 @@ public class Inventory : MonoBehaviour
 
     [Header("Animations")]
     [SerializeField] private Animator inventoryAnimator;
+<<<<<<< Updated upstream
+=======
+    [SerializeField] private Animator panelAnimator;
+>>>>>>> Stashed changes
 
     [Header("Color")]
     [SerializeField] private Color pressedColor = Color.yellow;
@@ -106,21 +110,33 @@ public class Inventory : MonoBehaviour
 
         if (isVisible)
         {
+<<<<<<< Updated upstream
+=======
+            // SHOW UI BEFORE OPEN ANIMATION
+>>>>>>> Stashed changes
             for (int i = 0; i < transform.childCount; i++)
             {
                 transform.GetChild(i).gameObject.SetActive(true);
             }
 
+<<<<<<< Updated upstream
             SetSlotsVisible(false);
 
             if (inventoryAnimator != null)
             {
                 inventoryAnimator.SetBool("isOpen", true);
             }
+=======
+            SetSlotsVisible(false); // HIDE SLOTS DURING OPEN ANIMATION
+
+            inventoryAnimator.SetTrigger("Open"); // INVENTORY OPEN ANIMATION
+            panelAnimator.SetTrigger("Open");     // PANEL OPEN ANIMATION
+>>>>>>> Stashed changes
 
             GameManager.instance.state = GameStates.paused;
             Time.timeScale = 0;
 
+<<<<<<< Updated upstream
             StartCoroutine(ShowSlotsAfterDelay());
         }
         else
@@ -131,12 +147,23 @@ public class Inventory : MonoBehaviour
             }
 
             StartCoroutine(HideInventoryAfterDelay());
+=======
+            StartCoroutine(ShowSlotsAfterDelay()); // DELAY SLOT DISPLAY
+        }
+        else
+        {
+            inventoryAnimator.SetTrigger("Close"); // INVENTORY CLOSE ANIMATION
+            panelAnimator.SetTrigger("Close");     // PANEL CLOSE ANIMATION
+
+            StartCoroutine(HideInventoryAfterDelay()); // WAIT FOR CLOSE ANIMATION
+>>>>>>> Stashed changes
 
             GameManager.instance.state = GameStates.inGame;
             Time.timeScale = 1;
         }
     }
 
+<<<<<<< Updated upstream
     private void SetSlotsVisible(bool visible)
     {
         foreach (InventorySlot slot in InventorySlots)
@@ -145,6 +172,9 @@ public class Inventory : MonoBehaviour
         }
     }
 
+=======
+    // SLOT DISPLAY DELAY
+>>>>>>> Stashed changes
     private IEnumerator ShowSlotsAfterDelay()
     {
         yield return new WaitForSecondsRealtime(0.25f);
@@ -153,6 +183,10 @@ public class Inventory : MonoBehaviour
         SetSlotsVisible(true);
     }
 
+<<<<<<< Updated upstream
+=======
+    // CLOSE ANIMATION DELAY
+>>>>>>> Stashed changes
     private IEnumerator HideInventoryAfterDelay()
     {
         yield return new WaitForSecondsRealtime(0.25f);
@@ -163,6 +197,18 @@ public class Inventory : MonoBehaviour
         }
     }
 
+<<<<<<< Updated upstream
+=======
+    // SLOT VISIBILITY CONTROL
+    private void SetSlotsVisible(bool visible)
+    {
+        foreach (InventorySlot slot in InventorySlots)
+        {
+            slot.gameObject.SetActive(visible);
+        }
+    }
+
+>>>>>>> Stashed changes
     private IEnumerator FlashButtonColor()
     {
         if (inventoryButton == null)
