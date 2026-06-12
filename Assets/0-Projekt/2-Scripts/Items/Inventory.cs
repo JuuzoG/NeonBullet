@@ -15,6 +15,9 @@ public class Inventory : MonoBehaviour
     [SerializeField] private TextMeshProUGUI hoverText;
     [SerializeField] private TextMeshProUGUI hoverTextDescription;
 
+    [Header("Animations")]
+    [SerializeField] private Animator inventoryAnimator;
+
     [Header("Color")]
     [SerializeField] private Color pressedColor = Color.yellow;
     [SerializeField] private Color normalColor = Color.white;
@@ -27,8 +30,9 @@ public class Inventory : MonoBehaviour
     void Awake()
     {
         GameManager.instance.inventory = this;
-        GameObject playerGEt = GameObject.FindGameObjectWithTag("Player");
-        player = playerGEt.GetComponent<Player>();
+
+        GameObject playerGet = GameObject.FindGameObjectWithTag("Player");
+        player = playerGet.GetComponent<Player>();
     }
 
     void Start()
@@ -37,6 +41,7 @@ public class Inventory : MonoBehaviour
         {
             inventoryButton.image.color = normalColor;
         }
+
         hoverPanel.SetActive(false);
     }
 
@@ -91,7 +96,6 @@ public class Inventory : MonoBehaviour
         }
     }
 
-
     private void ToggleInventoryInternal()
     {
         isVisible = !isVisible;
@@ -100,20 +104,62 @@ public class Inventory : MonoBehaviour
 
         selectedItem = null;
 
-        for (int i = 0; i < transform.childCount; i++)
-        {
-            transform.GetChild(i).gameObject.SetActive(isVisible);
-        }
         if (isVisible)
         {
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                transform.GetChild(i).gameObject.SetActive(true);
+            }
+
+            SetSlotsVisible(false);
+
+            if (inventoryAnimator != null)
+            {
+                inventoryAnimator.SetBool("isOpen", true);
+            }
+
             GameManager.instance.state = GameStates.paused;
             Time.timeScale = 0;
-            SetInventorySlots();
+
+            StartCoroutine(ShowSlotsAfterDelay());
         }
         else
         {
+            if (inventoryAnimator != null)
+            {
+                inventoryAnimator.SetBool("isOpen", false);
+            }
+
+            StartCoroutine(HideInventoryAfterDelay());
+
             GameManager.instance.state = GameStates.inGame;
             Time.timeScale = 1;
+        }
+    }
+
+    private void SetSlotsVisible(bool visible)
+    {
+        foreach (InventorySlot slot in InventorySlots)
+        {
+            slot.gameObject.SetActive(visible);
+        }
+    }
+
+    private IEnumerator ShowSlotsAfterDelay()
+    {
+        yield return new WaitForSecondsRealtime(0.25f);
+
+        SetInventorySlots();
+        SetSlotsVisible(true);
+    }
+
+    private IEnumerator HideInventoryAfterDelay()
+    {
+        yield return new WaitForSecondsRealtime(0.25f);
+
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            transform.GetChild(i).gameObject.SetActive(false);
         }
     }
 
