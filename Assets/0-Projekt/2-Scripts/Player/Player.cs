@@ -81,8 +81,8 @@ public class Player : MonoBehaviour, IDamageable
 
         if (health <= 0)
         {
+            ui.UpdateHealth((int)health, (int)stats.maxHealth);
             GameManager.instance.state = GameStates.GameOver;
-            Time.timeScale = 0;
         }
     }
 

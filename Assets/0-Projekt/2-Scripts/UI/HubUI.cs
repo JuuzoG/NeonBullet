@@ -33,6 +33,8 @@ public class HubUI : MonoBehaviour
         padding.z = initialRightPadding + (1f - percent) * maxVisibleWidth;
 
         hpMask.padding = padding;
+
+        
     }
 
     public void UpdateEnergy(int current, int max)
