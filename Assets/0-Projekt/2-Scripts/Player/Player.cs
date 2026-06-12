@@ -19,10 +19,11 @@ public class Player : MonoBehaviour, IDamageable
     [Header("Additionals")]
     public GameObject projectilePrefab;
     public HubUI ui;
+    public GameObject GameOverScreen;
 
     void Start()
     {
-
+        GameOverScreen.SetActive(false);
     }
 
     void Awake()
@@ -83,6 +84,7 @@ public class Player : MonoBehaviour, IDamageable
         {
             ui.UpdateHealth((int)health, (int)stats.maxHealth);
             GameManager.instance.state = GameStates.GameOver;
+            GameOverScreen.SetActive(true);
         }
     }
 
