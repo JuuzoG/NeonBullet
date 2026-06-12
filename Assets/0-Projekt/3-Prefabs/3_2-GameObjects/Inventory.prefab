@@ -1246,7 +1246,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7639246219289521352
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1815,7 +1815,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4798586579190738477
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2403,7 +2403,7 @@ MonoBehaviour:
   - {fileID: 6894609229179922768}
   - {fileID: 8774208304862635149}
   - {fileID: 4535651087925995685}
-  inventoryButton: {fileID: 0}
+  inventoryButton: {fileID: 7624227024728921006}
   hoverPanel: {fileID: 8013197827552319536}
   hoverText: {fileID: 8348397235773425275}
   hoverTextDescription: {fileID: 188344012711731604}

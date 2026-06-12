@@ -822,7 +822,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3108660631645896242}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: SpecialAttack, Assembly-CSharp
+        m_MethodName: TriggerDash
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2448847020971158140
 GameObject:
   m_ObjectHideFlags: 0
@@ -1608,8 +1620,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -855.062, y: -445}
-  m_SizeDelta: {x: -1710.1239, y: -890}
+  m_AnchoredPosition: {x: -843.4957, y: -445}
+  m_SizeDelta: {x: -1686.9913, y: -890}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8967865352652401416
 CanvasRenderer:
@@ -1639,7 +1651,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6e6b4d833c044c14b91e43c81cafe02c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 17076a0046fd26046ba564954762d4d0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1950,7 +1962,7 @@ GameObject:
   - component: {fileID: 4141510438716923081}
   - component: {fileID: 5447936807908410924}
   m_Layer: 5
-  m_Name: Dash
+  m_Name: Boom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2003,7 +2015,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d2fd288f1b750cb44a10310845e6243e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ea89636be7815ee43a902aa9a7d49245, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2048,8 +2060,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 3.7800293, y: -58.5}
-  m_SizeDelta: {x: -140.90001, y: 73.2}
+  m_AnchoredPosition: {x: 4.3624, y: -58.5}
+  m_SizeDelta: {x: -139.7351, y: 73.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7175652414212102402
 CanvasRenderer:
@@ -2132,7 +2144,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2573491230817501322}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: SpecialAttack, Assembly-CSharp
+        m_MethodName: TriggerExplosion
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7745848607438164847
 GameObject:
   m_ObjectHideFlags: 0
@@ -2322,7 +2346,7 @@ GameObject:
   - component: {fileID: 5632311011475572612}
   - component: {fileID: 6057614384391774670}
   m_Layer: 5
-  m_Name: Boom
+  m_Name: Dash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2375,7 +2399,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ea89636be7815ee43a902aa9a7d49245, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d2fd288f1b750cb44a10310845e6243e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2608,6 +2632,14 @@ PrefabInstance:
     - target: {fileID: 5253940227530777684, guid: b0e855ad5901b2e42a92fb9320817ceb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8986839345645246659, guid: b0e855ad5901b2e42a92fb9320817ceb, type: 3}
+      propertyPath: m_Color.b
+      value: 0.98039216
+      objectReference: {fileID: 0}
+    - target: {fileID: 8986839345645246659, guid: b0e855ad5901b2e42a92fb9320817ceb, type: 3}
+      propertyPath: m_Color.r
+      value: 0.043137256
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

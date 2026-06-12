@@ -27,6 +27,19 @@ public class SpecialAttack : MonoBehaviour
     void Start()
     {
         player = GetComponent<Player>();
+
+        if (QButton != null)
+            QButton.onClick.AddListener(TriggerExplosion);
+        if (DashButton != null)
+            DashButton.onClick.AddListener(TriggerDash);
+    }
+
+    void OnDestroy()
+    {
+        if (QButton != null)
+            QButton.onClick.RemoveListener(TriggerExplosion);
+        if (DashButton != null)
+            DashButton.onClick.RemoveListener(TriggerDash);
     }
 
     void Update()
@@ -36,38 +49,45 @@ public class SpecialAttack : MonoBehaviour
 
         cooldown -= Time.deltaTime;
 
-        // Exoploooosiooon
-        if (cooldown <= 0 && energyCost <= player.GainEnergy(0))
-        {
-            if (Input.GetKeyDown(player.Ability))
-            {
-                GameObject obj = Instantiate(attackPrefab, transform.position, Quaternion.identity);
-                Explosion explosion = obj.GetComponent<Explosion>();
-                if (explosion != null)
-                    explosion.SetOwner(gameObject);
+   
+        if (Input.GetKeyDown(player.Ability))
+            TriggerExplosion();
 
-                cooldown = cooldownTime;
-                player.GainEnergy(-energyCost);
-
-                StartCoroutine(FlashButton(QButton));
-            }
-        }
-
-        // swoosh
+  
         if (Input.GetKeyDown(player.Dash))
-        {
-            if (dashAbility != null)
-            {
-                dashAbility.Dash();
-                StartCoroutine(FlashButton(DashButton));
-            }
-        }
+            TriggerDash();
+    }
+
+    public void TriggerExplosion()
+    {
+        if (GameManager.instance.state == GameStates.GameOver) return;
+        if (GameManager.instance.state == GameStates.paused) return;
+        if (cooldown > 0) return;
+        if (energyCost > player.GainEnergy(0)) return;
+
+        GameObject obj = Instantiate(attackPrefab, transform.position, Quaternion.identity);
+        Explosion explosion = obj.GetComponent<Explosion>();
+        if (explosion != null)
+            explosion.SetOwner(gameObject);
+
+        cooldown = cooldownTime;
+        player.GainEnergy(-energyCost);
+        StartCoroutine(FlashButton(QButton));
+    }
+
+    public void TriggerDash()
+    {
+        if (GameManager.instance.state == GameStates.GameOver) return;
+        if (GameManager.instance.state == GameStates.paused) return;
+        if (dashAbility == null) return;
+
+        dashAbility.Dash();
+        StartCoroutine(FlashButton(DashButton));
     }
 
     private IEnumerator FlashButton(Button button)
     {
         if (button == null) yield break;
-
         button.image.color = pressedColor;
         yield return new WaitForSecondsRealtime(flashDuration);
         button.image.color = normalColor;
