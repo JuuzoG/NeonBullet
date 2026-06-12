@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/0-Projekt/5-Scenes/Menu.unity
     guid: 5721f870f84b737458085a898bbb0d4f
+  - enabled: 1
+    path: Assets/0-Projekt/5-Scenes/Final.unity
+    guid: 13a1b98cba707e74ea5672944964d56a
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

@@ -30,6 +30,7 @@ public class RangedEnemy : MonoBehaviour, IDamageable
     private float health;
     private float lastAttackTime;
     private bool isDead;
+    public UnityEngine.UI.Image healthbar;
 
     private void Start()
     {
@@ -77,6 +78,9 @@ public class RangedEnemy : MonoBehaviour, IDamageable
 
             TryShoot();
         }
+        healthbar.fillAmount = health /stats.maxHealth;
+
+        healthbar.transform.parent.gameObject.transform.LookAt(Camera.main.transform);
     }
 
     private void TryShoot()
@@ -165,6 +169,7 @@ public class RangedEnemy : MonoBehaviour, IDamageable
 
         Destroy(GetComponent<Rigidbody>());
         Destroy(GetComponent<Collider>());
+        Destroy(healthbar.transform.parent.gameObject, 0);
 
         GameObject loot = lootTable.GetDrop();
         if (loot != null)

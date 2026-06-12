@@ -63,6 +63,11 @@ public class Player : MonoBehaviour, IDamageable
         }
 
         GainEnergy(stats.energyRecoverRate * Time.deltaTime);
+
+        if (Input.GetKeyDown(Menu))
+        {
+            
+        }
     }
 
     public void GainMunition(int amount)

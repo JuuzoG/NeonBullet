@@ -7,7 +7,7 @@ public class GameOverMenu : MonoBehaviour
     public void retryButton()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene("Final");
     }
 
     public void mainMenuButton()
