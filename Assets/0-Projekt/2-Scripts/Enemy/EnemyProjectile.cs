@@ -25,7 +25,7 @@ public class EnemyProjectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject == owner) return;
+        if (other.gameObject == owner || other.CompareTag("Enemy")) return;
 
         IDamageable damageable =
             other.GetComponentInParent<IDamageable>();

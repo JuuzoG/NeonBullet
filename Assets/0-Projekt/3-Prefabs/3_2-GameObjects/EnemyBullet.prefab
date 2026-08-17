@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 1112883164686529396}
   - component: {fileID: 3398244321645762444}
   - component: {fileID: 3626809299031534202}
-  - component: {fileID: 7562148542847537133}
   - component: {fileID: 4178122076737920731}
   - component: {fileID: 2095851889453274968}
   - component: {fileID: 644495927440046818}
   - component: {fileID: 3218168706400154361}
+  - component: {fileID: 1847001199028320149}
   m_Layer: 7
   m_Name: EnemyBullet
   m_TagString: BulletE
@@ -32,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 8001054034615774265}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: -0.134, z: -2.611}
+  m_LocalPosition: {x: -0, y: -0.134, z: -2.957}
   m_LocalScale: {x: 0.044740487, y: 0.10285524, z: 0.42595991}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -91,27 +91,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &7562148542847537133
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8001054034615774265}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &4178122076737920731
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5012,4 +4991,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   damage: 1
-  lifeTime: 5
+  lifeTime: 10
+--- !u!136 &1847001199028320149
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8001054034615774265}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.2
+  m_Height: 0.63
+  m_Direction: 1
+  m_Center: {x: -0.06, y: 0.05, z: 0.2}
