@@ -4831,6 +4831,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: HubUI
       objectReference: {fileID: 0}
+    - target: {fileID: 4439661664510315576, guid: 662b74e9df5cc6941b5ab0c1d909e39e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 128.178
+      objectReference: {fileID: 0}
+    - target: {fileID: 4439661664510315576, guid: 662b74e9df5cc6941b5ab0c1d909e39e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 52.3994
+      objectReference: {fileID: 0}
+    - target: {fileID: 4439661664510315576, guid: 662b74e9df5cc6941b5ab0c1d909e39e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -363.43787
+      objectReference: {fileID: 0}
+    - target: {fileID: 4439661664510315576, guid: 662b74e9df5cc6941b5ab0c1d909e39e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -125.00238
+      objectReference: {fileID: 0}
     - target: {fileID: 4958495845817404645, guid: 662b74e9df5cc6941b5ab0c1d909e39e, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -4911,6 +4927,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7733582595329100411, guid: 662b74e9df5cc6941b5ab0c1d909e39e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8296e127b42add64a8753859faa382f4, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
