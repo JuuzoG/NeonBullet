@@ -19,23 +19,31 @@ public class PauseMenu : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(player.Menu))Pause_Resume();
+        if (GameManager.instance.state == GameStates.inventory)
+            return;
+
+        if (Input.GetKeyDown(player.Menu))
+            Pause_Resume();
     }
     public void Pause_Resume()
     {
-        if (isPaused)
-        {
-            isPaused = false;
-            Time.timeScale = 1;
-            PauseScreen.SetActive(false);
-        }
-        else
-        {
-            isPaused = true;
-            Time.timeScale = 0;
-            PauseScreen.SetActive(true);
-        }
-    }
+        if (GameManager.instance.state == GameStates.inGame)
+        { 
+            if (isPaused)
+            {
+                isPaused = false;
+                GameManager.instance.state = GameStates.inGame;
+                Time.timeScale = 1;
+                PauseScreen.SetActive(false);
+            }
+            else
+            {
+                isPaused = true;
+                GameManager.instance.state = GameStates.paused;
+                Time.timeScale = 0;
+                PauseScreen.SetActive(true);
+            }
+    }   }
 
     public void Options_Retrun()
     {

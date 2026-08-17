@@ -26,5 +26,5 @@ public class GameManager : MonoBehaviour
 
 public enum GameStates
 {
-    inGame, paused, GameOver, title
+    inGame, paused, GameOver, title, inventory
 }

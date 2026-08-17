@@ -46,6 +46,8 @@ public class Inventory : MonoBehaviour
     {
         if (GameManager.instance.state == GameStates.GameOver)
             return;
+        if (GameManager.instance.state == GameStates.paused)
+            return;
 
         if (isVisible)
         {
@@ -111,7 +113,7 @@ public class Inventory : MonoBehaviour
 
             SetSlotsVisible(false);
 
-            GameManager.instance.state = GameStates.paused;
+            GameManager.instance.state = GameStates.inventory;
             Time.timeScale = 0;
 
             StartCoroutine(ShowSlotsAfterDelay());
