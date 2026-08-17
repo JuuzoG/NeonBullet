@@ -44,6 +44,7 @@ public class Player : MonoBehaviour, IDamageable
     {
         if (GameManager.instance.state == GameStates.GameOver) return;
         if (GameManager.instance.state == GameStates.paused) return;
+        if (GameManager.instance.state == GameStates.inventory) return;
 
         if (Input.GetKeyDown(shot) && munition > 0)
         {
@@ -61,13 +62,7 @@ public class Player : MonoBehaviour, IDamageable
 
             munition--;
         }
-
         GainEnergy(stats.energyRecoverRate * Time.deltaTime);
-
-        if (Input.GetKeyDown(Menu))
-        {
-            
-        }
     }
 
     public void GainMunition(int amount)

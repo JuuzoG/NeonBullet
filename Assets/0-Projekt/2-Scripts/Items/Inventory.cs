@@ -51,7 +51,7 @@ public class Inventory : MonoBehaviour
 
         if (isVisible)
         {
-            if (Input.GetKeyDown(player.Menu) || Input.GetKeyDown(player.Inventar))
+            if (Input.GetKeyDown(player.Inventar))
             {
                 ToggleInventoryFromKeyboard();
                 StartCoroutine(FlashButtonColor());

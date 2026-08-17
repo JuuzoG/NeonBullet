@@ -7343,6 +7343,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1989002160}
     - target: {fileID: 5239581649267997967, guid: be731c627218c72458c99b5c3c62a7d5, type: 3}
+      propertyPath: Inventar
+      value: 101
+      objectReference: {fileID: 0}
+    - target: {fileID: 5239581649267997967, guid: be731c627218c72458c99b5c3c62a7d5, type: 3}
       propertyPath: GameOverScreen
       value: 
       objectReference: {fileID: 682642388}

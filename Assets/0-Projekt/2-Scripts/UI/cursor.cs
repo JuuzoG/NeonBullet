@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-public class cursor : MonoBehaviour
+public class Cursor : MonoBehaviour
 {
     [SerializeField]
     private InputActionReference pointerPositionAction;
@@ -66,7 +66,10 @@ public class cursor : MonoBehaviour
 
     private void Update()
     {
+        if (GameManager.instance.state == GameStates.inGame)
         textField.text = "" + player.munition;
+        else
+        textField.text = "";
 
         if (Input.GetKey(player.shot))
         {
