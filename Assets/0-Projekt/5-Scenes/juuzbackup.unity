@@ -1668,6 +1668,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5459326984448798912, guid: 27370f0ef455a554492141f52c7b81a6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5459326984448798912, guid: 27370f0ef455a554492141f52c7b81a6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5459326984448798912, guid: 27370f0ef455a554492141f52c7b81a6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5957079696304130952, guid: 27370f0ef455a554492141f52c7b81a6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3046,11 +3058,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25256487ab8275f40bc347d66714c0fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTransform: {fileID: 0}
-  leanAmount: 0.05
-  leanSpeed: 10
-  shiftAmount: 0.09
-  shiftSpeed: 4
 --- !u!4 &985600499 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3241571945679622637, guid: 4da691fad332177408a44d764eb9d953, type: 3}

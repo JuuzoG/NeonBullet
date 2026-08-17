@@ -82,16 +82,20 @@ public class RangedEnemy : MonoBehaviour, IDamageable
 
         healthbar.transform.parent.gameObject.transform.LookAt(Camera.main.transform);
     }
-
     private void TryShoot()
     {
         if (isDead) return;
         if (Time.time < lastAttackTime + attackCooldown) return;
         if (projectilePrefab == null || shootPoint == null) return;
 
+
         lastAttackTime = Time.time;
 
-        Vector3 dir = (player.transform.position - shootPoint.position).normalized;
+
+        // Aim above the player's root position
+        Vector3 target = player.transform.position + Vector3.up * 1.2f;
+        Vector3 dir = (target - shootPoint.position).normalized;
+
 
         GameObject proj = Instantiate(
             projectilePrefab,
@@ -99,18 +103,23 @@ public class RangedEnemy : MonoBehaviour, IDamageable
             Quaternion.LookRotation(dir)
         );
 
+
         EnemyProjectile ep = proj.GetComponent<EnemyProjectile>();
         if (ep != null)
             ep.SetOwner(gameObject);
 
+
         Rigidbody rb = proj.GetComponent<Rigidbody>();
+
+
         if (rb != null)
+            rb.linearVelocity = dir * 15f;
+
 
         if (audioSource && shootSound)
             audioSource.PlayOneShot(shootSound);
     }
 
- 
     public void TakeDamage(DamageInfo info)
     {
         ApplyDamage(info.damage);
