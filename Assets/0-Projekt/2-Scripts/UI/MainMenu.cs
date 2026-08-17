@@ -11,6 +11,8 @@ public class MainMenu : MonoBehaviour
 
     public void startButton()
     {
+        Time.timeScale = 1;
+        GameManager.instance.state = GameStates.inGame;
         SceneManager.LoadScene("Final");
     }
 

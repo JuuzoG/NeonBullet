@@ -6,8 +6,10 @@ public class GameOverMenu : MonoBehaviour
 {
     public void retryButton()
     {
+        if (GameManager.instance.state == GameStates.inGame) return;
+        else GameManager.instance.state = GameStates.inGame;
         Time.timeScale = 1;
-        SceneManager.LoadScene("Final");
+        SceneManager.LoadScene("Final"); 
     }
 
     public void mainMenuButton()
