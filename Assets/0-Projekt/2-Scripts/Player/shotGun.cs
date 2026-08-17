@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class shotGun : MonoBehaviour
+public class ShotGun : MonoBehaviour
 {
     public GameObject prefab;
 

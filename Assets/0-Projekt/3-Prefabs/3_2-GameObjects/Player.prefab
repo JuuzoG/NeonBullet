@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 5239581649267997967}
   - component: {fileID: 3675448477761170151}
   - component: {fileID: 8251378932475390641}
-  - component: {fileID: 7613477748393067261}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -131,6 +130,7 @@ MonoBehaviour:
   Menu: 27
   projectilePrefab: {fileID: 4605803923660264602, guid: 8fe629540e53875488b308e440badb8e, type: 3}
   ui: {fileID: 0}
+  GameOverScreen: {fileID: 0}
 --- !u!114 &3675448477761170151
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,6 +146,12 @@ MonoBehaviour:
   energyCost: 5
   cooldownTime: 2
   attackPrefab: {fileID: 5248535632084003900, guid: 742f454fe152eee4bb0219b7e33aa488, type: 3}
+  dashAbility: {fileID: 0}
+  QButton: {fileID: 0}
+  DashButton: {fileID: 0}
+  pressedColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
+  flashDuration: 0.15
 --- !u!114 &8251378932475390641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,19 +167,6 @@ MonoBehaviour:
   dashSpeed: 20
   dashDuration: 0.15
   dashCooldown: 1
---- !u!114 &7613477748393067261
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1288793504491673423}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43e0308b23a872347969a0720aabedc7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefab: {fileID: 7252639173969991255, guid: e51d6580e09e4334e908057eafa4a203, type: 3}
 --- !u!1 &7581729570333961178
 GameObject:
   m_ObjectHideFlags: 0

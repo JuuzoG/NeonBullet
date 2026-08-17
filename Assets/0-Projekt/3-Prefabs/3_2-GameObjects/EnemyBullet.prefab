@@ -4992,6 +4992,7 @@ MonoBehaviour:
   speed: 10
   damage: 1
   lifeTime: 10
+<<<<<<< Updated upstream
 --- !u!136 &1847001199028320149
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -5015,3 +5016,5 @@ CapsuleCollider:
   m_Height: 0.63
   m_Direction: 1
   m_Center: {x: -0.06, y: 0.05, z: 0.2}
+=======
+>>>>>>> Stashed changes

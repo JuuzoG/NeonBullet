@@ -27,6 +27,9 @@ public class EnemyProjectile : MonoBehaviour
     {
         if (other.gameObject == owner || other.CompareTag("Enemy")) return;
 
+        GameObject hitObject = other.gameObject;
+        Debug.Log("Triggered by: " + hitObject.name);
+
         IDamageable damageable =
             other.GetComponentInParent<IDamageable>();
 
