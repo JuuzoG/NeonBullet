@@ -1,3 +1,4 @@
+
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,9 +16,9 @@ public class HubUI : MonoBehaviour
 
     private void Start()
     {
-        initialRightPadding = hpMask.padding.z;
+        initialRightPadding = 40;
 
-        maxVisibleWidth = hpBarRect.rect.width
+        maxVisibleWidth = 830
                         - hpMask.padding.x
                         - initialRightPadding;
     }
@@ -25,6 +26,7 @@ public class HubUI : MonoBehaviour
     public void UpdateHealth(int current, int max)
     {
         float percent = Mathf.Clamp01((float)current / max);
+        Debug.Log ( (percent).ToString());
 
         Vector4 padding = hpMask.padding;
 
