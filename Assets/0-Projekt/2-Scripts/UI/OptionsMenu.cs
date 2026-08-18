@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class OptionsMenu : MonoBehaviour
 {
-    private bool isFullScreen = true;
     public GameObject[] volumeObject;
     void Start()
     {
@@ -14,10 +13,9 @@ public class OptionsMenu : MonoBehaviour
     void Update()
     {
     }
-    public void Toggle_FullScren()
+    public void Toggle_FullScren(bool isFullScreen)
     {
-        if (isFullScreen) Screen.fullScreen = false;
-        else Screen.fullScreen = true;
+        Screen.fullScreen = isFullScreen;
     }   
 
     public void Volume_Image(float volume)
@@ -48,8 +46,9 @@ public class OptionsMenu : MonoBehaviour
         }
     }
 
-    public void ReturnToMainMenu()
+    public void MouseMove(bool button)
     {
+        PlayerCharacterController.WorldMove = button;
     }
 
     public void Quit()

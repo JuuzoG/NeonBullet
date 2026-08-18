@@ -81,7 +81,7 @@ public class SpecialAttack : MonoBehaviour
         if (GameManager.instance.state == GameStates.paused) return;
         if (dashAbility == null) return;
 
-        dashAbility.Dash();
+        //dashAbility.Dash();
         StartCoroutine(FlashButton(DashButton));
     }
 

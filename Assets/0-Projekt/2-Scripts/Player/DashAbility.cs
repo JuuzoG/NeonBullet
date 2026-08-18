@@ -26,7 +26,7 @@ public class DashAbility : MonoBehaviour
         }
         if (cooldownTimer > 0f) cooldownTimer -= Time.deltaTime;
     }
-    public void Dash()
+    /*public void Dash()
     {
         if(!isDashing && cooldownTimer <= 0f)
         {
@@ -48,4 +48,5 @@ public class DashAbility : MonoBehaviour
         cooldownTimer = dashCooldown;
         }
     }
+    */
 }

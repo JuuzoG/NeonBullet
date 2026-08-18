@@ -5,7 +5,7 @@ public class PlayerCharacterController : MonoBehaviour
     public Rigidbody rb;
     private Animator animator;
     private PlayerStats stats;
-    public bool WorldMove = true;
+    public static bool WorldMove = true;
     
 
     void Start()
