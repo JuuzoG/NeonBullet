@@ -79,8 +79,11 @@ public class RangedEnemy : MonoBehaviour, IDamageable
             TryShoot();
         }
         healthbar.fillAmount = health /stats.maxHealth;
+    }
 
-        healthbar.transform.parent.gameObject.transform.LookAt(Camera.main.transform);
+    void LateUpdate()
+    {
+        healthbar.transform.parent.rotation = Camera.main.transform.rotation;
     }
     private void TryShoot()
     {

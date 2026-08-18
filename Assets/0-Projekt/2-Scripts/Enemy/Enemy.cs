@@ -73,9 +73,11 @@ public class Enemy : MonoBehaviour, IDamageable
             }
         }
         healthbar.fillAmount = health /stats.maxHealth;
+    }
 
-        healthbar.transform.parent.gameObject.transform.LookAt(Camera.main.transform);
-
+    void LateUpdate()
+    {
+        healthbar.transform.parent.rotation = Camera.main.transform.rotation;
     }
 
     public void TakeDamage(DamageInfo info)
