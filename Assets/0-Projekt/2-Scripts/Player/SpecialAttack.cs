@@ -25,7 +25,7 @@ public class SpecialAttack : MonoBehaviour
     [SerializeField] private float flashDuration = 0.15f;
 
     private Player player;
-    private float cooldown = 0f;
+    private float cooldown = 1f;
 
 
     void Start()
@@ -53,7 +53,7 @@ public class SpecialAttack : MonoBehaviour
 
         cooldown -= Time.deltaTime;
 
-        if (cooldown > 0f)
+        if (cooldown > 1f)
         {
             cooldownImage.fillAmount = cooldown / cooldownTime;
         }
