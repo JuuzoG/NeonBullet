@@ -27,7 +27,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 477971760276351681}
   m_LocalRotation: {x: 0.46193978, y: -0.33141357, z: 0.19134171, w: 0.8001032}
-  m_LocalPosition: {x: 0, y: 0, z: 0.37443507}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1.1875001, z: 0.8499999}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -36,7 +36,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 60, y: -45, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 3.454859, y: -0.07999992}
+  m_AnchoredPosition: {x: 0, y: 0.38}
   m_SizeDelta: {x: 5, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &1575202442313214110
@@ -167,7 +167,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Health Drink
+  m_text: Medkit
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -249,6 +249,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6994616263932019157}
   - component: {fileID: 212776359783143769}
+  - component: {fileID: 998862357091132393}
   m_Layer: 0
   m_Name: Medkit
   m_TagString: Untagged
@@ -264,7 +265,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2440552781377391197}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.454859, y: 1.08, z: 1.6255649}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -285,8 +286,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f7b1e4b95f3bd845af1443db6b3aa43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameDisplay: {fileID: 1724485032357126020, guid: 658e8e9702344874ebcc856d23aa07b6, type: 3}
+  nameDisplay: {fileID: 477971760276351681}
   itemData: {fileID: 11400000, guid: 369f5f33c22be9f4a873e6e8443dfcc7, type: 2}
+--- !u!65 &998862357091132393
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2440552781377391197}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 0.67, z: 0.37}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2482833827992385924
 GameObject:
   m_ObjectHideFlags: 0
@@ -298,6 +320,7 @@ GameObject:
   - component: {fileID: 6653676384925545193}
   - component: {fileID: 6446076170760753580}
   - component: {fileID: 660695632891481051}
+  - component: {fileID: 8472703596075458347}
   m_Layer: 0
   m_Name: cube
   m_TagString: Untagged
@@ -373,3 +396,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!95 &8472703596075458347
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2482833827992385924}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b09fdc2056702a846b904b4b091bd292, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

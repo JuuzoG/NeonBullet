@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    private const float pickUpRange = 1.5f;
+    private const float pickUpRange = 3f;
     public GameObject nameDisplay;
     public ItemData itemData;
 
