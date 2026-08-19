@@ -16,6 +16,9 @@ public class SpecialAttack : MonoBehaviour
     public Button QButton;
     public Button DashButton;
 
+    [Header("Cooldown UI")]
+    [SerializeField] private Image cooldownImage;
+
     [Header("Flash Colors")]
     [SerializeField] private Color pressedColor = Color.yellow;
     [SerializeField] private Color normalColor = Color.white;
@@ -23,6 +26,7 @@ public class SpecialAttack : MonoBehaviour
 
     private Player player;
     private float cooldown = 0f;
+
 
     void Start()
     {
@@ -49,7 +53,17 @@ public class SpecialAttack : MonoBehaviour
 
         cooldown -= Time.deltaTime;
 
-   
+        if (cooldown > 0f)
+        {
+            cooldownImage.fillAmount = cooldown / cooldownTime;
+        }
+        else
+        {
+            cooldown = 0f;
+            cooldownImage.fillAmount = 0f;
+        }
+
+
         if (Input.GetKeyDown(player.Ability))
             TriggerExplosion();
 

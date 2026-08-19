@@ -1614,7 +1614,7 @@ Transform:
   m_GameObject: {fileID: 5212664191958619577}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -4.831}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1797,7 +1797,7 @@ Transform:
   m_GameObject: {fileID: 5362132852543253938}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.052, y: 1.483, z: 0.498}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2363,6 +2363,7 @@ MonoBehaviour:
   shootSound: {fileID: 0}
   stats: {fileID: 11400000, guid: 9f68d19a70b32794e88370b60a59fd55, type: 2}
   lootTable: {fileID: 11400000, guid: 038b4b700abcf764eae08abe6783aa05, type: 2}
+  healthbar: {fileID: 5396734395554671097}
 --- !u!65 &8062321483494396330
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2769,3 +2770,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3030277035677562709, guid: 19395f0d1c0dac14b9f4b3e935e316e9, type: 3}
   m_PrefabInstance: {fileID: 2269360006798470448}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5396734395554671097 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6168646924415550665, guid: 19395f0d1c0dac14b9f4b3e935e316e9, type: 3}
+  m_PrefabInstance: {fileID: 2269360006798470448}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
