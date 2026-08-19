@@ -153,6 +153,33 @@ public class Inventory : MonoBehaviour
             SetInventorySlots();
         }
     }
+
+    public List<CollectedItem> GetItems()
+    {
+        return items;
+    }
+
+    public void LoadItems(List<InventoryEntrySaveData> savedItems, ItemDatabase database)
+    {
+        items.Clear();
+        selectedItem = null;
+
+        foreach (InventoryEntrySaveData entry in savedItems)
+        {
+            ItemData data = database.GetById(entry.id);
+            if (data == null)
+            {
+                Debug.LogWarning($"Save file references unknown item id '{entry.id}'.");
+                continue;
+            }
+
+            CollectedItem collected = new CollectedItem(data);
+            collected.amount = entry.amount;
+            items.Add(collected);
+        }
+
+        SetInventorySlots();
+    }
 }
 
 public class CollectedItem
