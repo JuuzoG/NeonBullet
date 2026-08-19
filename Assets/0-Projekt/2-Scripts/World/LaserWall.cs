@@ -1,16 +1,17 @@
 using UnityEngine;
+using static UnityEngine.UI.GridLayoutGroup;
 
 public class LaserWall : MonoBehaviour
 {
-    public GameObject Laserwall;
-    void Start()
-    {
-        
-    }
+    [SerializeField] private float damage = 10f;
 
-  
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        
+        IDamageable damageable = other.GetComponentInParent<IDamageable>();
+
+        if (damageable != null)
+        {
+            damageable.TakeDamage(new DamageInfo(damage));
+        }
     }
 }

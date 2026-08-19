@@ -7,6 +7,14 @@ public struct DamageInfo
     public Vector3 hitPoint;
     public Vector3 direction;
 
+    public DamageInfo(float damage)
+    {
+        this.damage = damage;
+        this.source = null;
+        this.hitPoint = Vector3.zero;
+        this.direction = Vector3.zero;
+    }
+
     public DamageInfo(float damage, GameObject source, Vector3 hitPoint, Vector3 direction)
     {
         this.damage = damage;
