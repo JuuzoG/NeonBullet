@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PlayerCharacterController : MonoBehaviour
 {
+    [SerializeField] private Rigidbody Rb;
     public Rigidbody rb;
     private Animator animator;
     private PlayerStats stats;
@@ -63,5 +64,9 @@ public class PlayerCharacterController : MonoBehaviour
         WorldMove = yes;
     }
 
-    
+    public void Knockback(Vector3 direction, float force)
+    {
+        Rb.AddForce(direction * force, ForceMode.Impulse);
+    }
+
 }
