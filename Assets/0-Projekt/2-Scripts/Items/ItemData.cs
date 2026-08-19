@@ -14,7 +14,10 @@ public class ItemData : ScriptableObject
         switch (id)
         {
             case "HealthPot":
-                GameManager.instance.player.GainHealth(5);
+                GameManager.instance.player.GainHealth(10);
+                break;
+            case "Medkit":
+                GameManager.instance.player.GainHealth(20);
                 break;
         }
     }
