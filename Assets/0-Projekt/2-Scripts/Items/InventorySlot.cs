@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class InventorySlot : MonoBehaviour
 {
     public Image itemDisplay;
     private CollectedItem assignedItem;
@@ -18,14 +18,5 @@ public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         GameManager.instance.inventory.SetSelectedItem(assignedItem);
     }
 
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-        if (assignedItem == null) return;
-        GameManager.instance.inventory.OnSlotHover(assignedItem);
-    }
 
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        GameManager.instance.inventory.OnSlotHoverExit();
-    }
 }
