@@ -8,16 +8,6 @@ using UnityEngine.UI;
 public class Inventory : MonoBehaviour
 {
     public InventorySlot[] InventorySlots;
-    public Button inventoryButton;
-
-    [Header("HoverUI")]
-    [SerializeField] private GameObject hoverPanel;
-    [SerializeField] private TextMeshProUGUI hoverText;
-    [SerializeField] private TextMeshProUGUI hoverTextDescription;
-
-    [Header("Color")]
-    [SerializeField] private Color pressedColor = Color.yellow;
-    [SerializeField] private Color normalColor = Color.white;
 
     private List<CollectedItem> items = new List<CollectedItem>();
     private CollectedItem selectedItem;
@@ -32,16 +22,6 @@ public class Inventory : MonoBehaviour
         player = playerGet.GetComponent<Player>();
     }
 
-    void Start()
-    {
-        if (inventoryButton != null)
-        {
-            inventoryButton.image.color = normalColor;
-        }
-
-        hoverPanel.SetActive(false);
-    }
-
     void Update()
     {
         if (GameManager.instance.state == GameStates.GameOver)
@@ -49,34 +29,11 @@ public class Inventory : MonoBehaviour
         if (GameManager.instance.state == GameStates.paused)
             return;
 
-        if (isVisible)
+        if (Input.GetKeyDown(player.Inventar))
         {
-            if (Input.GetKeyDown(player.Inventar))
-            {
-                ToggleInventoryFromKeyboard();
-                StartCoroutine(FlashButtonColor());
-            }
+            if (isVisible) ToggleInventory();
+            else ToggleInventory();
         }
-        else
-        {
-            if (Input.GetKeyDown(player.Inventar))
-            {
-                ToggleInventoryFromKeyboard();
-                StartCoroutine(FlashButtonColor());
-            }
-        }
-    }
-
-    public void OnSlotHover(CollectedItem item)
-    {
-        hoverPanel.SetActive(true);
-        hoverText.text = item.data.id;
-        hoverTextDescription.text = item.data.description;
-    }
-
-    public void OnSlotHoverExit()
-    {
-        hoverPanel.SetActive(false);
     }
 
     public void ToggleInventory()
@@ -84,23 +41,11 @@ public class Inventory : MonoBehaviour
         ToggleInventoryInternal();
     }
 
-    private void ToggleInventoryFromKeyboard()
-    {
-        Debug.Log("ToggleInventoryFromKeyboard called");
-
-        ToggleInventoryInternal();
-
-        if (inventoryButton != null)
-        {
-            EventSystem.current.SetSelectedGameObject(inventoryButton.gameObject);
-        }
-    }
-
     private void ToggleInventoryInternal()
     {
         isVisible = !isVisible;
 
-        Debug.Log("Inventory Visible: " + isVisible);
+        //Debug.Log("Inventory Visible: " + isVisible);
 
         selectedItem = null;
 
@@ -151,15 +96,6 @@ public class Inventory : MonoBehaviour
         {
             transform.GetChild(i).gameObject.SetActive(false);
         }
-    }
-
-    private IEnumerator FlashButtonColor()
-    {
-        if (inventoryButton == null) yield break;
-
-        inventoryButton.image.color = pressedColor;
-        yield return new WaitForSecondsRealtime(0.15f);
-        inventoryButton.image.color = normalColor;
     }
 
     private void SetInventorySlots()

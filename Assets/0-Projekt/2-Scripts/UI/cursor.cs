@@ -15,7 +15,7 @@ public class Cursor : MonoBehaviour
     public GameObject cursorObj; //Object with Animation.cs, Image(Cursor) and Animator
     private Image cursorImage;
     private Player player;
-    private Animation cursorAnim;
+    private Animations cursorAnim;
     private Color mouseColor;
 
     private void Start()
@@ -24,7 +24,7 @@ public class Cursor : MonoBehaviour
         GameObject playerGEt = GameObject.FindGameObjectWithTag("Player");
         player = playerGEt.GetComponent<Player>();
         cursorImage = cursorObj.GetComponent<Image>();
-        cursorAnim = cursorObj.GetComponent<Animation>();
+        cursorAnim = cursorObj.GetComponent<Animations>();
     }
 
     private void Awake()

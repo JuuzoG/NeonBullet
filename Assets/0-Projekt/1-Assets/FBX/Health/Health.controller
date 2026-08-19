@@ -1,13 +1,13 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1102 &-4424567782122808123
+--- !u!1102 &-6665318675440490624
 AnimatorState:
   serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Health|HealthAction
+  m_Name: spin
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -20,7 +20,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -7826040531682352261, guid: a6d9f0194a176bd46bb76c56f7abe0e4, type: 3}
+  m_Motion: {fileID: -5055356247035031728, guid: 8a01d792799eee44e9a021fbdc26c6c2, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -36,8 +36,8 @@ AnimatorStateMachine:
   m_Name: Base Layer
   m_ChildStates:
   - serializedVersion: 1
-    m_State: {fileID: -4424567782122808123}
-    m_Position: {x: 370, y: 90, z: 0}
+    m_State: {fileID: -6665318675440490624}
+    m_Position: {x: 362.40002, y: 180.8, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -47,7 +47,7 @@ AnimatorStateMachine:
   m_EntryPosition: {x: 50, y: 120, z: 0}
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
-  m_DefaultState: {fileID: -4424567782122808123}
+  m_DefaultState: {fileID: -6665318675440490624}
 --- !u!91 &9100000
 AnimatorController:
   m_ObjectHideFlags: 0

@@ -50,8 +50,4 @@ public class OptionsMenu : MonoBehaviour
     {
         PlayerCharacterController.WorldMove = button;
     }
-
-    public void Quit()
-    {
-    }
 }

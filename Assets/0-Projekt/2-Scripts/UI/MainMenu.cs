@@ -48,7 +48,7 @@ public class MainMenu : MonoBehaviour
     public void exitButton()
     {
         UnityEngine.Debug.Log("Exit was called");
-        //Application.Quit();
+        Application.Quit();
         //EditorApplication.ExitPlaymode(0);
     }
 
