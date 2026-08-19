@@ -6747,6 +6747,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2440552781377391197, guid: 66de222a46a8e134b9c58ee9f6edab6e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4394350053348843915}
+    - targetCorrespondingSourceObject: {fileID: 2440552781377391197, guid: 66de222a46a8e134b9c58ee9f6edab6e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4394350053348843916}
   m_SourcePrefab: {fileID: 100100000, guid: 66de222a46a8e134b9c58ee9f6edab6e, type: 3}
 --- !u!114 &476525327693369051
 MonoBehaviour:
@@ -16845,6 +16848,27 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!65 &4394350053348843916
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4012723467633031987}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 0.67, z: 0.37}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &4468314042888023189
 Transform:
   m_ObjectHideFlags: 0
@@ -26971,6 +26995,7 @@ MonoBehaviour:
   dashAbility: {fileID: 0}
   QButton: {fileID: 2113442447586305069}
   DashButton: {fileID: 0}
+  cooldownImage: {fileID: 0}
   pressedColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   flashDuration: 0.15
