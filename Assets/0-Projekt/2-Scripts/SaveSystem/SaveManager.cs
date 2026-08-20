@@ -22,6 +22,11 @@ public class SaveManager : MonoBehaviour
 
     private SaveData pendingLoad;
 
+    // Which slot is currently being played. -1 means no slot is active yet
+    // (e.g. player hasn't saved or loaded anything this session).
+    public int currentSlot { get; private set; } = -1;
+    public bool HasCurrentSlot => currentSlot >= 0;
+
     // Ids of WorldPickups collected during the current playthrough. Written into
     // SaveData at Save() time, restored at Load() time, cleared on StartNewGame().
     private HashSet<string> collectedPickupIds = new HashSet<string>();
@@ -83,6 +88,7 @@ public class SaveManager : MonoBehaviour
         data.collectedPickupIds = new List<string>(collectedPickupIds);
 
         SaveSystem.Save(slot, data);
+        currentSlot = slot;
         Debug.Log($"Game saved to slot {slot}.");
     }
 
@@ -102,6 +108,7 @@ public class SaveManager : MonoBehaviour
         collectedPickupIds = new HashSet<string>(data.collectedPickupIds ?? new List<string>());
         SyncDebugList();
 
+        currentSlot = slot;
         pendingLoad = data;
         SceneManager.sceneLoaded += OnSceneLoaded;
         SceneManager.LoadScene(data.sceneName);

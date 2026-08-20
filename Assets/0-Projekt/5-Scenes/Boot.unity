@@ -131,14 +131,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: _Persistent
       objectReference: {fileID: 0}
-    - target: {fileID: 3377236272522393692, guid: a903054a8461a164ba5fb6f7292c8a70, type: 3}
-      propertyPath: itemDatabase
-      value: 
-      objectReference: {fileID: 11400000, guid: 7318031ccc5346d4780122d3fb198d0b, type: 2}
-    - target: {fileID: 3377236272522393692, guid: a903054a8461a164ba5fb6f7292c8a70, type: 3}
-      propertyPath: newGameSceneName
-      value: Lennard
-      objectReference: {fileID: 0}
     - target: {fileID: 5040361296118657141, guid: a903054a8461a164ba5fb6f7292c8a70, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.8111572
@@ -178,10 +170,6 @@ PrefabInstance:
     - target: {fileID: 5040361296118657141, guid: a903054a8461a164ba5fb6f7292c8a70, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8878738228018547266, guid: a903054a8461a164ba5fb6f7292c8a70, type: 3}
-      propertyPath: menuSceneName
-      value: Menu SaveSystem
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

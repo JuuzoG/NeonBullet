@@ -1,4 +1,3 @@
-using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -6,10 +5,21 @@ public class GameOverMenu : MonoBehaviour
 {
     public void retryButton()
     {
-        if (GameManager.instance.state == GameStates.inGame) return;
-        else GameManager.instance.state = GameStates.inGame;
         Time.timeScale = 1;
-        SceneManager.LoadScene("Final"); 
+        GameManager.instance.state = GameStates.inGame;
+
+        if (SaveManager.instance != null && SaveManager.instance.HasCurrentSlot)
+        {
+            // Reload the player's last save exactly - position, health, ammo,
+            // inventory and collected pickups all get reapplied.
+            SaveManager.instance.Load(SaveManager.instance.currentSlot);
+        }
+        else
+        {
+            // Fallback: nothing has been saved yet this session, just reset the scene.
+            Debug.LogWarning("GameOverMenu: No current save slot set, reloading scene from scratch instead.");
+            SceneManager.LoadScene("Final");
+        }
     }
 
     public void mainMenuButton()
@@ -17,7 +27,7 @@ public class GameOverMenu : MonoBehaviour
         Time.timeScale = 1;
         SceneManager.LoadScene("Menu");
     }
-    
+
     public void exitButton()
     {
         Application.Quit();

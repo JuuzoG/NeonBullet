@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5040361296118657141}
-  - component: {fileID: 3377236272522393692}
   - component: {fileID: 5209946949505394241}
   - component: {fileID: 8878738228018547266}
+  - component: {fileID: 1293342930062188912}
   m_Layer: 0
   m_Name: _Persistent
   m_TagString: Untagged
@@ -34,24 +34,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3377236272522393692
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 400588677125224439}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9795db68c2a4f0143a82449170b3f4eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemDatabase: {fileID: 11400000, guid: 7318031ccc5346d4780122d3fb198d0b, type: 2}
-  newGameSceneName: 
-  newGamePosition: {x: 0, y: 0, z: 0}
-  newGameRotationY: 0
-  newGameMunition: 10
-  debugCollectedPickupIds: []
 --- !u!114 &5209946949505394241
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80,3 +62,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuSceneName: Menu SaveSystem
+--- !u!114 &1293342930062188912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 400588677125224439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa0bb3b96f29cad488b2a0aa5326397a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemDatabase: {fileID: 11400000, guid: 7318031ccc5346d4780122d3fb198d0b, type: 2}
+  newGameSceneName: Lennard
+  newGamePosition: {x: 0, y: 0, z: 0}
+  newGameRotationY: 0
+  newGameMunition: 10
+  debugCollectedPickupIds: []
