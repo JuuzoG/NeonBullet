@@ -132,6 +132,10 @@ PrefabInstance:
       value: _Persistent
       objectReference: {fileID: 0}
     - target: {fileID: 3377236272522393692, guid: a903054a8461a164ba5fb6f7292c8a70, type: 3}
+      propertyPath: itemDatabase
+      value: 
+      objectReference: {fileID: 11400000, guid: 7318031ccc5346d4780122d3fb198d0b, type: 2}
+    - target: {fileID: 3377236272522393692, guid: a903054a8461a164ba5fb6f7292c8a70, type: 3}
       propertyPath: newGameSceneName
       value: Lennard
       objectReference: {fileID: 0}

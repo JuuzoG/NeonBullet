@@ -1,6 +1,15 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream
+<<<<<<<< Updated upstream:Assets/0-Projekt/2-Scripts/SaveSystem.meta
 guid: f6395926901d3a14b913056451075dfe
 folderAsset: yes
+========
+guid: 1c1783d02fe938a42b20e9be450532ff
+>>>>>>>> Stashed changes:Assets/0-Projekt/5-Scenes/Lennard.unity.meta
+=======
+guid: 8bbe37e7a7468fa48bd35dc9e5a465dd
+folderAsset: yes
+>>>>>>> Stashed changes
 DefaultImporter:
   externalObjects: {}
   userData: 

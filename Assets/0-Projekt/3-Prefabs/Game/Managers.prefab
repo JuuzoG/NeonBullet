@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &9099113637753919794
+--- !u!1 &1002434074361612405
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,55 +8,38 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2431801121829598629}
-  - component: {fileID: 2728346070428770379}
-  - component: {fileID: 7649828986964576147}
+  - component: {fileID: 4285729102447280044}
+  - component: {fileID: 3864641566419402790}
+  - component: {fileID: 1301880745829153109}
   m_Layer: 0
-  m_Name: GameManagers
+  m_Name: Managers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2431801121829598629
+--- !u!4 &4285729102447280044
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9099113637753919794}
+  m_GameObject: {fileID: 1002434074361612405}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.8111572, y: 2.9853222, z: 4.0411835}
+  m_LocalPosition: {x: 0.2757528, y: -0.42661303, z: 4.030656}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2728346070428770379
+--- !u!114 &3864641566419402790
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9099113637753919794}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9795db68c2a4f0143a82449170b3f4eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemDatabase: {fileID: 11400000, guid: 64fd81260010df34a8d2c24c1f0f874c, type: 2}
-  newGameName: Lennard
-  newGamePosition: {x: 0, y: 0, z: 0}
-  newGameRotationY: 0
-  newGameMunition: 10
---- !u!114 &7649828986964576147
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9099113637753919794}
+  m_GameObject: {fileID: 1002434074361612405}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 07894a218a9017f4fb5cfc2427b5882c, type: 3}
@@ -65,3 +48,21 @@ MonoBehaviour:
   state: 0
   inventory: {fileID: 0}
   player: {fileID: 0}
+--- !u!114 &1301880745829153109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1002434074361612405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9795db68c2a4f0143a82449170b3f4eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemDatabase: {fileID: 11400000, guid: 7318031ccc5346d4780122d3fb198d0b, type: 2}
+  newGameSceneName: 
+  newGamePosition: {x: 0, y: 0, z: 0}
+  newGameRotationY: 0
+  newGameMunition: 10
+  debugCollectedPickupIds: []

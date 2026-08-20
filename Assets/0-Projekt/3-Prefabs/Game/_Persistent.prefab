@@ -46,11 +46,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9795db68c2a4f0143a82449170b3f4eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemDatabase: {fileID: 11400000, guid: 64fd81260010df34a8d2c24c1f0f874c, type: 2}
-  newGameName: Lennard
+  itemDatabase: {fileID: 11400000, guid: 7318031ccc5346d4780122d3fb198d0b, type: 2}
+  newGameSceneName: 
   newGamePosition: {x: 0, y: 0, z: 0}
   newGameRotationY: 0
   newGameMunition: 10
+  debugCollectedPickupIds: []
 --- !u!114 &5209946949505394241
 MonoBehaviour:
   m_ObjectHideFlags: 0
