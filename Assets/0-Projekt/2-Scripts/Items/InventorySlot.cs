@@ -23,7 +23,7 @@ public class InventorySlot : MonoBehaviour
     {
         if (itemDisplay.sprite == null)
         {
-            amount.text = "";
+            amount.text = " ";
             itemDisplay.color = Color.clear;
         }
         else

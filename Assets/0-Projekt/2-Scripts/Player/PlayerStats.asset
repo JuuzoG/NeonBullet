@@ -16,5 +16,5 @@ MonoBehaviour:
   maxEnergy: 10
   movmentSpeed: 4
   energyRecoverRate: 1
-  health: 10
+  health: 100
   energy: 10

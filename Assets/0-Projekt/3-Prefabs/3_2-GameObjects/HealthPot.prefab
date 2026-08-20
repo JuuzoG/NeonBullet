@@ -228,6 +228,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameDisplay: {fileID: 1724485032357126020}
   itemData: {fileID: 11400000, guid: 9b927c5bdecbc404cb9ba6f3ba42d5bf, type: 2}
+  pickupId: 386a13e5-e718-4a7c-8da2-c84cd76834ef
 --- !u!1 &6141046267478913934
 GameObject:
   m_ObjectHideFlags: 0

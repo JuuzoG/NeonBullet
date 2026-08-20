@@ -19,11 +19,14 @@ public class MainMenu : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P)) Dev();
     }
 
-    public void startButton()
+    public void NewGameButton()
     {
-        Time.timeScale = 1;
-        GameManager.instance.state = GameStates.inGame;
-        SceneManager.LoadScene(scene);
+        SaveSlotMenu.instance.OpenForNewGame(slot => SaveManager.instance.StartNewGame(slot));
+    }
+
+    public void ContinueGameButton()
+    {
+        SaveSlotMenu.instance.Open(slot => SaveManager.instance.Load(slot));
     }
 
     public void optionsButton()
@@ -57,6 +60,11 @@ public class MainMenu : MonoBehaviour
         isDev = !isDev;
         devMenu.SetActive(isDev);
         
+    }
+
+    public void LoadSelectedScene()
+    {
+        SceneManager.LoadScene(scene);
     }
 
     public void DevInput(string input)

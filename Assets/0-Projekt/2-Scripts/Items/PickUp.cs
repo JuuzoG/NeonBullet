@@ -9,7 +9,7 @@ public class PickUp : MonoBehaviour
 
     void Start()
     {
-        amount = Random.Range(minAmount,maxAmount+1);
+        amount = Random.Range(minAmount, maxAmount + 1);
     }
 
     void OnTriggerEnter(Collider other)
@@ -34,4 +34,4 @@ public class PickUp : MonoBehaviour
     }
 }
 
-public enum ResourceTypes { munition, energy, health}
+public enum ResourceTypes { munition, energy, health }
