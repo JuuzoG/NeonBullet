@@ -4366,6 +4366,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NB_Wall01 (33)
       objectReference: {fileID: 0}
+    - target: {fileID: 2861949800011221847, guid: 4da691fad332177408a44d764eb9d953, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3241571945679622637, guid: 4da691fad332177408a44d764eb9d953, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3
@@ -4412,7 +4416,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 69522b49b48897646a52c7c55c031888, type: 2}
     - target: {fileID: 6784973757880737680, guid: 4da691fad332177408a44d764eb9d953, type: 3}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6261,6 +6265,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 20
+  pushForce: 10
 --- !u!1001 &1929084658
 PrefabInstance:
   m_ObjectHideFlags: 0
