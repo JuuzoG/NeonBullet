@@ -79,7 +79,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1288793504491673423}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 9ad7f24593268aa41921369114a0584f, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -108,6 +108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 694019823877881294}
+  cam: {fileID: 0}
 --- !u!114 &5239581649267997967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,6 +148,7 @@ MonoBehaviour:
   cooldownTime: 2
   attackPrefab: {fileID: 5248535632084003900, guid: 742f454fe152eee4bb0219b7e33aa488, type: 3}
   dashAbility: {fileID: 0}
+  railgun: {fileID: 0}
   QButton: {fileID: 0}
   DashButton: {fileID: 0}
   cooldownImage: {fileID: 0}

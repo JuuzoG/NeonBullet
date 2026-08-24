@@ -36,6 +36,7 @@ public class PlayerCharacterController : MonoBehaviour
             float y = Input.GetAxisRaw("Vertical");  
 
             Vector3 camfoward =cam.forward;
+            Debug.Log(camfoward);
             Vector3 camright =cam.right;
             camfoward.y =0;
             camright.y =0;

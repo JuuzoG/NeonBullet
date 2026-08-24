@@ -18671,7 +18671,7 @@ MonoBehaviour:
   Inventar: 105
   Dash: 324
   Menu: 27
-  projectilePrefab: {fileID: 4605803923660264602, guid: 8fe629540e53875488b308e440badb8e, type: 3}
+  projectilePrefab: {fileID: 4211037239739974104, guid: e27b5cc94ba2dbe4892cad2857965b00, type: 3}
   ui: {fileID: 8809748955790972720}
   GameOverScreen: {fileID: 8809748955790972722}
 --- !u!1 &186616560076788890
@@ -36649,6 +36649,7 @@ MonoBehaviour:
   cooldownTime: 2
   attackPrefab: {fileID: 5248535632084003900, guid: 742f454fe152eee4bb0219b7e33aa488, type: 3}
   dashAbility: {fileID: 0}
+  railgun: {fileID: 0}
   QButton: {fileID: 0}
   DashButton: {fileID: 0}
   cooldownImage: {fileID: 8809748955790972723}
