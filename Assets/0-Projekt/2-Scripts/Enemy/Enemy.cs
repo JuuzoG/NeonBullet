@@ -1,8 +1,5 @@
-using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.Animations;
-using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 
@@ -173,5 +170,9 @@ public class Enemy : MonoBehaviour, IDamageable
         return agent != null && agent.enabled && agent.isOnNavMesh;
     }
 
-
+    enum enemystates
+    {
+        patrolling,
+        chasing,
+    }
 }
