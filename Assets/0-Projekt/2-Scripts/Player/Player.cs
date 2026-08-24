@@ -49,9 +49,7 @@ public class Player : MonoBehaviour, IDamageable
         if (Input.GetKeyDown(shot) && munition > 0)
         {
             Vector3 position =
-                transform.position +
-                transform.forward +
-                Vector3.up;
+                new Vector3(transform.position.x,transform.position.y+1.5f,transform.position.z);
 
             GameObject proj =
                 Instantiate(projectilePrefab, position, transform.rotation);
