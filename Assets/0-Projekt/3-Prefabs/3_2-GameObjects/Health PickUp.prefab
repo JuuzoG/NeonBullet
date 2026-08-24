@@ -121,6 +121,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8396fe7120d5c0146bf4b10509633f4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minAmount: 1
+  minAmount: 2
   maxAmount: 3
   type: 2

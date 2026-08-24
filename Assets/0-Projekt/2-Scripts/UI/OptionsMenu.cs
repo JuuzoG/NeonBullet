@@ -48,6 +48,5 @@ public class OptionsMenu : MonoBehaviour
 
     public void MouseMove(bool button)
     {
-        PlayerCharacterController.WorldMove = button;
     }
 }
