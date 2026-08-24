@@ -44207,6 +44207,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 7186639819559841407}
+  cam: {fileID: 1401194084495362197}
 --- !u!222 &7423195884727401066
 CanvasRenderer:
   m_ObjectHideFlags: 0

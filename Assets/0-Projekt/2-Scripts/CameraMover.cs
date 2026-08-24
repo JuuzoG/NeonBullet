@@ -3,7 +3,7 @@ using UnityEngine;
 public class CameraMover : MonoBehaviour
 {
     private Vector3 defaultPos;
-    public const float radius = 2f;
+    private const float radius = 0.1f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -20,6 +20,5 @@ public class CameraMover : MonoBehaviour
         {
             transform.position += direction*Time.deltaTime*5;
         }
-
     }
 }
