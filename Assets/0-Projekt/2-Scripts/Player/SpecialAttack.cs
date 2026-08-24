@@ -12,6 +12,9 @@ public class SpecialAttack : MonoBehaviour
     [Header("Dash Reference")]
     public DashAbility dashAbility;
 
+    [Header("Railgun")]
+    public Railgun railgun;
+
     [Header("UI Buttons")]
     public Button QButton;
     public Button DashButton;
@@ -63,14 +66,16 @@ public class SpecialAttack : MonoBehaviour
             cooldownImage.fillAmount = 0f;
         }
 
-
         if (Input.GetKeyDown(player.Ability))
             TriggerExplosion();
 
-  
         if (Input.GetKeyDown(player.Dash))
             TriggerDash();
+
+        if (Input.GetKeyDown(KeyCode.R))
+            FireRailgun();
     }
+
 
     public void TriggerExplosion()
     {
@@ -97,6 +102,27 @@ public class SpecialAttack : MonoBehaviour
 
         //dashAbility.Dash();
         StartCoroutine(FlashButton(DashButton));
+    }
+
+    public void FireRailgun()
+    {
+        Debug.Log("RAILGUN INPUT RECEIVED");
+
+        if (GameManager.instance.state == GameStates.GameOver)
+            return;
+
+        if (GameManager.instance.state == GameStates.paused)
+            return;
+
+        if (railgun == null)
+        {
+            Debug.LogError("SpecialAttack: Railgun component is NULL!");
+            return;
+        }
+
+        Debug.Log("Calling Railgun.Fire()");
+
+        railgun.Fire();
     }
 
     private IEnumerator FlashButton(Button button)

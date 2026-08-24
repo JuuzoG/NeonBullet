@@ -5,6 +5,7 @@ public class PlayerCharacterController : MonoBehaviour
     public Rigidbody rb;
     private Animator animator;
     private PlayerStats stats;
+    [SerializeField] private Transform cam;
     
 
     void Start()
@@ -32,9 +33,21 @@ public class PlayerCharacterController : MonoBehaviour
         // Move the Character
 
             float x = Input.GetAxisRaw("Horizontal");
-            float y = Input.GetAxisRaw("Vertical");        
-            Vector3 direction = (Vector3.right * -y + Vector3.forward * x).normalized + new Vector3(0,rb.linearVelocity.y,0);
-            rb.linearVelocity = direction * stats.movmentSpeed;
+            float y = Input.GetAxisRaw("Vertical");  
+
+            Vector3 camfoward =cam.forward;
+            Debug.Log(camfoward);
+            Vector3 camright =cam.right;
+            camfoward.y =0;
+            camright.y =0;
+
+            Vector3 forwardRealitive = y *camfoward;
+            Vector3 rightRealitive = x *camright;
+
+            Vector3 moveDir = forwardRealitive + rightRealitive;
+
+            rb.linearVelocity = new Vector3(moveDir.x,rb.linearVelocity.y, moveDir.z).normalized * stats.movmentSpeed;
+            
             animator.SetFloat("moveX", -y);
             animator.SetFloat("moveY", x);
               

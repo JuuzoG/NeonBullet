@@ -6,7 +6,7 @@ public class Projectile : MonoBehaviour
 
     private Rigidbody rb;
     private float lifetime = 2f;
-    private float speed = 5f;
+    public float speed = 5f;
     private float damage = 2f;
 
     private GameObject owner;

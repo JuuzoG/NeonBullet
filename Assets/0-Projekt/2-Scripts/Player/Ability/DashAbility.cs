@@ -26,20 +26,14 @@ public class DashAbility : MonoBehaviour
         }
         if (cooldownTimer > 0f) cooldownTimer -= Time.deltaTime;
     }
-    /*public void Dash()
+    public void Dash()
     {
         if(!isDashing && cooldownTimer <= 0f)
         {
-            float x = Input.GetAxisRaw("Horizontal");
-        float y = Input.GetAxisRaw("Vertical");
+        float x = Input.GetAxis("Horizontal");
+        float y = Input.GetAxis("Vertical");
 
-        if (playerCharCon.WorldMove)
-            dashDirection = (Vector3.right * -y + Vector3.forward * x).normalized;
-        else
-            dashDirection = (transform.forward * y + transform.right * x).normalized;
-
-        if (dashDirection == Vector3.zero)
-            dashDirection = playerCharCon.WorldMove ? transform.forward : transform.forward;
+        dashDirection = (transform.forward * y + transform.right * x).normalized;
 
         playerCharCon.rb.linearVelocity = new Vector3(dashDirection.x * dashSpeed, playerCharCon.rb.linearVelocity.y, dashDirection.z * dashSpeed);
 
@@ -48,5 +42,5 @@ public class DashAbility : MonoBehaviour
         cooldownTimer = dashCooldown;
         }
     }
-    */
+    
 }
