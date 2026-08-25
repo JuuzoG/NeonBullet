@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &775980054907015058
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5823946078096992288}
+  m_Layer: 9
+  m_Name: Firepoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5823946078096992288
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 775980054907015058}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.306, z: 0.407}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2826875819365874807}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1288793504491673423
 GameObject:
   m_ObjectHideFlags: 0
@@ -15,6 +46,7 @@ GameObject:
   - component: {fileID: 5239581649267997967}
   - component: {fileID: 3675448477761170151}
   - component: {fileID: 8251378932475390641}
+  - component: {fileID: 355284723980550203}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -38,6 +70,7 @@ Transform:
   - {fileID: 7871338852374177914}
   - {fileID: 1139681971737422451}
   - {fileID: 8994057407385876715}
+  - {fileID: 5823946078096992288}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &694019823877881294
@@ -86,7 +119,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.9
+  m_Radius: 0.4
   m_Height: 1.7
   m_Direction: 1
   m_Center: {x: 0, y: 0.85, z: 0}
@@ -124,7 +157,7 @@ MonoBehaviour:
   Inventar: 105
   Dash: 324
   Menu: 27
-  projectilePrefab: {fileID: 4605803923660264602, guid: 8fe629540e53875488b308e440badb8e, type: 3}
+  projectilePrefab: {fileID: 4211037239739974104, guid: e27b5cc94ba2dbe4892cad2857965b00, type: 3}
   ui: {fileID: 0}
   GameOverScreen: {fileID: 0}
 --- !u!114 &3675448477761170151
@@ -142,8 +175,8 @@ MonoBehaviour:
   energyCost: 5
   cooldownTime: 2
   attackPrefab: {fileID: 5248535632084003900, guid: 742f454fe152eee4bb0219b7e33aa488, type: 3}
-  dashAbility: {fileID: 0}
-  railgun: {fileID: 0}
+  dashAbility: {fileID: 8251378932475390641}
+  railgun: {fileID: 355284723980550203}
   QButton: {fileID: 0}
   DashButton: {fileID: 0}
   cooldownImage: {fileID: 0}
@@ -165,6 +198,26 @@ MonoBehaviour:
   dashSpeed: 20
   dashDuration: 0.15
   dashCooldown: 1
+--- !u!114 &355284723980550203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1288793504491673423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7afe161b78a6ab0419e55ef9f8277dbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  range: 100
+  damage: 2
+  wallLayers:
+    serializedVersion: 2
+    m_Bits: 2048
+  beamPrefab: {fileID: 4211037239739974104, guid: e1132e6e6d3448646b1b05cf66c66461, type: 3}
+  beamDuration: 0.1
+  firePoint: {fileID: 5823946078096992288}
 --- !u!1 &7581729570333961178
 GameObject:
   m_ObjectHideFlags: 0

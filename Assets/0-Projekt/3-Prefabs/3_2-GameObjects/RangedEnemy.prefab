@@ -2357,7 +2357,7 @@ MonoBehaviour:
   aggroRange: 15
   attackRange: 5
   attackCooldown: 1.5
-  projectilePrefab: {fileID: 8001054034615774265, guid: 6101f247c2aece14c80d062cd5b5d32c, type: 3}
+  projectilePrefab: {fileID: 1471544382547029596, guid: 6101f247c2aece14c80d062cd5b5d32c, type: 3}
   shootPoint: {fileID: 5459326984448798912}
   audioSource: {fileID: 7039233019486543615}
   shootSound: {fileID: 0}
