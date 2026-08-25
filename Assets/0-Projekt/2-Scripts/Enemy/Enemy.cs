@@ -57,9 +57,7 @@ public class Enemy : MonoBehaviour, IDamageable
         if (distance <= stats.aggroRange)
         {
             attacking = true;
-            currentState = enemystate.chasing;
             animator.SetTrigger("attacking");
-            
 
             if (CanUseAgent())
                 agent.isStopped = true;
@@ -70,6 +68,7 @@ public class Enemy : MonoBehaviour, IDamageable
             {
                 agent.isStopped = false;
                 agent.SetDestination(player.transform.position);
+                currentState = enemystate.chasing;
             }
         }
         healthbar.fillAmount = health /stats.maxHealth;
@@ -148,7 +147,6 @@ public class Enemy : MonoBehaviour, IDamageable
         this.enabled = false;
         
     }
-
 
     public void Attack()
     {

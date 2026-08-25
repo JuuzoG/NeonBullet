@@ -7,7 +7,7 @@ public class LaserWall : MonoBehaviour
     {
         IDamageable damageable = collision.gameObject.GetComponentInParent<IDamageable>();
 
-        if (damageable != null)
+        if (damageable != null && !collision.gameObject.CompareTag("Enemy"))
         {
             damageable.TakeDamage(new DamageInfo(damage));
         }
