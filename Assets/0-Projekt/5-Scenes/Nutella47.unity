@@ -32032,6 +32032,8 @@ GameObject:
   - component: {fileID: 179296702859047211}
   - component: {fileID: 4286457092328892150}
   - component: {fileID: 4197785735290477637}
+  - component: {fileID: 7394514175606921185}
+  - component: {fileID: 7394514175606921186}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -41362,6 +41364,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8533f15b19046684bb3c99e26314b26e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boundBoxWidth: 400
+  boundBoxHeight: 250
+  mousePanSpeed: 10
+  maxMouseOffset: 100
 --- !u!222 &6056339956382482556
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -48192,6 +48198,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 7186639819559841407}
   cam: {fileID: 1401194084495362197}
+--- !u!114 &7394514175606921185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2834042571401668006}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d47b7c8fba664bc4ab3a867275275820, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeTime: 2
+  meshRefreshRate: 0.1
+  meshDestroyDelay: 3
+  mat: {fileID: 2100000, guid: c412548d5e5688c4cb15406002a0522a, type: 2}
+--- !u!114 &7394514175606921186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2834042571401668006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 847e3d4a6e481af4ba47570eb6bfd8f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentWeapon: 0
 --- !u!222 &7423195884727401066
 CanvasRenderer:
   m_ObjectHideFlags: 0
