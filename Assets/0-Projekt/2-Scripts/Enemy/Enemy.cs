@@ -17,6 +17,7 @@ public class Enemy : MonoBehaviour, IDamageable
     private float health;
     public bool attacking;
     private bool isDead;
+    public enemystate currentState;
 
     public Image healthbar;
 
@@ -56,7 +57,9 @@ public class Enemy : MonoBehaviour, IDamageable
         if (distance <= stats.aggroRange)
         {
             attacking = true;
+            currentState = enemystate.chasing;
             animator.SetTrigger("attacking");
+            
 
             if (CanUseAgent())
                 agent.isStopped = true;
@@ -170,9 +173,13 @@ public class Enemy : MonoBehaviour, IDamageable
         return agent != null && agent.enabled && agent.isOnNavMesh;
     }
 
-    enum enemystates
+    public void Patrol()
+    {
+
+    }
+}
+ public enum enemystate
     {
         patrolling,
         chasing,
     }
-}
