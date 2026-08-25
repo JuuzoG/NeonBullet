@@ -53,6 +53,7 @@ public class SpecialAttack : MonoBehaviour
     {
         if (GameManager.instance.state == GameStates.GameOver) return;
         if (GameManager.instance.state == GameStates.paused) return;
+        if (GameManager.instance.state == GameStates.hacking) return;
 
         cooldown -= Time.deltaTime;
 

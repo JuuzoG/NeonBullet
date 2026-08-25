@@ -20,6 +20,7 @@ public class PlayerCharacterController : MonoBehaviour
     {   
         if (GameManager.instance.state == GameStates.GameOver) return;
         if (GameManager.instance.state == GameStates.paused) return;
+        if (GameManager.instance.state == GameStates.hacking) return;
         
         // Look towards the Mouse
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
