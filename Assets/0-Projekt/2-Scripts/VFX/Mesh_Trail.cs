@@ -8,17 +8,21 @@ public class Mesh_Trail : MonoBehaviour
     [Header("Mesh Related")]
     public float meshRefreshRate = 0.1f;
     public float meshDestroyDelay = 3f;
-    public Transform positionToSpawn;
+    private Transform positionToSpawn;
 
     [Header("Shader Related")]
     public Material mat;
-    public string shaderVarRef;
-    public float shaderVarRate = 0.1f;
-    public float shaderVarRefreshRate = 0.05f;
+    private string shaderVarRef = "_Alpha";
+    private float shaderVarRate = 0.5f;
+    private float shaderVarRefreshRate = 0.5f;
 
     private bool isTrailActive;
     private SkinnedMeshRenderer[] skinnedMeshRenderers;
 
+    void Start()
+    {
+        positionToSpawn = GetComponent<Transform>();
+    }
 
     void Update()
     {
