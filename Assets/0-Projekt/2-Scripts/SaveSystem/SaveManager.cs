@@ -119,8 +119,19 @@ public class SaveManager : MonoBehaviour
 
         if (player != null)
         {
-            player.transform.position = new Vector3(data.posX, data.posY, data.posZ);
-            player.transform.rotation = Quaternion.Euler(0, data.rotY, 0);
+            Rigidbody rb = player.GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                rb.linearVelocity = Vector3.zero;
+                rb.angularVelocity = Vector3.zero;
+                rb.position = new Vector3(data.posX, data.posY, data.posZ);
+                rb.rotation = Quaternion.Euler(0, data.rotY, 0);
+            }
+            else
+            {
+                player.transform.position = new Vector3(data.posX, data.posY, data.posZ);
+                player.transform.rotation = Quaternion.Euler(0, data.rotY, 0);
+            }
 
             player.munition = data.munition;
             player.GainHealth(player.stats.maxHealth);

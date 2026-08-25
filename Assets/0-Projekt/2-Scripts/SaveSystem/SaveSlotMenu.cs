@@ -121,7 +121,7 @@ public class SaveSlotMenu : MonoBehaviour
             if (sb.label != null)
             {
                 sb.label.text = data != null
-                    ? $"Slot {sb.slotIndex + 1}\n{data.savedAt}"
+                    ? $"{data.savedAt:MMM dd, yyyy}"
                     : $"Empty";
             }
 
