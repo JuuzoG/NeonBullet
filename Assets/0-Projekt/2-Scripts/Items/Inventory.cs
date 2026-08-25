@@ -28,6 +28,8 @@ public class Inventory : MonoBehaviour
             return;
         if (GameManager.instance.state == GameStates.paused)
             return;
+        if (GameManager.instance.state == GameStates.hacking)
+            return;
 
         if (Input.GetKeyDown(player.Inventar))
         {
