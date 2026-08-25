@@ -15,8 +15,6 @@ public class Mesh_Trail : MonoBehaviour
     private string shaderVarRef = "_Alpha";
     private float shaderVarRate = 0.5f;
     private float shaderVarRefreshRate = 0.5f;
-
-    private bool isTrailActive;
     private SkinnedMeshRenderer[] skinnedMeshRenderers;
 
     void Start()
@@ -26,12 +24,7 @@ public class Mesh_Trail : MonoBehaviour
 
     void Update()
     {
-       
-        
-            isTrailActive = true;
-            StartCoroutine(ActivateTrail(activeTime));
-        
-        
+        StartCoroutine(ActivateTrail(activeTime));
     }
 
     IEnumerator ActivateTrail(float timeActive)
@@ -65,8 +58,6 @@ public class Mesh_Trail : MonoBehaviour
 
             yield return new WaitForSeconds(meshRefreshRate);
         }
-
-        isTrailActive = false;
     }
     IEnumerator AnimatedMaterialFloat (Material mat, float goal, float rate, float refreshRate)
     {
