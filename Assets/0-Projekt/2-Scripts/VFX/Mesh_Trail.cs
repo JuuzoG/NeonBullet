@@ -19,11 +19,13 @@ public class Mesh_Trail : MonoBehaviour
         
     }
 
-    IEnumerator ActivateTrail (float timeActive)
+    IEnumerator ActivateTrail(float timeActive)
     {
         while (timeActive  > 0)
         {
             timeActive -= meshRefreshRate;
+            yield return new WaitForSeconds(meshRefreshRate);
+
         }
     }
 }
