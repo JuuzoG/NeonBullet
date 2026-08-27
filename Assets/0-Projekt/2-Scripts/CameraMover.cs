@@ -20,7 +20,6 @@ public class CameraMover : MonoBehaviour
     {
         Vector3 playerPosition = GameManager.instance.player.transform.position;
 
-        // Base follow (unchanged from your original)
         Vector3 direction = playerPosition - transform.position + defaultPos;
         if (direction.magnitude > radius)
         {
@@ -56,10 +55,8 @@ public class CameraMover : MonoBehaviour
             panZ = Mathf.Sign(offsetX) * Mathf.Clamp01(over);
         }
 
-        // Move directly from the camera's current position
         Vector3 desiredPos = transform.position + new Vector3(panX, 0f, panZ) * mousePanSpeed * Time.deltaTime;
 
-        // Clamp relative to the player, so the camera can never drift more than maxMouseOffset away from them
         Vector3 fromPlayer = desiredPos - playerPosition;
         fromPlayer = Vector3.ClampMagnitude(fromPlayer, maxMouseOffset);
 

@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class WeaponSelector : MonoBehaviour
@@ -5,9 +6,9 @@ public class WeaponSelector : MonoBehaviour
     public enum WeaponType
     {
         Pistol = 0,
-        Shotgun = 1,
-        Rifle = 2,
-        Melee = 3
+        Railgun = 1,
+        //Rifle = 2,
+        //Melee = 3
     }
 
     [SerializeField] private WeaponType currentWeapon = WeaponType.Pistol;
@@ -15,6 +16,7 @@ public class WeaponSelector : MonoBehaviour
 
     void Start()
     {
+        GameManager.instance.WeaponSelect = this;
         weaponCount = System.Enum.GetValues(typeof(WeaponType)).Length;
         SelectWeapon((int)currentWeapon);
     }
@@ -49,18 +51,10 @@ public class WeaponSelector : MonoBehaviour
                 EquipPistol();
                 break;
 
-            case WeaponType.Shotgun:
-                EquipShotgun();
+            case WeaponType.Railgun:
+                EquipRailgun();
                 break;
-
-            case WeaponType.Rifle:
-                EquipRifle();
-                break;
-
-            case WeaponType.Melee:
-                EquipMelee();
-                break;
-
+            
             default:
                 Debug.LogWarning($"WeaponSelector: No case handled for index {weaponIndex}");
                 break;
@@ -72,9 +66,9 @@ public class WeaponSelector : MonoBehaviour
         Debug.Log("Pistol equipped");
     }
 
-    private void EquipShotgun()
+    private void EquipRailgun()
     {
-        Debug.Log("Shotgun equipped");
+        Debug.Log("Railgun equipped");
     }
 
     private void EquipRifle()

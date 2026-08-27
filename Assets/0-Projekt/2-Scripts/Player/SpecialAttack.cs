@@ -9,23 +9,15 @@ public class SpecialAttack : MonoBehaviour
     public float cooldownTime;
     public GameObject attackPrefab;
 
-    [Header("Dash Reference")]
-    public DashAbility dashAbility;
-
-    [Header("Railgun")]
-    public Railgun railgun;
+    [Header("Weapons")]
+    private Railgun railgun;
 
     [Header("UI Buttons")]
     public Button QButton;
-    public Button DashButton;
+    public Button EButton;
 
     [Header("Cooldown UI")]
     [SerializeField] private Image cooldownImage;
-
-    [Header("Flash Colors")]
-    [SerializeField] private Color pressedColor = Color.yellow;
-    [SerializeField] private Color normalColor = Color.white;
-    [SerializeField] private float flashDuration = 0.15f;
 
     private Player player;
     private float cooldown = 1f;
@@ -34,19 +26,16 @@ public class SpecialAttack : MonoBehaviour
     void Start()
     {
         player = GetComponent<Player>();
+        railgun = GetComponent<Railgun>();
 
         if (QButton != null)
             QButton.onClick.AddListener(TriggerExplosion);
-        if (DashButton != null)
-            DashButton.onClick.AddListener(TriggerDash);
     }
 
     void OnDestroy()
     {
         if (QButton != null)
             QButton.onClick.RemoveListener(TriggerExplosion);
-        if (DashButton != null)
-            DashButton.onClick.RemoveListener(TriggerDash);
     }
 
     void Update()
@@ -67,13 +56,10 @@ public class SpecialAttack : MonoBehaviour
             cooldownImage.fillAmount = 0f;
         }
 
-        if (Input.GetKeyDown(player.Ability))
+        if (Input.GetKeyDown(player.Q))
             TriggerExplosion();
 
-        if (Input.GetKeyDown(player.Dash))
-            TriggerDash();
-
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(player.E))
             FireRailgun();
     }
 
@@ -92,17 +78,6 @@ public class SpecialAttack : MonoBehaviour
 
         cooldown = cooldownTime;
         player.GainEnergy(-energyCost);
-        StartCoroutine(FlashButton(QButton));
-    }
-
-    public void TriggerDash()
-    {
-        if (GameManager.instance.state == GameStates.GameOver) return;
-        if (GameManager.instance.state == GameStates.paused) return;
-        if (dashAbility == null) return;
-
-        //dashAbility.Dash();
-        StartCoroutine(FlashButton(DashButton));
     }
 
     public void FireRailgun()
@@ -124,13 +99,5 @@ public class SpecialAttack : MonoBehaviour
         Debug.Log("Calling Railgun.Fire()");
 
         railgun.Fire();
-    }
-
-    private IEnumerator FlashButton(Button button)
-    {
-        if (button == null) yield break;
-        button.image.color = pressedColor;
-        yield return new WaitForSecondsRealtime(flashDuration);
-        button.image.color = normalColor;
     }
 }

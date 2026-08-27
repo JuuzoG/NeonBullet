@@ -11,9 +11,9 @@ public class Player : MonoBehaviour, IDamageable
 
     [Header("Input")]
     public KeyCode shot;
-    public KeyCode Ability;
+    public KeyCode E;
     public KeyCode Inventar;
-    public KeyCode Dash;
+    public KeyCode Q;
     public KeyCode Menu;
 
     [Header("Additionals")]

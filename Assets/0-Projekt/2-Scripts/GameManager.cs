@@ -5,6 +5,7 @@ public class GameManager : MonoBehaviour
 {
     public GameStates state = GameStates.inGame;
     public Inventory inventory;
+    public WeaponSelector WeaponSelect;
     public Player player;
     public static GameManager instance;
 
