@@ -17,6 +17,7 @@ public class Cursor : MonoBehaviour
     private Player player;
     private Animations cursorAnim;
     private Color mouseColor;
+    private WeaponSelector selectedWeapon;
 
     private void Start()
     {
@@ -25,6 +26,7 @@ public class Cursor : MonoBehaviour
         player = playerGEt.GetComponent<Player>();
         cursorImage = cursorObj.GetComponent<Image>();
         cursorAnim = cursorObj.GetComponent<Animations>();
+        selectedWeapon = GameManager.instance.WeaponSelect;
     }
 
     private void Awake()
