@@ -8,8 +8,13 @@ public class Animations : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
-    public void CursorAnim(string animName)
+    public void CursorAnim()
     {
-        anim.SetTrigger(animName);
+        anim.SetBool("shot",true);
+    }
+
+    public void CursorEvent()
+    {
+        anim.SetBool("shot",false);
     }
 }

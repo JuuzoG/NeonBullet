@@ -7,13 +7,12 @@ public class WeaponSelector : MonoBehaviour
     {
         Pistol = 0,
         Railgun = 1,
-        Rifle = 2,
-        Melee = 3
+        //Rifle = 2,
+        //Melee = 3
     }
 
     [SerializeField] private WeaponType currentWeapon = WeaponType.Pistol;
-    public int weaponCount;
-    public int CurrentWeaponIndex => (int)currentWeapon;
+    private int weaponCount;
 
     void Start()
     {

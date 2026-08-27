@@ -5,38 +5,28 @@ using UnityEngine.UI;
 //von AI | bedeute das AI es erklärte hat.
 public class Cursor : MonoBehaviour
 {
-    
-    [SerializeField] private InputActionReference pointerPositionAction; //InputSystem UI/Point
-    [SerializeField] private TMP_Text textField; //Amo count
-    [SerializeField] private GameObject cursorObj; //Object with Animation.cs, Image(Cursor) and Animator
-    [SerializeField] private GameObject idleRailgun;
-
-    [Header("private")]
+    [SerializeField]
+    private InputActionReference pointerPositionAction; //InputSystem UI/Point
     private RectTransform _cursorTransform; // die position des Cursor Object
     private Canvas _parentCanvas; // Canvas, in dem sich der Cursor befindet
     private RectTransform _canvasRectTransform; // RectTransform des Canvas, für Koordinatenumrechnung | von AI
     private Camera _canvasCamera; // Die Kamera
-    [Header("")]
+    public TMP_Text textField; //Amo count
+    public GameObject cursorObj; //Object with Animation.cs, Image(Cursor) and Animator
     private Image cursorImage;
-    private Animations cursorAnim;
-    private Image idleRailgunImage;
-    private Animations idleRailgunAnim;
-    private Color mouseColor;
-    [Header("Scripts")]
     private Player player;
+    private Animations cursorAnim;
+    private Color mouseColor;
     private WeaponSelector selectedWeapon;
 
     private void Start()
     {
         //alles nötige wird gefunden
-        player = GameManager.instance.player;
-        selectedWeapon = GameManager.instance.WeaponSelect;
-
+        GameObject playerGEt = GameObject.FindGameObjectWithTag("Player");
+        player = playerGEt.GetComponent<Player>();
         cursorImage = cursorObj.GetComponent<Image>();
         cursorAnim = cursorObj.GetComponent<Animations>();
-
-        idleRailgunImage = idleRailgun.GetComponent<Image>();
-        idleRailgunAnim = idleRailgun.GetComponent<Animations>();
+        selectedWeapon = GameManager.instance.WeaponSelect;
     }
 
     private void Awake()
@@ -81,25 +71,9 @@ public class Cursor : MonoBehaviour
         else
         textField.text = "";
 
-        if(selectedWeapon.CurrentWeaponIndex == 1) ;
-
         if (Input.GetKeyDown(player.shot)) //Schuss-Animation abspielen
         {
-            switch (selectedWeapon.CurrentWeaponIndex)
-            {
-                case 0:
-                    cursorAnim.CursorAnim("Pistol");
-                    break;
-                case 1:
-                    cursorAnim.CursorAnim("Railgun");
-                    break;
-                case 2:
-                    cursorAnim.CursorAnim("Rifle");
-                    break;
-                default:
-                    Debug.Log("Oh shit",this);
-                    break;
-            }
+            cursorAnim.CursorAnim();
         }
         else // Farbe von Text und Cursor je nach verbleibender Munition ändern
         {
