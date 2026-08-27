@@ -30859,6 +30859,7 @@ GameObject:
   - component: {fileID: 4197785735290477637}
   - component: {fileID: 7394514175606921185}
   - component: {fileID: 7394514175606921186}
+  - component: {fileID: 7394514175606921187}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -44378,7 +44379,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2834042571401668006}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d47b7c8fba664bc4ab3a867275275820, type: 3}
   m_Name: 
@@ -44400,6 +44401,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentWeapon: 0
+  weaponCount: 0
+--- !u!114 &7394514175606921187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2834042571401668006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7afe161b78a6ab0419e55ef9f8277dbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  range: 100
+  damage: 2
+  wallLayers:
+    serializedVersion: 2
+    m_Bits: 2048
+  beamPrefab: {fileID: 4211037239739974104, guid: e1132e6e6d3448646b1b05cf66c66461, type: 3}
+  beamDuration: 0.1
+  firePoint: {fileID: 1998989678266176774}
 --- !u!222 &7423195884727401066
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -9,9 +9,6 @@ public class SpecialAttack : MonoBehaviour
     public float cooldownTime;
     public GameObject attackPrefab;
 
-    [Header("Weapons")]
-    private Railgun railgun;
-
     [Header("UI Buttons")]
     public Button QButton;
     public Button EButton;
@@ -26,7 +23,6 @@ public class SpecialAttack : MonoBehaviour
     void Start()
     {
         player = GetComponent<Player>();
-        railgun = GetComponent<Railgun>();
 
         if (QButton != null)
             QButton.onClick.AddListener(TriggerExplosion);
@@ -58,9 +54,6 @@ public class SpecialAttack : MonoBehaviour
 
         if (Input.GetKeyDown(player.Q))
             TriggerExplosion();
-
-        if (Input.GetKeyDown(player.E))
-            FireRailgun();
     }
 
 
@@ -78,26 +71,5 @@ public class SpecialAttack : MonoBehaviour
 
         cooldown = cooldownTime;
         player.GainEnergy(-energyCost);
-    }
-
-    public void FireRailgun()
-    {
-        Debug.Log("RAILGUN INPUT RECEIVED");
-
-        if (GameManager.instance.state == GameStates.GameOver)
-            return;
-
-        if (GameManager.instance.state == GameStates.paused)
-            return;
-
-        if (railgun == null)
-        {
-            Debug.LogError("SpecialAttack: Railgun component is NULL!");
-            return;
-        }
-
-        Debug.Log("Calling Railgun.Fire()");
-
-        railgun.Fire();
     }
 }

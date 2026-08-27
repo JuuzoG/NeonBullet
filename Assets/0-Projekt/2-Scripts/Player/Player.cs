@@ -1,3 +1,4 @@
+using System.ComponentModel.Design;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -20,10 +21,13 @@ public class Player : MonoBehaviour, IDamageable
     public GameObject projectilePrefab;
     public HubUI ui;
     public GameObject GameOverScreen;
+    [Header("Weapons")]
+    private Railgun railgun;
 
     void Start()
     {
         GameOverScreen.SetActive(false);
+        railgun = GetComponent<Railgun>();
     }
 
     void Awake()
@@ -48,17 +52,19 @@ public class Player : MonoBehaviour, IDamageable
 
         if (Input.GetKeyDown(shot) && munition > 0)
         {
-            Vector3 position =
-                new Vector3(transform.position.x,transform.position.y+1.5f,transform.position.z);
-
-            GameObject proj =
-                Instantiate(projectilePrefab, position, transform.rotation);
-
-            Projectile p = proj.GetComponent<Projectile>();
-            if (p != null)
-                p.SetOwner(gameObject);
-
-            munition--;
+            switch (GameManager.instance.WeaponSelect.CurrentWeaponIndex)
+            {
+                case 0:
+                    Vector3 position = new Vector3(transform.position.x,transform.position.y+1.5f,transform.position.z);
+                    GameObject proj = Instantiate(projectilePrefab, position, transform.rotation);
+                    Projectile p = proj.GetComponent<Projectile>();
+                    if (p != null) p.SetOwner(gameObject);
+                    munition--;
+                    break;
+                case 1:
+                    railgun.Fire();
+                    break;
+            }
         }
         GainEnergy(stats.energyRecoverRate * Time.deltaTime);
     }
