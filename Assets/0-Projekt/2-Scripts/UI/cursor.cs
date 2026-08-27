@@ -19,8 +19,6 @@ public class Cursor : MonoBehaviour
     [Header("")]
     private Image cursorImage;
     private Animations cursorAnim;
-    private Image idleRailgunImage;
-    private Animations idleRailgunAnim;
     private Color mouseColor;
     [Header("Scripts")]
     private Player player;
@@ -31,12 +29,10 @@ public class Cursor : MonoBehaviour
         //alles nötige wird gefunden
         player = GameManager.instance.player;
         selectedWeapon = GameManager.instance.WeaponSelect;
+        idleRailgun.SetActive(false);
 
         cursorImage = cursorObj.GetComponent<Image>();
         cursorAnim = cursorObj.GetComponent<Animations>();
-
-        idleRailgunImage = idleRailgun.GetComponent<Image>();
-        idleRailgunAnim = idleRailgun.GetComponent<Animations>();
     }
 
     private void Awake()
@@ -81,7 +77,8 @@ public class Cursor : MonoBehaviour
         else
         textField.text = "";
 
-        if(selectedWeapon.CurrentWeaponIndex == 1) ;
+        if(selectedWeapon.CurrentWeaponIndex == 1) idleRailgun.SetActive(true);
+        else idleRailgun.SetActive(false);
 
         if (Input.GetKeyDown(player.shot)) //Schuss-Animation abspielen
         {

@@ -8,16 +8,19 @@ public class WeaponSelector : MonoBehaviour
         Pistol = 0,
         Railgun = 1,
         Rifle = 2,
-        Melee = 3
     }
 
     [SerializeField] private WeaponType currentWeapon = WeaponType.Pistol;
     public int weaponCount;
-    public int CurrentWeaponIndex => (int)currentWeapon;
+    public int CurrentWeaponIndex;
+
+    void Awake()
+    {
+        GameManager.instance.WeaponSelect = this;
+    }
 
     void Start()
     {
-        GameManager.instance.WeaponSelect = this;
         weaponCount = System.Enum.GetValues(typeof(WeaponType)).Length;
         SelectWeapon((int)currentWeapon);
     }
@@ -27,6 +30,8 @@ public class WeaponSelector : MonoBehaviour
         if (GameManager.instance.state == GameStates.GameOver) return;
         if (GameManager.instance.state == GameStates.paused) return;
         if (GameManager.instance.state == GameStates.hacking) return;
+
+        CurrentWeaponIndex = (int)currentWeapon;
 
         float scroll = Input.GetAxis("Mouse ScrollWheel");
 
@@ -55,9 +60,8 @@ public class WeaponSelector : MonoBehaviour
             case WeaponType.Railgun:
                 EquipRailgun();
                 break;
-            
-            default:
-                Debug.LogWarning($"WeaponSelector: No case handled for index {weaponIndex}");
+            case WeaponType.Rifle:
+                EquipRifle();
                 break;
         }
     }
@@ -75,10 +79,5 @@ public class WeaponSelector : MonoBehaviour
     private void EquipRifle()
     {
         Debug.Log("Rifle equipped");
-    }
-
-    private void EquipMelee()
-    {
-        Debug.Log("Melee equipped");
     }
 }

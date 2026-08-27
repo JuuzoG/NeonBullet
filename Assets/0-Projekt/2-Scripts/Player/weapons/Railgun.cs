@@ -14,9 +14,12 @@ public class Railgun : MonoBehaviour
     [SerializeField] private float beamDuration = 0.1f;
 
     [Header("Fire Point")]
-    [SerializeField] private Transform firePoint;
+    private Transform firePoint;
 
-
+    void Start()
+    {
+        firePoint = GetComponent<Transform>();
+    }
     public void Fire()
     {
         Debug.Log("RAILGUN PEWW");
