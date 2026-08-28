@@ -8,7 +8,7 @@ public class Cursor : MonoBehaviour
     
     [SerializeField] private InputActionReference pointerPositionAction; //InputSystem UI/Point
     [SerializeField] private TMP_Text textField; //Amo count
-    [SerializeField] private GameObject cursorObj; //Object with Animation.cs, Image(Cursor) and Animator
+    [SerializeField] private GameObject[] cursorObj; //Object with Animation.cs, Image(Cursor) and Animator
     [SerializeField] private GameObject idleRailgun;
 
     [Header("private")]
@@ -17,8 +17,8 @@ public class Cursor : MonoBehaviour
     private RectTransform _canvasRectTransform; // RectTransform des Canvas, für Koordinatenumrechnung | von AI
     private Camera _canvasCamera; // Die Kamera
     [Header("")]
-    private Image cursorImage;
-    private Animations cursorAnim;
+    private Image[] cursorImage;
+    private Animations[] cursorAnim;
     private Color mouseColor;
     [Header("Scripts")]
     private Player player;
@@ -26,13 +26,17 @@ public class Cursor : MonoBehaviour
 
     private void Start()
     {
-        //alles nötige wird gefunden
         player = GameManager.instance.player;
         selectedWeapon = GameManager.instance.WeaponSelect;
         idleRailgun.SetActive(false);
 
-        cursorImage = cursorObj.GetComponent<Image>();
-        cursorAnim = cursorObj.GetComponent<Animations>();
+        cursorImage = new Image[cursorObj.Length];
+        cursorAnim = new Animations[cursorObj.Length];
+        for (int i = 0; i < cursorObj.Length; i++)
+        {
+            cursorImage[i] = cursorObj[i].GetComponent<Image>();
+            cursorAnim[i] = cursorObj[i].GetComponent<Animations>();
+        }
     }
 
     private void Awake()
@@ -72,38 +76,45 @@ public class Cursor : MonoBehaviour
 
     private void Update()
     {
-        if (GameManager.instance.state == GameStates.inGame) // Munitionsanzeige nur während des Spiels anzeigen, sonst leer lassen
+        if (GameManager.instance.state == GameStates.inGame && selectedWeapon.CurrentWeaponIndex == 0 || selectedWeapon.CurrentWeaponIndex == 2) // Munitionsanzeige nur während des Spiels anzeigen, sonst leer lassen
         textField.text = "" + player.munition;
-        else
+        else 
         textField.text = "";
+
+        if (selectedWeapon.CurrentWeaponIndex == 2)
+        {
+            textField.rectTransform.anchoredPosition3D = new Vector3(112.15f,43.74f,0f);
+        }
+        else textField.rectTransform.anchoredPosition3D = new Vector3(75.3f, 65.1f, 0f);
 
         if(selectedWeapon.CurrentWeaponIndex == 1) idleRailgun.SetActive(true);
         else idleRailgun.SetActive(false);
 
-        if (Input.GetKeyDown(player.shot)) //Schuss-Animation abspielen
-        {
-            switch (selectedWeapon.CurrentWeaponIndex)
+        if (player.munition == 0) {textField.color = new Color(1, 0, 0, 1); mouseColor = new Color(1, 1, 1, 0.3f);}
+        else if (player.munition <= 5) {textField.color = new Color(1, 0.92f, 0.016f, 1); mouseColor = new Color(1, 1, 1, 1);}
+        else {textField.color = new Color(1, 1, 1, 1); mouseColor = new Color(1, 1, 1, 1);}
+        cursorImage[selectedWeapon.CurrentWeaponIndex].color = mouseColor;
+
+        switch (selectedWeapon.CurrentWeaponIndex)
             {
                 case 0:
-                    cursorAnim.CursorAnim("Pistol");
+                    cursorObj[0].SetActive(true);
+                    cursorObj[1].SetActive(false);
+                    cursorObj[2].SetActive(false);
                     break;
                 case 1:
-                    cursorAnim.CursorAnim("Railgun");
+                    cursorObj[0].SetActive(false);
+                    cursorObj[1].SetActive(true);
+                    cursorObj[2].SetActive(false);
                     break;
                 case 2:
-                    cursorAnim.CursorAnim("Rifle");
+                    cursorObj[0].SetActive(false);
+                    cursorObj[1].SetActive(false);
+                    cursorObj[2].SetActive(true);
                     break;
                 default:
                     Debug.Log("Oh shit",this);
                     break;
-            }
-        }
-        else // Farbe von Text und Cursor je nach verbleibender Munition ändern
-        {
-            if (player.munition == 0) {textField.color = new Color(1, 0, 0, 1); mouseColor = new Color(1, 1, 1, 0.3f);}
-            else if (player.munition <= 5) {textField.color = new Color(1, 0.92f, 0.016f, 1); mouseColor = new Color(1, 1, 1, 1);}
-            else {textField.color = new Color(1, 1, 1, 1); mouseColor = new Color(1, 1, 1, 1);}
-            cursorImage.color = mouseColor;
-        }        
+            }    
     }
 }

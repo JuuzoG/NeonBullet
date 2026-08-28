@@ -7,7 +7,6 @@ public class GameManager : MonoBehaviour
     public Inventory inventory;
     public WeaponSelector WeaponSelect;
     public Player player;
-    public Animations AnimationCS;
     public static GameManager instance;
 
 
