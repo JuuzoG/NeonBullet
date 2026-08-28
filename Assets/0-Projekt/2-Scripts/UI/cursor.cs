@@ -104,8 +104,6 @@ public class Cursor : MonoBehaviour
             else if (player.munition <= 5) {textField.color = new Color(1, 0.92f, 0.016f, 1); mouseColor = new Color(1, 1, 1, 1);}
             else {textField.color = new Color(1, 1, 1, 1); mouseColor = new Color(1, 1, 1, 1);}
             cursorImage.color = mouseColor;
-        }
-
-        
+        }        
     }
 }

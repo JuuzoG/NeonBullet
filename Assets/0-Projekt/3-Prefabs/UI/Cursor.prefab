@@ -449,7 +449,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprites:
   - {fileID: 1651779105, guid: acf3ad1bc2fcbd8429986f0ab733e696, type: 3}
-  - {fileID: 1808184523, guid: 81ee2da1a5f9fcd4abb68d7c053e1364, type: 3}
+  - {fileID: -1309031498, guid: 81ee2da1a5f9fcd4abb68d7c053e1364, type: 3}
   - {fileID: 1443940957, guid: 40dee93682910684bb1cea69675cfe6b, type: 3}
 --- !u!222 &333932355009539789
 CanvasRenderer:
@@ -479,7 +479,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1808184523, guid: 81ee2da1a5f9fcd4abb68d7c053e1364, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

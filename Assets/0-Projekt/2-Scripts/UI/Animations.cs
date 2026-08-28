@@ -4,14 +4,14 @@ using UnityEngine.UI;
 public class Animations : MonoBehaviour
 {
     private Animator anim;
-    public Image image;
+    private Image image;
     public Sprite[] sprites;
-    public int bitch;
 
     void Start()
     {
+        GameManager.instance.AnimationCS = this;
         anim = GetComponent<Animator>();
-        //image = GetComponent<Image>();
+        image = GetComponent<Image>();
     }
 
     public void CursorAnim(string animName)
@@ -20,15 +20,8 @@ public class Animations : MonoBehaviour
         else anim.SetTrigger(animName);
     }
 
-    public void eventRifle()
-    {
-        anim.SetBool("Rifle",false);
-    }
-
     void Update()
     {
-        bitch=GameManager.instance.WeaponSelect.CurrentWeaponIndex;
-        image.sprite = sprites[bitch];
-        
+        image.sprite = sprites[2];
     }
 }

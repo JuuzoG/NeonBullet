@@ -125,8 +125,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5a39be86a79afda4f9310ca8b0d8be7d
-      internalID: 1808184523
+      spriteID: 5fbeee3f96470fc459513141f7a1d45c
+      internalID: -1309031498
       vertices: []
       indices: 
       edges: []
@@ -147,8 +147,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e146a91f630aef64aabaa460b9b145a0
-      internalID: 1925948169
+      spriteID: e16e2619040b526479be57ac8637edf6
+      internalID: 1384780333
       vertices: []
       indices: 
       edges: []
@@ -169,8 +169,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f51c34c507e0fe845ae3c7ebaadb0f3b
-      internalID: -721381936
+      spriteID: bb01609c469e39e40b5fc13ef430ee53
+      internalID: 723003628
       vertices: []
       indices: 
       edges: []
@@ -179,7 +179,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 6774fd99494c0614bbf88c05bfdfff64
+    spriteID: 01c2ff27f680feb489341f772e5663c6
     internalID: 0
     vertices: []
     indices: 
@@ -189,9 +189,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      RailgunCursor_0: 1808184523
-      RailgunCursor_1: 1925948169
-      RailgunCursor_2: -721381936
+      RailgunCursor_0: -1309031498
+      RailgunCursor_1: 1384780333
+      RailgunCursor_2: 723003628
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
