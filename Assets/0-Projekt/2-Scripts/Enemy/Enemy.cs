@@ -54,7 +54,7 @@ public class Enemy : MonoBehaviour, IDamageable
         if (distance > stats.detectionRange) return;
         if (enemyAlert != null) if (distance < stats.detectionRange) enemyAlert.SetActive(true);
 
-        if (distance <= stats.aggroRange)
+        if (distance > stats.aggroRange)
         {
             attacking = true;
             animator.SetTrigger("attacking");
