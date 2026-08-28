@@ -25641,7 +25641,6 @@ MonoBehaviour:
   inventory: {fileID: 7537596639096307325}
   WeaponSelect: {fileID: 0}
   player: {fileID: 179296702859047211}
-  AnimationCS: {fileID: 0}
 --- !u!198 &2490389233343066458
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -43443,10 +43442,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8650598146341559556, guid: 7c83354704832fc40bc222019de269af, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8829524522698369752, guid: 7c83354704832fc40bc222019de269af, type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
