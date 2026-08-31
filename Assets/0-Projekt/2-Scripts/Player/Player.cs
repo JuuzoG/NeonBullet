@@ -1,4 +1,6 @@
+using System.Collections;
 using System.ComponentModel.Design;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -23,6 +25,15 @@ public class Player : MonoBehaviour, IDamageable
     public GameObject GameOverScreen;
     [Header("Weapons")]
     private Railgun railgun;
+
+    [Header("Rifle Settings")]
+    public int rifleShotCount = 5;
+    public float rifleSpreadAngle = 5f;
+    public float rifleSpawnInterval = 0.05f;
+
+    [Header("Unlocked")]
+    public bool Rifle = true;
+    public bool Railgun = true;
 
     void Start()
     {
@@ -62,11 +73,40 @@ public class Player : MonoBehaviour, IDamageable
                     munition--;
                     break;
                 case 1:
+                    if (Railgun)
                     railgun.Fire();
+                    break;
+                case 2:
+                    if (Rifle)
+                    StartCoroutine(FireRifle());
                     break;
             }
         }
+        
         GainEnergy(stats.energyRecoverRate * Time.deltaTime);
+    }
+
+    IEnumerator FireRifle()
+    {
+        if (munition <= 0) yield break;
+        
+
+        int shotsToFire = Mathf.Min(munition, rifleShotCount);
+        munition -= shotsToFire;
+
+        Vector3 basePosition = new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z);
+
+        for (int i = 0; i < shotsToFire; i++)
+        {
+            float angleOffset = (i - (shotsToFire - 1) / 2f) * rifleSpreadAngle;
+            Quaternion rotation = transform.rotation * Quaternion.Euler(0, 0, angleOffset);
+
+            GameObject proj = Instantiate(projectilePrefab, basePosition, rotation);
+            Projectile p = proj.GetComponent<Projectile>();
+            if (p != null) p.SetOwner(gameObject);
+
+            yield return new WaitForSeconds(rifleSpawnInterval);
+        }
     }
 
     public void GainMunition(int amount)

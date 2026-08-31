@@ -1,11 +1,14 @@
 using UnityEngine;
 
-public class Item : MonoBehaviour
+public class GunPickup : MonoBehaviour
 {
     private const float pickUpRange = 3f;
     public GameObject nameDisplay;
     public ItemData itemData;
     public string pickupId;
+
+    [Tooltip("If isRailgun = true the player will get the Railgun, if isRailgun = false the player will get the Rifle")]
+    public bool isRailgun;
 
     void Start()
     {
@@ -26,12 +29,11 @@ public class Item : MonoBehaviour
         if (distance > pickUpRange) return;
         if (Input.GetKeyDown(KeyCode.E))
         {
-            GameManager.instance.inventory.CollectItem(itemData);
-            ItemNote.instance.Show(itemData.id);
-
+            if(isRailgun)
+            GameManager.instance.player.Railgun = true;
+            else GameManager.instance.player.Rifle = true;
             if (SaveManager.instance != null)
                 SaveManager.instance.MarkPickupCollected(pickupId);
-
             Destroy(gameObject);
         }
     }

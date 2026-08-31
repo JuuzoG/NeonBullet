@@ -49,35 +49,8 @@ public class WeaponSelector : MonoBehaviour
 
     public void SelectWeapon(int weaponIndex)
     {
+        if (GameManager.instance.player.Railgun || GameManager.instance.player.Rifle)
         currentWeapon = (WeaponType)weaponIndex;
-
-        switch (currentWeapon)
-        {
-            case WeaponType.Pistol:
-                EquipPistol();
-                break;
-
-            case WeaponType.Railgun:
-                EquipRailgun();
-                break;
-            case WeaponType.Rifle:
-                EquipRifle();
-                break;
-        }
-    }
-
-    private void EquipPistol()
-    {
-        Debug.Log("Pistol equipped");
-    }
-
-    private void EquipRailgun()
-    {
-        Debug.Log("Railgun equipped");
-    }
-
-    private void EquipRifle()
-    {
-        Debug.Log("Rifle equipped");
+        else return;
     }
 }

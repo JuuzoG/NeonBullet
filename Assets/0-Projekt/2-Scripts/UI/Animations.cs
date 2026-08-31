@@ -14,26 +14,20 @@ public class Animations : MonoBehaviour
         selectedWeapon = GameManager.instance.WeaponSelect;
     }
 
-    public void CursorAnim(string animName)
-    {
-        if(animName == "Rifle") anim.SetBool(animName,true);
-        else anim.SetTrigger(animName);
-    }
-
     void Update()
     {
-        if (Input.GetKeyDown(player.shot)) //Schuss-Animation abspielen
+        if (Input.GetKeyDown(player.shot))
         {
             switch (selectedWeapon.CurrentWeaponIndex)
             {
                 case 0:
-                    CursorAnim("Pistol");
+                    anim.SetTrigger("Pistol");
                     break;
                 case 1:
-                    CursorAnim("Railgun");
+                    anim.SetTrigger("Railgun");
                     break;
                 case 2:
-                    CursorAnim("Rifle");
+                    anim.SetTrigger("Rifle");
                     break;
                 default:
                     Debug.Log("Oh shit",this);
