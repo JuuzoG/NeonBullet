@@ -24,7 +24,7 @@ public class Item : MonoBehaviour
         Vector3 playerPosition = GameManager.instance.player.transform.position;
         float distance = (transform.position - playerPosition).magnitude;
         if (distance > pickUpRange) return;
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.F))
         {
             GameManager.instance.inventory.CollectItem(itemData);
             ItemNote.instance.Show(itemData.id);

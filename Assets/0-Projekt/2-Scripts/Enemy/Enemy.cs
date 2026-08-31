@@ -41,6 +41,7 @@ public class Enemy : MonoBehaviour, IDamageable
 
         if (GameManager.instance.state == GameStates.GameOver) return;
         if (GameManager.instance.state == GameStates.paused) return;
+        if (GameManager.instance.state == GameStates.hacking) return;
         if (health <= 0) return;
         if (attacking) return;
 

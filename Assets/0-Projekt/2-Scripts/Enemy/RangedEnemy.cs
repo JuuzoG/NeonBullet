@@ -49,6 +49,7 @@ public class RangedEnemy : MonoBehaviour, IDamageable
 
         if (GameManager.instance.state == GameStates.GameOver) return;
         if (GameManager.instance.state == GameStates.paused) return;
+        if (GameManager.instance.state == GameStates.hacking) return;
 
         if (!CanUseAgent()) return;
         if (player == null) return;
