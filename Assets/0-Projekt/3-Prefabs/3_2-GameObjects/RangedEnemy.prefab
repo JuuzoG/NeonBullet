@@ -2706,11 +2706,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3030277035677562709, guid: 19395f0d1c0dac14b9f4b3e935e316e9, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 150
+      value: 1.55
       objectReference: {fileID: 0}
     - target: {fileID: 3030277035677562709, guid: 19395f0d1c0dac14b9f4b3e935e316e9, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 20
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 3030277035677562709, guid: 19395f0d1c0dac14b9f4b3e935e316e9, type: 3}
       propertyPath: m_LocalPosition.x
