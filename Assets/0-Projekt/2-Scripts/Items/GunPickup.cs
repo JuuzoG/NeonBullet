@@ -4,7 +4,6 @@ public class GunPickup : MonoBehaviour
 {
     private const float pickUpRange = 3f;
     public GameObject nameDisplay;
-    public ItemData itemData;
     public string pickupId;
 
     [Tooltip("If isRailgun = true the player will get the Railgun, if isRailgun = false the player will get the Rifle")]

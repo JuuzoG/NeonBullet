@@ -140,6 +140,7 @@ public class Enemy : MonoBehaviour, IDamageable
         Destroy(GetComponent<Rigidbody>());
         Destroy(GetComponent<Collider>());
         Destroy(healthbar.transform.parent.gameObject, 0);
+        gameObject.tag = "none";
 
         GameObject loot = lootTable.GetDrop();
         if (loot != null)

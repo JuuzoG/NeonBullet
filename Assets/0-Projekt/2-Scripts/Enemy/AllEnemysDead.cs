@@ -24,9 +24,10 @@ public class AllEnemysDead : MonoBehaviour
 
     private void HandleTriggerEnter(Collider other)
     {
-        if (!string.IsNullOrEmpty(Tag) || !other.CompareTag(Tag))
+        if (string.IsNullOrEmpty(Tag) || other.CompareTag(Tag))
         {
-            Destroy(door);
+            Debug.Log("");
         }
+        else Destroy(door);
     }
 }
