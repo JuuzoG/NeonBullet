@@ -1,3 +1,4 @@
+using Unity.Mathematics;
 using UnityEngine;
 
 public class spawnDoor : MonoBehaviour
@@ -17,13 +18,18 @@ public class spawnDoor : MonoBehaviour
     {
         yes = Sec;
 
-        trigger.OnEnter += HandleTriggerEnter;
-        
+        if (trigger != null)
+        {
+            trigger.OnEnter += HandleTriggerEnter;
+        }
     }
 
     private void OnDestroy()
     {
-        trigger.OnEnter -= HandleTriggerEnter;
+        if (trigger != null)
+        {
+            trigger.OnEnter -= HandleTriggerEnter;
+        }
     }
 
     private void HandleTriggerEnter(Collider other)
@@ -50,7 +56,7 @@ public class spawnDoor : MonoBehaviour
 
     private void Spawn()
     {
-        Instantiate(enemy);
+        Instantiate(enemy,transform.position, Quaternion.identity);
         spawnedCount++;
     }
 }
