@@ -22,7 +22,7 @@ public class Railgun : MonoBehaviour
     }
     public void Fire()
     {
-        Debug.Log("RAILGUN PEWW");
+        //Debug.Log("RAILGUN PEWW");
 
         Vector3 start = firePoint != null
             ? firePoint.position
@@ -83,12 +83,7 @@ public class Railgun : MonoBehaviour
 
                 damageable.TakeDamage(info);
 
-                Debug.Log(
-                    "Railgun damaged " +
-                    hit.collider.name +
-                    " for " +
-                    damage
-                );
+                //Debug.Log("Railgun damaged " +hit.collider.name +" for " +damage);
             }
         }
 

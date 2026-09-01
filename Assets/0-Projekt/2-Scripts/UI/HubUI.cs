@@ -26,7 +26,7 @@ public class HubUI : MonoBehaviour
     public void UpdateHealth(int current, int max)
     {
         float percent = Mathf.Clamp01((float)current / max);
-        Debug.Log ( (percent).ToString());
+        //Debug.Log ( (percent).ToString());
 
         Vector4 padding = hpMask.padding;
 

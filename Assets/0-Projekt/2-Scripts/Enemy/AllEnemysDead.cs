@@ -1,51 +1,34 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class AllEnemysDead : MonoBehaviour
 {
-    [SerializeField] private TriggerRelay trigger;
     [SerializeField] private string enemyTag = "Enemy";
     [SerializeField] private GameObject door;
 
-    private int enemyCount;
+    private readonly HashSet<Collider> seenThisFrame = new HashSet<Collider>();
+    private bool everHadEnemy;
 
-    private void Start()
-    {
-        if (trigger != null)
-        {
-            trigger.OnEnter += HandleTriggerEnter;
-            trigger.OnExit += HandleTriggerExit;
-        }
-    }
-
-    private void OnDestroy()
-    {
-        if (trigger != null)
-        {
-            trigger.OnEnter -= HandleTriggerEnter;
-            trigger.OnExit -= HandleTriggerExit;
-        }
-    }
-
-    private void HandleTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag(enemyTag))
         {
-            enemyCount++;
-            Debug.Log(enabled);
+            seenThisFrame.Add(other);
         }
     }
 
-    private void HandleTriggerExit(Collider other)
+    private void FixedUpdate()
     {
-        if (other.CompareTag(enemyTag))
+        if (seenThisFrame.Count > 0)
         {
-            enemyCount--;
-            Debug.Log(enabled);
-
-            if (enemyCount <= 0 && door != null)
-            {
-                Destroy(door);
-            }
+            everHadEnemy = true;
         }
+        else if (everHadEnemy && door != null)
+        {
+            Destroy(door);
+            everHadEnemy = false;
+        }
+
+        seenThisFrame.Clear();
     }
 }
