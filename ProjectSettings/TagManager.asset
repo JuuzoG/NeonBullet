@@ -6,11 +6,12 @@ TagManager:
   tags:
   - Enemy
   - BulletE
+  - none
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Floor
   - Water
   - UI
   - cursor
@@ -20,7 +21,7 @@ TagManager:
   - Energy
   - Wall
   - Enemy
-  - 
+  - Obstacle
   - 
   - 
   - 
