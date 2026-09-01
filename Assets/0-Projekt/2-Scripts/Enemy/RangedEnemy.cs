@@ -189,6 +189,8 @@ public class RangedEnemy : MonoBehaviour, IDamageable
             Instantiate(loot, transform.position, Quaternion.identity);
 
         this.enabled = false;
+
+        gameObject.tag = "none";
     }
 
     private bool CanUseAgent()
