@@ -158,9 +158,9 @@ MonoBehaviour:
   health: 0
   munition: 20
   shot: 323
-  E: 0
+  E: 101
   Inventar: 105
-  Q: 0
+  Q: 113
   Menu: 27
   projectilePrefab: {fileID: 4211037239739974104, guid: e27b5cc94ba2dbe4892cad2857965b00, type: 3}
   muselVFX: {fileID: 3742435102200600178, guid: 23476d455f6b2de48a837f58e6f56402, type: 3}

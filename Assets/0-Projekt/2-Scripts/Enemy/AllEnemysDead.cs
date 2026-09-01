@@ -31,6 +31,7 @@ public class AllEnemysDead : MonoBehaviour
         if (other.CompareTag(enemyTag))
         {
             enemyCount++;
+            Debug.Log(enabled);
         }
     }
 
@@ -39,6 +40,7 @@ public class AllEnemysDead : MonoBehaviour
         if (other.CompareTag(enemyTag))
         {
             enemyCount--;
+            Debug.Log(enabled);
 
             if (enemyCount <= 0 && door != null)
             {
