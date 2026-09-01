@@ -20,7 +20,7 @@ public class EnemyHealthBar : MonoBehaviour
     void FindEnemy()
     {
         // Wir suchen zuerst nach dem Melee-Enemy
-        targetEnemy = GetComponentInParent<Enemy>();
+        targetEnemy = GetComponentInParent<EnemyOverhaul>();
         if (targetEnemy != null)
         {
             isRanged = false;
@@ -76,7 +76,7 @@ public class EnemyHealthBar : MonoBehaviour
             // Wir holen uns die Werte sicher über Reflection
             if (!isRanged)
             {
-                var enemyScript = (Enemy)targetEnemy;
+                var enemyScript = (EnemyOverhaul)targetEnemy;
                 currentHealth = (float)enemyScript.GetType()
                     .GetField("health", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)
                     .GetValue(enemyScript);
