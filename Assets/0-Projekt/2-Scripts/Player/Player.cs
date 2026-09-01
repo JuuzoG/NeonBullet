@@ -21,6 +21,7 @@ public class Player : MonoBehaviour, IDamageable
 
     [Header("Additionals")]
     public GameObject projectilePrefab;
+    [SerializeField] private GameObject muselVFX;
     public HubUI ui;
     public GameObject GameOverScreen;
     [Header("Weapons")]
@@ -34,6 +35,8 @@ public class Player : MonoBehaviour, IDamageable
     [Header("Unlocked")]
     public bool Rifle = true;
     public bool Railgun = true;
+
+    private Vector3 position;
 
     void Start()
     {
@@ -57,6 +60,7 @@ public class Player : MonoBehaviour, IDamageable
 
     void Update()
     {
+        position = new Vector3(transform.position.x,transform.position.y+1.5f,transform.position.z);
         if (GameManager.instance.state == GameStates.GameOver) return;
         if (GameManager.instance.state == GameStates.paused) return;
         if (GameManager.instance.state == GameStates.inventory) return;
@@ -66,10 +70,11 @@ public class Player : MonoBehaviour, IDamageable
             switch (GameManager.instance.WeaponSelect.CurrentWeaponIndex)
             {
                 case 0:
-                    Vector3 position = new Vector3(transform.position.x,transform.position.y+1.5f,transform.position.z);
+                    
                     GameObject proj = Instantiate(projectilePrefab, position, transform.rotation);
                     Projectile p = proj.GetComponent<Projectile>();
                     if (p != null) p.SetOwner(gameObject);
+                    Instantiate(muselVFX, position, Quaternion.identity);
                     munition--;
                     break;
                 case 1:
@@ -104,6 +109,7 @@ public class Player : MonoBehaviour, IDamageable
             GameObject proj = Instantiate(projectilePrefab, basePosition, rotation);
             Projectile p = proj.GetComponent<Projectile>();
             if (p != null) p.SetOwner(gameObject);
+            Instantiate(muselVFX, position, Quaternion.identity);
 
             yield return new WaitForSeconds(rifleSpawnInterval);
         }
