@@ -35502,12 +35502,20 @@ PrefabInstance:
       value: 2.311
       objectReference: {fileID: 0}
     - target: {fileID: 2774009562526456927, guid: dc2ace6a3e6e61946b58d5de6a3db2dd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2774009562526456927, guid: dc2ace6a3e6e61946b58d5de6a3db2dd, type: 3}
       propertyPath: m_LocalPosition.z
       value: 26.460007
       objectReference: {fileID: 0}
     - target: {fileID: 5710718136823943097, guid: dc2ace6a3e6e61946b58d5de6a3db2dd, type: 3}
       propertyPath: m_Name
       value: FireExit (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6978531648477220399, guid: dc2ace6a3e6e61946b58d5de6a3db2dd, type: 3}
+      propertyPath: m_Size.y
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -39025,6 +39033,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5242061072086144290, guid: b6a4b3ea961477846afd37254455a504, type: 3}
+      propertyPath: m_Size.y
+      value: 0.15
+      objectReference: {fileID: 0}
     - target: {fileID: 6635033223269038072, guid: b6a4b3ea961477846afd37254455a504, type: 3}
       propertyPath: door
       value: 
@@ -39083,7 +39095,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8651644815037220613, guid: b6a4b3ea961477846afd37254455a504, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8769421469063394532, guid: b6a4b3ea961477846afd37254455a504, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -53893,12 +53909,20 @@ PrefabInstance:
       value: -5.6890035
       objectReference: {fileID: 0}
     - target: {fileID: 2774009562526456927, guid: dc2ace6a3e6e61946b58d5de6a3db2dd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.421
+      objectReference: {fileID: 0}
+    - target: {fileID: 2774009562526456927, guid: dc2ace6a3e6e61946b58d5de6a3db2dd, type: 3}
       propertyPath: m_LocalPosition.z
       value: 26.46
       objectReference: {fileID: 0}
     - target: {fileID: 5710718136823943097, guid: dc2ace6a3e6e61946b58d5de6a3db2dd, type: 3}
       propertyPath: m_Name
       value: FireExit
+      objectReference: {fileID: 0}
+    - target: {fileID: 6978531648477220399, guid: dc2ace6a3e6e61946b58d5de6a3db2dd, type: 3}
+      propertyPath: m_Size.y
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
