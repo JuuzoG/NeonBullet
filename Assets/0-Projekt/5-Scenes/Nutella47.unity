@@ -1664,7 +1664,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &248418464
 Transform:
   m_ObjectHideFlags: 0
@@ -19052,11 +19052,13 @@ MonoBehaviour:
   Q: 0
   Menu: 27
   projectilePrefab: {fileID: 4211037239739974104, guid: e27b5cc94ba2dbe4892cad2857965b00, type: 3}
+  muselVFX: {fileID: 0}
   ui: {fileID: 4987045107376419382}
   GameOverScreen: {fileID: 2589311824614549559}
   rifleShotCount: 5
   rifleSpreadAngle: 5
   rifleSpawnInterval: 0.05
+  muzzlePoint: {fileID: 0}
   Rifle: 1
   Railgun: 1
 --- !u!1 &186616560076788890
