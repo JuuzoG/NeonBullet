@@ -49,7 +49,6 @@ GameObject:
   - component: {fileID: 355284723980550203}
   - component: {fileID: 7478921889992461650}
   - component: {fileID: 2841484896198552323}
-  - component: {fileID: 8937788406325329744}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -240,22 +239,6 @@ MonoBehaviour:
   weaponCount: 0
   CurrentWeaponIndex: 0
 --- !u!114 &2841484896198552323
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1288793504491673423}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d47b7c8fba664bc4ab3a867275275820, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  activeTime: 1
-  meshRefreshRate: 1
-  meshDestroyDelay: 0.3
-  mat: {fileID: 2100000, guid: c412548d5e5688c4cb15406002a0522a, type: 2}
---- !u!114 &8937788406325329744
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
