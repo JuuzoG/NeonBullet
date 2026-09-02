@@ -16,6 +16,12 @@ public class SaveManager : MonoBehaviour
     public float newGameRotationY;
     public int newGameMunition = 10;
 
+    [Tooltip("Optional. If set, a brand-new game fades into this scene first (e.g. a story intro) " +
+             "instead of going straight into newGameSceneName. The intro scene calls " +
+             "SaveManager.instance.Load(SaveManager.instance.currentSlot) when it's done, " +
+             "e.g. via IntroSequence.cs. Leave empty to skip straight into the game as before.")]
+    public string introSceneName;
+
     private SaveData pendingLoad;
     public int currentSlot { get; private set; } = -1;
     public bool HasCurrentSlot => currentSlot >= 0;
@@ -96,8 +102,16 @@ public class SaveManager : MonoBehaviour
 
         currentSlot = slot;
         pendingLoad = data;
-        SceneManager.sceneLoaded += OnSceneLoaded;
-        SceneManager.LoadScene(data.sceneName);
+
+        if (SceneTransitionManager.instance != null)
+        {
+            SceneTransitionManager.instance.FadeAndLoad(data.sceneName, () => StartCoroutine(ApplyLoadedDataNextFrame()));
+        }
+        else
+        {
+            SceneManager.sceneLoaded += OnSceneLoaded;
+            SceneManager.LoadScene(data.sceneName);
+        }
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -160,7 +174,23 @@ public class SaveManager : MonoBehaviour
         };
 
         SaveSystem.Save(slot, data);
-        Load(slot);
+        currentSlot = slot;
+
+        if (!string.IsNullOrEmpty(introSceneName) && SceneTransitionManager.instance != null)
+        {
+            // The intro scene is responsible for calling
+            // SaveManager.instance.Load(SaveManager.instance.currentSlot)
+            // once it's done (see IntroSequence.cs).
+            SceneTransitionManager.instance.FadeAndLoad(introSceneName);
+        }
+        else
+        {
+            if (!string.IsNullOrEmpty(introSceneName) && SceneTransitionManager.instance == null)
+                Debug.LogWarning("SaveManager: introSceneName is set but SceneTransitionManager.instance is null " +
+                                  "(is a SceneTransitionManager present in the current scene?). Skipping intro.");
+
+            Load(slot);
+        }
     }
 
     public bool TryFindEmptySlot(int[] slots, out int emptySlot)

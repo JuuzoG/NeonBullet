@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   inventory: {fileID: 0}
+  WeaponSelect: {fileID: 0}
   player: {fileID: 0}
 --- !u!114 &8878738228018547266
 MonoBehaviour:
@@ -61,7 +62,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3b8688f0133f42468f4e0e55cfe12d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuSceneName: Menu SaveSystem
+  menuSceneName: Menu
 --- !u!114 &1293342930062188912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75,8 +76,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemDatabase: {fileID: 11400000, guid: 7318031ccc5346d4780122d3fb198d0b, type: 2}
-  newGameSceneName: Nutella47
+  newGameSceneName: Final 1
   newGamePosition: {x: 0, y: 0, z: 0}
   newGameRotationY: 0
   newGameMunition: 10
+  introSceneName: Intro
   debugCollectedPickupIds: []
