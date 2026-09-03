@@ -1,16 +1,19 @@
 using UnityEngine;
 
-public class GunPickup : MonoBehaviour
+public class AbilityPickup : MonoBehaviour
 {
     private const float pickUpRange = 3f;
     public GameObject nameDisplay;
+    public ItemData itemData;
     public string pickupId;
-
-    [Tooltip("If isRailgun = true the player will get the Railgun, if isRailgun = false the player will get the Rifle")]
-    public bool isRailgun;
+    [SerializeField] private bool isDash;
+    [SerializeField] private bool isExplosion;
+    [SerializeField] private bool isGambeling;
+    private SpecialAttack specialAttack;
 
     void Start()
     {
+        specialAttack = GameManager.instance.specialAttack;
         if (SaveManager.instance != null && SaveManager.instance.IsPickupCollected(pickupId))
         {
             Destroy(gameObject);
@@ -23,14 +26,19 @@ public class GunPickup : MonoBehaviour
         if (GameManager.instance.state == GameStates.paused) return;
         if (GameManager.instance.state == GameStates.hacking) return;
 
+        
+
         Vector3 playerPosition = GameManager.instance.player.transform.position;
         float distance = (transform.position - playerPosition).magnitude;
         if (distance > pickUpRange) return;
         if (Input.GetKeyDown(KeyCode.F))
         {
-            if(isRailgun)
-            GameManager.instance.player.Railgun = true;
-            else GameManager.instance.player.Rifle = true;
+            if(isDash) specialAttack.Dash = true;
+            if(isExplosion) specialAttack.Explosion = true;
+            if(isGambeling) specialAttack.Gambeling = true;
+            GameManager.instance.inventory.CollectItem(itemData);
+            ItemNote.instance.Show(itemData.id);
+
             if (SaveManager.instance != null)
                 SaveManager.instance.MarkPickupCollected(pickupId);
             Destroy(gameObject);

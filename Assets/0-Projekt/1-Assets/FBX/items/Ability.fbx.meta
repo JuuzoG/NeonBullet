@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 65599b6184ec60145a1b90f478b2d294
+guid: 3fca72ff7577e834f8aeb6e357ae5624
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,8 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: pen.png
-    second: {fileID: 2100000, guid: fdadd06be24d3aa449d90d4fdc79b943, type: 2}
+      name: abilitycaseTexture.png
+    second: {fileID: 2100000, guid: 02f96d2cec39cfc41bb17048e2311fef, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -36,11 +36,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: spin
-      takeName: spin
-      internalID: -5055356247035031728
+      name: idle
+      takeName: idle
+      internalID: -5252816984213320552
       firstFrame: 0
-      lastFrame: 30
+      lastFrame: 150
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -83,7 +83,7 @@ ModelImporter:
     generateSecondaryUV: 0
     useFileUnits: 1
     keepQuads: 0
-    weldVertices: 0
+    weldVertices: 1
     bakeAxisConversion: 0
     preserveHierarchy: 0
     skinWeightsMode: 0
@@ -102,13 +102,13 @@ ModelImporter:
     useFileScale: 1
     strictVertexDataChecks: 0
   tangentSpace:
-    normalSmoothAngle: 0
+    normalSmoothAngle: 60
     normalImportMode: 0
-    tangentImportMode: 2
+    tangentImportMode: 3
     normalCalculationMode: 4
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
-    blendShapeNormalImportMode: 2
-    normalSmoothingSource: 2
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
   referencedClips: []
   importAnimation: 1
   humanDescription:
