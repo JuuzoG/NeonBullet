@@ -3,7 +3,12 @@ guid: b4be3955f374319479388ac224c9e37c
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Trimsheet Mall
+    second: {fileID: 2100000, guid: 159d42515783f054e89019b369d1aa18, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
