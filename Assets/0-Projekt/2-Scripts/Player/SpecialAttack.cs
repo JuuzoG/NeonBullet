@@ -17,6 +17,7 @@ public class SpecialAttack : MonoBehaviour
     [SerializeField] private Image cooldownImage;
 
     private Player player;
+    private DashAbility dash;
     private float cooldown = 1f;
 
 

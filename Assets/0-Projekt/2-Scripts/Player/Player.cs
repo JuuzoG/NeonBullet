@@ -37,14 +37,18 @@ public class Player : MonoBehaviour, IDamageable
     [Header("Unlocked")]
     public bool Rifle = true;
     public bool Railgun = true;
+    public bool Dash = true;
 
     private Vector3 position;
     private Vector3 muselpos;
+    //private DashAbility dashAbility;
 
     void Start()
     {
         GameOverScreen.SetActive(false);
         railgun = GetComponent<Railgun>();
+        //dashAbility = GetComponent<DashAbility>();
+
     }
 
     void Awake()
@@ -101,8 +105,6 @@ public class Player : MonoBehaviour, IDamageable
 
         int shotsToFire = Mathf.Min(munition, rifleShotCount);
         munition -= shotsToFire;
-
-        Vector3 basePosition = new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z);
 
         for (int i = 0; i < shotsToFire; i++)
         {
