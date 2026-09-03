@@ -57,7 +57,7 @@ public class SpecialAttack : MonoBehaviour
             TriggerExplosion();
 
         if (Input.GetKeyDown(player.G))
-            TriggerExplosion();
+            ItsGambelingTime();
     }
 
 
@@ -79,6 +79,11 @@ public class SpecialAttack : MonoBehaviour
 
     public void ItsGambelingTime()
     {
+        if (GameManager.instance.state == GameStates.GameOver) return;
+        if (GameManager.instance.state == GameStates.paused) return;
+        //if (cooldown > 0) return;
+        //if (energyCost > player.GainEnergy(0)) return;
+
 
     }
 }
