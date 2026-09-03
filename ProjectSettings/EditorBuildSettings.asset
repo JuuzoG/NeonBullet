@@ -9,20 +9,26 @@ EditorBuildSettings:
     path: Assets/0-Projekt/5-Scenes/Boot.unity
     guid: c2574c78cc1c45a438595c73ad944ecf
   - enabled: 1
-    path: Assets/0-Projekt/5-Scenes/Menu SaveSystem.unity
-    guid: c331439c6c088f04299097f080340c5a
-  - enabled: 1
-    path: Assets/0-Projekt/5-Scenes/Nutella47.unity
-    guid: 713ae4a03c14d1648834d52000004ffc
+    path: Assets/0-Projekt/5-Scenes/BulletTrail.unity
+    guid: ba3f24db804994b4fbc954e658e7806c
   - enabled: 1
     path: Assets/0-Projekt/5-Scenes/Final.unity
     guid: 13a1b98cba707e74ea5672944964d56a
   - enabled: 1
-    path: Assets/0-Projekt/5-Scenes/BulletTrail.unity
-    guid: ba3f24db804994b4fbc954e658e7806c
+    path: Assets/0-Projekt/5-Scenes/Final 1.unity
+    guid: 16290bb15577d144a8211bf21bff2ae4
   - enabled: 1
-    path: Assets/0-Projekt/5-Scenes/JasminLvl1Gasse.unity
-    guid: 03a8e5f54af3c854fb588acfea7ab647
+    path: Assets/0-Projekt/5-Scenes/Final 2.unity
+    guid: 82c16080bd201be4f9ba0c8511650a87
+  - enabled: 1
+    path: Assets/0-Projekt/5-Scenes/Intro.unity
+    guid: 13dc64dd8c924a548b4a5becb366cad1
+  - enabled: 1
+    path: Assets/0-Projekt/5-Scenes/JasminLvl1 Gasse.unity
+    guid: dec65044a62216040b9a63369feb02d5
+  - enabled: 1
+    path: Assets/0-Projekt/5-Scenes/JasminLvl3 ShoppingMall.unity
+    guid: 9117eaea9fe53894c83b57e962d78e47
   - enabled: 1
     path: Assets/0-Projekt/5-Scenes/juuzbackup.unity
     guid: b18dfbb9aa048f44a8d51086361520aa
@@ -30,11 +36,14 @@ EditorBuildSettings:
     path: Assets/0-Projekt/5-Scenes/Lennard.unity
     guid: 1c1783d02fe938a42b20e9be450532ff
   - enabled: 1
+    path: Assets/0-Projekt/5-Scenes/Menu.unity
+    guid: c331439c6c088f04299097f080340c5a
+  - enabled: 1
     path: Assets/0-Projekt/5-Scenes/mewo.unity
     guid: e4daf63d1515c7345b0976f5482da141
   - enabled: 1
-    path: Assets/0-Projekt/5-Scenes/Final 1.unity
-    guid: 16290bb15577d144a8211bf21bff2ae4
+    path: Assets/0-Projekt/5-Scenes/Nutella47.unity
+    guid: 713ae4a03c14d1648834d52000004ffc
   - enabled: 1
     path: Assets/0-Projekt/5-Scenes/ubeyd.unity
     guid: ea853b65901bd784d82869b84cdb4563

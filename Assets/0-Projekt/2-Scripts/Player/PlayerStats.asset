@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   maxEnergy: 10
-  movmentSpeed: 10
+  movmentSpeed: 7
   energyRecoverRate: 1
   health: 100
   energy: 10

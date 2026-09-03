@@ -355,6 +355,8 @@ public class RangedEnemy : MonoBehaviour, IDamageable
 
         // Disable this script
         this.enabled = false;
+
+        gameObject.tag = "none";
     }
 
     private bool CanUseAgent()

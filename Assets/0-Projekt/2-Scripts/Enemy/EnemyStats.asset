@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: EnemyStats
   m_EditorClassIdentifier: 
   maxHealth: 10
-  movementSpeed: 10
+  movementSpeed: 6.5
   detectionRange: 10
-  aggroRange: 8
+  aggroRange: 6
   attackRange: 1.5
   attackRadius: 10
   attackDamage: 8

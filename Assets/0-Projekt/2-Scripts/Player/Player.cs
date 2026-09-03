@@ -22,6 +22,7 @@ public class Player : MonoBehaviour, IDamageable
 
     [Header("Additionals")]
     public GameObject projectilePrefab;
+    [SerializeField] private GameObject muselVFX;
     public HubUI ui;
     public GameObject GameOverScreen;
     [Header("Weapons")]
@@ -31,10 +32,14 @@ public class Player : MonoBehaviour, IDamageable
     public int rifleShotCount = 5;
     public float rifleSpreadAngle = 5f;
     public float rifleSpawnInterval = 0.05f;
+    [SerializeField] private Transform muzzlePoint;
 
     [Header("Unlocked")]
     public bool Rifle = true;
     public bool Railgun = true;
+
+    private Vector3 position;
+    private Vector3 muselpos;
 
     void Start()
     {
@@ -58,6 +63,8 @@ public class Player : MonoBehaviour, IDamageable
 
     void Update()
     {
+        position = new Vector3(transform.position.x,transform.position.y+1.5f,transform.position.z);
+        muselpos = new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z + 1.5f);
         if (GameManager.instance.state == GameStates.GameOver) return;
         if (GameManager.instance.state == GameStates.paused) return;
         if (GameManager.instance.state == GameStates.inventory) return;
@@ -67,10 +74,10 @@ public class Player : MonoBehaviour, IDamageable
             switch (GameManager.instance.WeaponSelect.CurrentWeaponIndex)
             {
                 case 0:
-                    Vector3 position = new Vector3(transform.position.x,transform.position.y+1.5f,transform.position.z);
-                    GameObject proj = Instantiate(projectilePrefab, position, transform.rotation);
+                    GameObject proj = Instantiate(projectilePrefab, muzzlePoint.position, muzzlePoint.rotation);
                     Projectile p = proj.GetComponent<Projectile>();
                     if (p != null) p.SetOwner(gameObject);
+                    Instantiate(muselVFX, muzzlePoint.position, muzzlePoint.rotation * Quaternion.Euler(0, -90f, 0));
                     munition--;
                     break;
                 case 1:
@@ -102,9 +109,10 @@ public class Player : MonoBehaviour, IDamageable
             float angleOffset = (i - (shotsToFire - 1) / 2f) * rifleSpreadAngle;
             Quaternion rotation = transform.rotation * Quaternion.Euler(0, 0, angleOffset);
 
-            GameObject proj = Instantiate(projectilePrefab, basePosition, rotation);
+            GameObject proj = Instantiate(projectilePrefab, muzzlePoint.position, rotation);
             Projectile p = proj.GetComponent<Projectile>();
             if (p != null) p.SetOwner(gameObject);
+            Instantiate(muselVFX, muzzlePoint.position, rotation * Quaternion.Euler(0, -90f, 0));
 
             yield return new WaitForSeconds(rifleSpawnInterval);
         }

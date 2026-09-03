@@ -7,6 +7,9 @@ public class BootLoader : MonoBehaviour
 
     void Start()
     {
-        SceneManager.LoadScene(menuSceneName);
+        if (SceneTransitionManager.instance != null)
+            SceneTransitionManager.instance.FadeAndLoad(menuSceneName);
+        else
+            SceneManager.LoadScene(menuSceneName);
     }
 }
