@@ -16,6 +16,11 @@ public class SpecialAttack : MonoBehaviour
     [Header("Cooldown UI")]
     [SerializeField] private Image cooldownImage;
 
+    [Header("Unlocked")]
+    public bool Dash = false;
+    public bool Explosion = false;
+    public bool Gambeling = true;
+
     private Player player;
     private DashAbility dash;
     private float cooldown = 1f;
@@ -24,16 +29,9 @@ public class SpecialAttack : MonoBehaviour
     void Start()
     {
         player = GetComponent<Player>();
-
-        if (QButton != null)
-            QButton.onClick.AddListener(TriggerExplosion);
     }
 
-    void OnDestroy()
-    {
-        if (QButton != null)
-            QButton.onClick.RemoveListener(TriggerExplosion);
-    }
+
 
     void Update()
     {
@@ -54,10 +52,12 @@ public class SpecialAttack : MonoBehaviour
         }
 
         if (Input.GetKeyDown(player.Q))
-            TriggerExplosion();
-
-        if (Input.GetKeyDown(player.G))
-            ItsGambelingTime();
+        {
+            if(Explosion) TriggerExplosion();
+            if(Dash) dash.Dash();
+            if(Gambeling) Debug.Log("ItsGambelingTime");
+        }
+            
     }
 
 
