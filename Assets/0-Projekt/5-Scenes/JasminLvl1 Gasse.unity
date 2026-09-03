@@ -12959,6 +12959,7 @@ MonoBehaviour:
   inventory: {fileID: 0}
   WeaponSelect: {fileID: 0}
   player: {fileID: 1558299768}
+  specialAttack: {fileID: 0}
 --- !u!4 &567587791
 Transform:
   m_ObjectHideFlags: 0
@@ -40474,6 +40475,7 @@ MonoBehaviour:
   newGamePosition: {x: 0, y: 0, z: 0}
   newGameRotationY: 0
   newGameMunition: 10
+  introSceneName: 
   debugCollectedPickupIds: []
 --- !u!114 &1746420955
 MonoBehaviour:
