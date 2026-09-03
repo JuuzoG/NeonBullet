@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3518602478914955901}
   - component: {fileID: 539110181976925656}
   - component: {fileID: 2350802672134066450}
+  - component: {fileID: 5842641770402434493}
   m_Layer: 0
   m_Name: Terminal
   m_TagString: Untagged
@@ -26,9 +27,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4296230512306467015}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.38268343, z: -0, w: 0.92387956}
+  m_LocalRotation: {x: 0, y: 0.38268343, z: 0, w: 0.92387956}
   m_LocalPosition: {x: 17.909992, y: 1.3569336, z: -18.960007}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7555318710420020742}
@@ -65,7 +66,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -7959526094653235713, guid: d46b5023d40159a4ab6bc7f20269223d, type: 3}
+  - {fileID: 2100000, guid: 4faad7629a72d4c49a84142e5353b8bd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -87,6 +88,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &5842641770402434493
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4296230512306467015}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.5067171, y: 1.0349665, z: 0.3738036}
+  m_Center: {x: -0.19863817, y: 0.3014581, z: 0.16747527}
 --- !u!1 &7227245880943099248
 GameObject:
   m_ObjectHideFlags: 0
