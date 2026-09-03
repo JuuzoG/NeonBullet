@@ -17,6 +17,7 @@ public class Player : MonoBehaviour, IDamageable
     public KeyCode E;
     public KeyCode Inventar;
     public KeyCode Q;
+    public KeyCode G;
     public KeyCode Menu;
 
     [Header("Additionals")]

@@ -54,6 +54,9 @@ public class SpecialAttack : MonoBehaviour
 
         if (Input.GetKeyDown(player.Q))
             TriggerExplosion();
+
+        if (Input.GetKeyDown(player.G))
+            TriggerExplosion();
     }
 
 
@@ -71,5 +74,10 @@ public class SpecialAttack : MonoBehaviour
 
         cooldown = cooldownTime;
         player.GainEnergy(-energyCost);
+    }
+
+    public void ItsGambelingTime()
+    {
+
     }
 }
