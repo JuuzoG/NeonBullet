@@ -28,13 +28,6 @@ public class Patrolling : MonoBehaviour
     [Tooltip("Maximum number of random spots to visit around each patrol point.")]
     [SerializeField] private int maxSpotsPerPoint = 4;
 
-    [Header("Patrol Speed")]
-    [Tooltip("Minimum movement speed while patrolling.")]
-    [SerializeField] private float minPatrolSpeed = 1.5f;
-
-    [Tooltip("Maximum movement speed while patrolling.")]
-    [SerializeField] private float maxPatrolSpeed = 2.5f;
-
     private NavMeshAgent agent;
     private int currentPointIndex = -1;
     private int spotsVisited;
@@ -89,8 +82,6 @@ public class Patrolling : MonoBehaviour
                     PatrolManager.Instance.patrolPoints,
                     closestPoint
                 );
-
-            SetRandomPatrolSpeed();
 
             GoToRandomSpot();
         }
@@ -266,19 +257,7 @@ public class Patrolling : MonoBehaviour
             minSpotsPerPoint,
             maxSpotsPerPoint + 1
         );
-        SetRandomPatrolSpeed();
 
         GoToRandomSpot();
-    }
-
-    private void SetRandomPatrolSpeed()
-    {
-        if (agent == null)
-            return;
-
-        agent.speed = Random.Range(
-            minPatrolSpeed,
-            maxPatrolSpeed
-        );
     }
 }
