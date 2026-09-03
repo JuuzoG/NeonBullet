@@ -28,7 +28,13 @@ public class SpecialAttack : MonoBehaviour
 
     void Start()
     {
+        dash = GetComponent<DashAbility>();
         player = GetComponent<Player>();
+    }
+
+    void Awake()
+    {
+        GameManager.instance.specialAttack = this;
     }
 
 
