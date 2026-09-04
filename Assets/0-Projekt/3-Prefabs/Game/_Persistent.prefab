@@ -50,6 +50,7 @@ MonoBehaviour:
   inventory: {fileID: 0}
   WeaponSelect: {fileID: 0}
   player: {fileID: 0}
+  specialAttack: {fileID: 0}
 --- !u!114 &8878738228018547266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76,9 +77,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemDatabase: {fileID: 11400000, guid: 7318031ccc5346d4780122d3fb198d0b, type: 2}
-  newGameSceneName: Final 1
+  newGameSceneName: JasminLvl1 Gasse
   newGamePosition: {x: 0, y: 0, z: 0}
   newGameRotationY: 0
   newGameMunition: 10
+  newGameHasRifle: 1
+  newGameHasRailgun: 1
   introSceneName: Intro
   debugCollectedPickupIds: []

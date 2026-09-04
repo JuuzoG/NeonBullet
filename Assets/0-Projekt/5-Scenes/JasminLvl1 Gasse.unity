@@ -119,6 +119,67 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &4468105
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5301647040725039925, guid: 23b908ad6f0801d42abc2bfdfe85fb0b, type: 3}
+      propertyPath: LoadScene
+      value: Final 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6210848236816028592, guid: 23b908ad6f0801d42abc2bfdfe85fb0b, type: 3}
+      propertyPath: m_Name
+      value: LevelTrigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 6781430490866006283, guid: 23b908ad6f0801d42abc2bfdfe85fb0b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 18.361633
+      objectReference: {fileID: 0}
+    - target: {fileID: 6781430490866006283, guid: 23b908ad6f0801d42abc2bfdfe85fb0b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.5000043
+      objectReference: {fileID: 0}
+    - target: {fileID: 6781430490866006283, guid: 23b908ad6f0801d42abc2bfdfe85fb0b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 37.53269
+      objectReference: {fileID: 0}
+    - target: {fileID: 6781430490866006283, guid: 23b908ad6f0801d42abc2bfdfe85fb0b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9238797
+      objectReference: {fileID: 0}
+    - target: {fileID: 6781430490866006283, guid: 23b908ad6f0801d42abc2bfdfe85fb0b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6781430490866006283, guid: 23b908ad6f0801d42abc2bfdfe85fb0b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.38268322
+      objectReference: {fileID: 0}
+    - target: {fileID: 6781430490866006283, guid: 23b908ad6f0801d42abc2bfdfe85fb0b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6781430490866006283, guid: 23b908ad6f0801d42abc2bfdfe85fb0b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6781430490866006283, guid: 23b908ad6f0801d42abc2bfdfe85fb0b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -45
+      objectReference: {fileID: 0}
+    - target: {fileID: 6781430490866006283, guid: 23b908ad6f0801d42abc2bfdfe85fb0b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 23b908ad6f0801d42abc2bfdfe85fb0b, type: 3}
 --- !u!1 &24241498
 GameObject:
   m_ObjectHideFlags: 0
@@ -28481,17 +28542,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1229779969}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1230826469 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7085316043144488208, guid: 662b74e9df5cc6941b5ab0c1d909e39e, type: 3}
-  m_PrefabInstance: {fileID: 944711283}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1244954098
 GameObject:
   m_ObjectHideFlags: 0
@@ -35887,7 +35937,7 @@ PrefabInstance:
     - target: {fileID: 3675448477761170151, guid: be731c627218c72458c99b5c3c62a7d5, type: 3}
       propertyPath: EButton
       value: 
-      objectReference: {fileID: 1230826469}
+      objectReference: {fileID: 0}
     - target: {fileID: 3675448477761170151, guid: be731c627218c72458c99b5c3c62a7d5, type: 3}
       propertyPath: QButton
       value: 
@@ -40475,6 +40525,8 @@ MonoBehaviour:
   newGamePosition: {x: 0, y: 0, z: 0}
   newGameRotationY: 0
   newGameMunition: 10
+  newGameHasRifle: 1
+  newGameHasRailgun: 1
   introSceneName: 
   debugCollectedPickupIds: []
 --- !u!114 &1746420955
@@ -49419,3 +49471,4 @@ SceneRoots:
   - {fileID: 1394374721}
   - {fileID: 2132333485}
   - {fileID: 1007230205}
+  - {fileID: 4468105}
