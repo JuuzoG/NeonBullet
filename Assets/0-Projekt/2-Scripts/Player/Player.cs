@@ -14,25 +14,21 @@ public class Player : MonoBehaviour, IDamageable
 
     [Header("Input")]
     public KeyCode shot;
-    public KeyCode E;
     public KeyCode Inventar;
     public KeyCode Q;
-    public KeyCode G;
     public KeyCode Menu;
 
     [Header("Additionals")]
-    public GameObject projectilePrefab;
+    [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private GameObject muselVFX;
-    public HubUI ui;
-    public GameObject GameOverScreen;
+    [SerializeField] private HubUI ui;
+    [SerializeField] private GameObject GameOverScreen;
+
     [Header("Weapons")]
     private Railgun railgun;
 
     [Header("Low Health Feedback")]
-    [Tooltip("Full-screen red vignette (a CanvasGroup on a UI Image with a red radial/edge gradient). " +
-             "Its alpha is driven entirely by this script - set it up inactive/alpha 0 in the editor.")]
     public CanvasGroup lowHealthVignette;
-    [Tooltip("Vignette turns on at or below this HP.")]
     public float lowHealthThreshold = 35f;
     public float vignettePulseSpeed = 2f;
     [Range(0f, 1f)] public float vignetteMinAlpha = 0.15f;
@@ -144,7 +140,7 @@ public class Player : MonoBehaviour, IDamageable
     {
         munition += amount;
     }
-    
+
     public void EquipAbility(AbilityType ability)
     {
         equippedAbility = ability;

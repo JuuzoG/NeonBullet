@@ -3,25 +3,26 @@ using UnityEngine;
 public class PlayerCharacterController : MonoBehaviour
 {
     public Rigidbody rb;
+    public Transform Cam => cam;
     private Animator animator;
     private PlayerStats stats;
+    private DashAbility dashAbility;
     [SerializeField] private Transform cam;
-    
 
     void Start()
     {
         animator = GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody>();
         stats = GameManager.instance.player.stats;
+        dashAbility = GetComponent<DashAbility>();
     }
 
-    // Update is called once per frame
     void Update()
     {   
         if (GameManager.instance.state == GameStates.GameOver) return;
         if (GameManager.instance.state == GameStates.paused) return;
         if (GameManager.instance.state == GameStates.hacking) return;
-        
+
         // Look towards the Mouse
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out RaycastHit raycastHit, float.MaxValue))
@@ -30,27 +31,25 @@ public class PlayerCharacterController : MonoBehaviour
             transform.LookAt(target);
         }
 
+        float x = Input.GetAxisRaw("Horizontal");
+        float y = Input.GetAxisRaw("Vertical");
 
-        // Move the Character
+        animator.SetFloat("moveX", -y);
+        animator.SetFloat("moveY", x);
 
-            float x = Input.GetAxisRaw("Horizontal");
-            float y = Input.GetAxisRaw("Vertical");  
+        // Don't let normal movement overwrite dash velocity.
+        if (dashAbility != null && dashAbility.IsDashing) return;
 
-            Vector3 camfoward =cam.forward;
-            //Debug.Log(camfoward);
-            Vector3 camright =cam.right;
-            camfoward.y =0;
-            camright.y =0;
+        Vector3 camfoward = cam.forward;
+        Vector3 camright = cam.right;
+        camfoward.y = 0;
+        camright.y = 0;
 
-            Vector3 forwardRealitive = y *camfoward;
-            Vector3 rightRealitive = x *camright;
+        Vector3 forwardRealitive = y * camfoward;
+        Vector3 rightRealitive = x * camright;
 
-            Vector3 moveDir = forwardRealitive + rightRealitive;
+        Vector3 moveDir = forwardRealitive + rightRealitive;
 
-            rb.linearVelocity = new Vector3(moveDir.x,rb.linearVelocity.y, moveDir.z).normalized * stats.movmentSpeed;
-            
-            animator.SetFloat("moveX", -y);
-            animator.SetFloat("moveY", x);
-              
+        rb.linearVelocity = new Vector3(moveDir.x, rb.linearVelocity.y, moveDir.z).normalized * stats.movmentSpeed;
     }
 }

@@ -9,6 +9,11 @@ public class Inventory : MonoBehaviour
 {
     public InventorySlot[] InventorySlots;
 
+    [Header("Feedback")]
+    [SerializeField] private TMP_Text cantDropWarning;
+    [SerializeField] private float warningDisplayDuration = 1.5f;
+    private Coroutine warningRoutine;
+
     private List<CollectedItem> items = new List<CollectedItem>();
     private CollectedItem selectedItem;
     private bool isVisible;
@@ -20,6 +25,9 @@ public class Inventory : MonoBehaviour
 
         GameObject playerGet = GameObject.FindGameObjectWithTag("Player");
         player = playerGet.GetComponent<Player>();
+
+        if (cantDropWarning != null)
+            cantDropWarning.gameObject.SetActive(false);
     }
 
     void Update()
@@ -46,8 +54,6 @@ public class Inventory : MonoBehaviour
     private void ToggleInventoryInternal()
     {
         isVisible = !isVisible;
-
-        //Debug.Log("Inventory Visible: " + isVisible);
 
         selectedItem = null;
 
@@ -135,6 +141,12 @@ public class Inventory : MonoBehaviour
         if (selectedItem == null)
             return;
 
+        if (isDropped && selectedItem.data.isAbility)
+        {
+            ShowCantDropWarning();
+            return;
+        }
+
         if (isDropped)
         {
             Vector3 position = GameManager.instance.player.transform.position;
@@ -146,8 +158,6 @@ public class Inventory : MonoBehaviour
             selectedItem.data.Activate();
         }
 
-        // Ability items are equipped, not consumed - they stay in the inventory
-        // so the player can swap back to them later.
         if (selectedItem.data.isAbility)
             return;
 
@@ -159,6 +169,26 @@ public class Inventory : MonoBehaviour
             selectedItem = null;
             SetInventorySlots();
         }
+    }
+
+    private void ShowCantDropWarning()
+    {
+        if (cantDropWarning == null) return;
+
+        
+
+        if (warningRoutine != null)
+            StopCoroutine(warningRoutine);
+
+        warningRoutine = StartCoroutine(HideWarningAfterDelay());
+    }
+
+    private IEnumerator HideWarningAfterDelay()
+    {
+        cantDropWarning.text = "This item can't be dropped";
+        yield return new WaitForSecondsRealtime(warningDisplayDuration);
+        cantDropWarning.text = " ";
+        warningRoutine = null;
     }
 
     public List<CollectedItem> GetItems()

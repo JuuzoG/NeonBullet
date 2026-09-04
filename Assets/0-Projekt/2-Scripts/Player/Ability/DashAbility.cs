@@ -4,11 +4,11 @@ public class DashAbility : MonoBehaviour
 {
     public float dashSpeed = 20f;
     public float dashDuration = 0.15f;
-    public float dashCooldown = 1f;
+
+    public bool IsDashing => isDashing;
 
     private bool isDashing = false;
     private float dashTimer = 0f;
-    private float cooldownTimer = 0f;
     private Vector3 dashDirection;
     private PlayerCharacterController playerCharCon;
 
@@ -22,25 +22,43 @@ public class DashAbility : MonoBehaviour
         if (isDashing)
         {
             dashTimer -= Time.deltaTime;
-            if (dashTimer <= 0f) isDashing = false;
+
+            if (dashTimer <= 0f)
+            {
+                isDashing = false;
+                Vector3 v = playerCharCon.rb.linearVelocity;
+                playerCharCon.rb.linearVelocity = new Vector3(0f, v.y, 0f);
+            }
         }
-        if (cooldownTimer > 0f) cooldownTimer -= Time.deltaTime;
     }
-    public void Dash()
+
+    public bool Dash()
     {
-        if(!isDashing && cooldownTimer <= 0f)
-        {
-        float x = Input.GetAxis("Horizontal");
-        float y = Input.GetAxis("Vertical");
+        if (isDashing)
+            return false;
 
-        dashDirection = (transform.forward * y + transform.right * x).normalized;
+        float x = Input.GetAxisRaw("Horizontal");
+        float y = Input.GetAxisRaw("Vertical");
 
-        playerCharCon.rb.linearVelocity = new Vector3(dashDirection.x * dashSpeed, playerCharCon.rb.linearVelocity.y, dashDirection.z * dashSpeed);
+        Transform cam = playerCharCon.Cam;
+        Vector3 camForward = cam.forward; camForward.y = 0f;
+        Vector3 camRight = cam.right; camRight.y = 0f;
+
+        Vector3 rawDirection = camForward.normalized * y + camRight.normalized * x;
+
+        dashDirection = rawDirection.sqrMagnitude > 0.0001f
+            ? rawDirection.normalized
+            : transform.forward;
+
+        Vector3 currentVel = playerCharCon.rb.linearVelocity;
+        playerCharCon.rb.linearVelocity = new Vector3(
+            dashDirection.x * dashSpeed,
+            currentVel.y,
+            dashDirection.z * dashSpeed
+        );
 
         isDashing = true;
         dashTimer = dashDuration;
-        cooldownTimer = dashCooldown;
-        }
+        return true;
     }
-    
 }

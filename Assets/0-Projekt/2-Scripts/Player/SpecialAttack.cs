@@ -9,9 +9,9 @@ public class SpecialAttack : MonoBehaviour
     public float cooldownTime;
     public GameObject attackPrefab;
 
-    [Header("UI Buttons")]
-    public Button QButton;
-    public Button EButton;
+    [Header("Dash Ability")]
+    public float dashEnergyCost = 2f;
+
 
     [Header("Cooldown UI")]
     [SerializeField] private Image cooldownImage;
@@ -60,17 +60,23 @@ public class SpecialAttack : MonoBehaviour
         if (Input.GetKeyDown(player.Q))
         {
             if(Explosion) TriggerExplosion();
-            if(Dash) dash.Dash();
+            if (Dash) TriggerDash();
             if(Gambeling) Debug.Log("ItsGambelingTime");
         }
             
     }
 
+    public void TriggerDash()
+    {
+        if (dashEnergyCost > player.GainEnergy(0)) return;
+
+        if (dash.Dash())
+            player.GainEnergy(-dashEnergyCost);
+    }
+
 
     public void TriggerExplosion()
     {
-        if (GameManager.instance.state == GameStates.GameOver) return;
-        if (GameManager.instance.state == GameStates.paused) return;
         if (cooldown > 0) return;
         if (energyCost > player.GainEnergy(0)) return;
 
