@@ -32,13 +32,14 @@ public class SpecialAttack : MonoBehaviour
     {
         dash = GetComponent<DashAbility>();
         player = GetComponent<Player>();
+        gamble = GetComponent<Gamble>();
     }
+
 
     void Awake()
     {
         GameManager.instance.specialAttack = this;
     }
-
 
 
     void Update()
@@ -61,14 +62,28 @@ public class SpecialAttack : MonoBehaviour
 
         if (Input.GetKeyDown(player.Q))
         {
-            if(Explosion) TriggerExplosion();
-            if (Dash) TriggerDash();
-            if(Gambeling) ItsGambelingTime();
+            if (Explosion)
+            {
+                Debug.Log("Explosion is unlocked.");
+                TriggerExplosion();
+            }
+
+            if (Dash)
+            {
+                Debug.Log("Dash is unlocked.");
+                TriggerDash();
+            }
+
+            if (Gambeling)
+            {
+                Debug.Log("Gambling is unlocked.");
+                ItsGambelingTime();
+            }
         }
-            
     }
 
-    private void TriggerDash()
+
+    public void TriggerDash()
     {
         if (dashEnergyCost > player.GainEnergy(0)) return;
 
@@ -77,13 +92,14 @@ public class SpecialAttack : MonoBehaviour
     }
 
 
-    private void TriggerExplosion()
+    public void TriggerExplosion()
     {
         if (cooldown > 0) return;
         if (energyCost > player.GainEnergy(0)) return;
 
         GameObject obj = Instantiate(attackPrefab, transform.position, Quaternion.identity);
         Explosion explosion = obj.GetComponent<Explosion>();
+
         if (explosion != null)
             explosion.SetOwner(gameObject);
 
@@ -91,10 +107,31 @@ public class SpecialAttack : MonoBehaviour
         player.GainEnergy(-energyCost);
     }
 
-    private void ItsGambelingTime()
-    {
-        if (gamble != null)
-            gamble.ActivateGamble();
-    }
 
+    public void ItsGambelingTime()
+    {
+        Debug.Log("[SPECIAL ATTACK] ItsGambelingTime() called.");
+
+        if (GameManager.instance.state == GameStates.GameOver)
+        {
+            Debug.Log("nope");
+            return;
+        }
+
+        if (GameManager.instance.state == GameStates.paused)
+        {
+            Debug.Log("Gamepaused no gamble");
+            return;
+        }
+
+        if (gamble == null)
+        {
+            Debug.LogError("[SPECIAL ATTACK] Gamble component is NULL!");
+            return;
+        }
+
+        Debug.Log("Calling ActivateGamble().");
+
+        gamble.ActivateGamble();
+    }
 }
