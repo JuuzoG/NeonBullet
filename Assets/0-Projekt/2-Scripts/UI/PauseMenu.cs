@@ -60,7 +60,7 @@ public class PauseMenu : MonoBehaviour
 
     public void ReturnToMainMenu()
     {
-        SceneManager.LoadScene("Menu SaveSystem");
+        SceneManager.LoadScene("Menu");
     }
 
     public void Quit()
