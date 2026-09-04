@@ -146,6 +146,11 @@ public class Inventory : MonoBehaviour
             selectedItem.data.Activate();
         }
 
+        // Ability items are equipped, not consumed - they stay in the inventory
+        // so the player can swap back to them later.
+        if (selectedItem.data.isAbility)
+            return;
+
         selectedItem.amount--;
 
         if (selectedItem.amount == 0)

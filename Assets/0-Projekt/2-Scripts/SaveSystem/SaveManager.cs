@@ -15,11 +15,9 @@ public class SaveManager : MonoBehaviour
     public Vector3 newGamePosition;
     public float newGameRotationY;
     public int newGameMunition = 10;
+    public bool newGameHasRifle = true;
+    public bool newGameHasRailgun = true;
 
-    [Tooltip("Optional. If set, a brand-new game fades into this scene first (e.g. a story intro) " +
-             "instead of going straight into newGameSceneName. The intro scene calls " +
-             "SaveManager.instance.Load(SaveManager.instance.currentSlot) when it's done, " +
-             "e.g. via IntroSequence.cs. Leave empty to skip straight into the game as before.")]
     public string introSceneName;
 
     private SaveData pendingLoad;
@@ -67,6 +65,9 @@ public class SaveManager : MonoBehaviour
             posZ = player.transform.position.z,
             rotY = player.transform.eulerAngles.y,
             munition = player.munition,
+            hasRifle = player.Rifle,
+            hasRailgun = player.Railgun,
+            equippedAbility = player.equippedAbility.ToString(),
             savedAt = DateTime.Now.ToString("dd.MM.yyyy HH:mm")
         };
 
@@ -148,6 +149,14 @@ public class SaveManager : MonoBehaviour
             }
 
             player.munition = data.munition;
+            player.Rifle = data.hasRifle;
+            player.Railgun = data.hasRailgun;
+
+            AbilityType savedAbility = AbilityType.None;
+            if (!string.IsNullOrEmpty(data.equippedAbility))
+                Enum.TryParse(data.equippedAbility, out savedAbility);
+            player.EquipAbility(savedAbility);
+
             player.GainHealth(player.stats.maxHealth);
         }
 
@@ -170,6 +179,9 @@ public class SaveManager : MonoBehaviour
             posZ = newGamePosition.z,
             rotY = newGameRotationY,
             munition = newGameMunition,
+            hasRifle = newGameHasRifle,
+            hasRailgun = newGameHasRailgun,
+            equippedAbility = AbilityType.None.ToString(),
             savedAt = DateTime.Now.ToString("dd.MM.yyyy HH:mm")
         };
 
@@ -178,9 +190,6 @@ public class SaveManager : MonoBehaviour
 
         if (!string.IsNullOrEmpty(introSceneName) && SceneTransitionManager.instance != null)
         {
-            // The intro scene is responsible for calling
-            // SaveManager.instance.Load(SaveManager.instance.currentSlot)
-            // once it's done (see IntroSequence.cs).
             SceneTransitionManager.instance.FadeAndLoad(introSceneName);
         }
         else

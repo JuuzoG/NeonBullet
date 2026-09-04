@@ -6,14 +6,9 @@ public class AbilityPickup : MonoBehaviour
     public GameObject nameDisplay;
     public ItemData itemData;
     public string pickupId;
-    [SerializeField] private bool isDash;
-    [SerializeField] private bool isExplosion;
-    [SerializeField] private bool isGambeling;
-    private SpecialAttack specialAttack;
 
     void Start()
     {
-        specialAttack = GameManager.instance.specialAttack;
         if (SaveManager.instance != null && SaveManager.instance.IsPickupCollected(pickupId))
         {
             Destroy(gameObject);
@@ -26,16 +21,11 @@ public class AbilityPickup : MonoBehaviour
         if (GameManager.instance.state == GameStates.paused) return;
         if (GameManager.instance.state == GameStates.hacking) return;
 
-        
-
         Vector3 playerPosition = GameManager.instance.player.transform.position;
         float distance = (transform.position - playerPosition).magnitude;
         if (distance > pickUpRange) return;
         if (Input.GetKeyDown(KeyCode.F))
         {
-            if(isDash) specialAttack.Dash = true;
-            if(isExplosion) specialAttack.Explosion = true;
-            if(isGambeling) specialAttack.Gambeling = true;
             GameManager.instance.inventory.CollectItem(itemData);
             ItemNote.instance.Show(itemData.id);
 

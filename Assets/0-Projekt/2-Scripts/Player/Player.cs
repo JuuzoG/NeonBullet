@@ -28,6 +28,18 @@ public class Player : MonoBehaviour, IDamageable
     [Header("Weapons")]
     private Railgun railgun;
 
+    [Header("Low Health Feedback")]
+    [Tooltip("Full-screen red vignette (a CanvasGroup on a UI Image with a red radial/edge gradient). " +
+             "Its alpha is driven entirely by this script - set it up inactive/alpha 0 in the editor.")]
+    public CanvasGroup lowHealthVignette;
+    [Tooltip("Vignette turns on at or below this HP.")]
+    public float lowHealthThreshold = 35f;
+    public float vignettePulseSpeed = 2f;
+    [Range(0f, 1f)] public float vignetteMinAlpha = 0.15f;
+    [Range(0f, 1f)] public float vignetteMaxAlpha = 0.55f;
+
+    private bool lowHealthActive;
+
     [Header("Rifle Settings")]
     public int rifleShotCount = 5;
     public float rifleSpreadAngle = 5f;
@@ -38,6 +50,11 @@ public class Player : MonoBehaviour, IDamageable
     public bool Rifle = true;
     public bool Railgun = true;
     public bool Dash = true;
+
+    [Header("Special Ability")]
+    [Tooltip("Which special ability is currently equipped. Only one can be active - equipping a " +
+             "new one (via ItemData.Activate) swaps out whichever was equipped before.")]
+    public AbilityType equippedAbility = AbilityType.None;
 
     private Vector3 position;
     private Vector3 muselpos;
@@ -63,12 +80,21 @@ public class Player : MonoBehaviour, IDamageable
             ui.UpdateHealth((int)health, (int)stats.maxHealth);
             ui.UpdateEnergy((int)energy, (int)stats.maxEnergy);
         }
+
+        UpdateLowHealthVignette();
     }
 
     void Update()
     {
         position = new Vector3(transform.position.x,transform.position.y+1.5f,transform.position.z);
         muselpos = new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z + 1.5f);
+
+        if (lowHealthActive && lowHealthVignette != null)
+        {
+            float t = (Mathf.Sin(Time.time * vignettePulseSpeed) + 1f) * 0.5f;
+            lowHealthVignette.alpha = Mathf.Lerp(vignetteMinAlpha, vignetteMaxAlpha, t);
+        }
+
         if (GameManager.instance.state == GameStates.GameOver) return;
         if (GameManager.instance.state == GameStates.paused) return;
         if (GameManager.instance.state == GameStates.inventory) return;
@@ -125,6 +151,21 @@ public class Player : MonoBehaviour, IDamageable
         munition += amount;
     }
 
+    // Equips exactly one special ability, unequipping whichever was active before.
+    // Call this from ItemData.Activate() (isAbility items) rather than touching
+    // SpecialAttack's flags directly, so the "only one equipped" rule stays in one place.
+    public void EquipAbility(AbilityType ability)
+    {
+        equippedAbility = ability;
+
+        SpecialAttack specialAttack = GameManager.instance.specialAttack;
+        if (specialAttack == null) return;
+
+        specialAttack.Dash = ability == AbilityType.Dash;
+        specialAttack.Explosion = ability == AbilityType.Explosion;
+        specialAttack.Gambeling = ability == AbilityType.Gambeling;
+    }
+
     public void GainHealth(float amount)
     {
         health += amount;
@@ -135,12 +176,28 @@ public class Player : MonoBehaviour, IDamageable
             ui.UpdateHealth((int)health, (int)stats.maxHealth);
         }
 
+        UpdateLowHealthVignette();
+
         if (health <= 0)
         {
             ui.UpdateHealth((int)health, (int)stats.maxHealth);
             GameManager.instance.state = GameStates.GameOver;
             GameOverScreen.SetActive(true);
         }
+    }
+
+    private void UpdateLowHealthVignette()
+    {
+        if (lowHealthVignette == null) return;
+
+        bool shouldBeActive = health > 0 && health <= lowHealthThreshold;
+        if (shouldBeActive == lowHealthActive) return;
+
+        lowHealthActive = shouldBeActive;
+        lowHealthVignette.gameObject.SetActive(shouldBeActive);
+
+        if (!shouldBeActive)
+            lowHealthVignette.alpha = 0f;
     }
 
     public float GainEnergy(float amount)

@@ -8,9 +8,17 @@ public class ItemData : ScriptableObject
     public string id;
     public string description;
     public bool useable;
+    public bool isAbility;
+    public AbilityType abilityType = AbilityType.None;
 
     public void Activate()
     {
+        if (isAbility)
+        {
+            GameManager.instance.player.EquipAbility(abilityType);
+            return;
+        }
+
         switch (id)
         {
             case "Epipen":

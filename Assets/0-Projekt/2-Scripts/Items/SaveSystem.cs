@@ -1,8 +1,6 @@
 using System.IO;
 using UnityEngine;
 
-// Pure I/O layer. Doesn't know anything about Player/Inventory -
-// SaveManager builds the SaveData object, this just persists it to disk.
 public static class SaveSystem
 {
     private const string FilePrefix = "save_slot_";

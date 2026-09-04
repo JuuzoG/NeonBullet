@@ -4,16 +4,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-// Put this on a persistent GameObject (e.g. next to SaveManager) with a full-screen
-// black UI Image as a child, set up under a Canvas that has "Don't Destroy On Load"
-// applied via this script. The Image should start fully opaque or fully transparent -
-// this script controls its alpha at runtime, so its start state doesn't matter.
 [RequireComponent(typeof(CanvasGroup))]
 public class SceneTransitionManager : MonoBehaviour
 {
     public static SceneTransitionManager instance;
-
-    [Tooltip("CanvasGroup covering the whole screen with a black Image behind it.")]
     public CanvasGroup fadeCanvasGroup;
 
     public float fadeOutDuration = 0.5f;
@@ -37,13 +31,9 @@ public class SceneTransitionManager : MonoBehaviour
         if (fadeCanvasGroup == null)
             fadeCanvasGroup = GetComponent<CanvasGroup>();
 
-        // Start transparent and non-blocking so menus/gameplay aren't covered on boot.
         SetAlpha(0f);
     }
 
-    // Fades to black, loads targetScene, then fades back in.
-    // onSceneLoaded fires right after the scene is loaded but before the fade-in starts,
-    // so callers (e.g. SaveManager) can position the player while the screen is still black.
     public void FadeAndLoad(string targetScene, Action onSceneLoaded = null)
     {
         if (isTransitioning)
