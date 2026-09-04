@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: abf1c472d21c14d47b6cae88250a0356, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 864315fe489dd5f4bbe02e6d6d853153, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -137,7 +137,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1293342930062188912, guid: a903054a8461a164ba5fb6f7292c8a70, type: 3}
       propertyPath: newGameSceneName
-      value: JasminLvl1 Gasse
+      value: Level 1
       objectReference: {fileID: 0}
     - target: {fileID: 5040361296118657141, guid: a903054a8461a164ba5fb6f7292c8a70, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4956,6 +4956,14 @@ PrefabInstance:
     - target: {fileID: 5012860137090945773, guid: e6552cd79c6945c4bb75e18a90809f83, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7407339096306504551, guid: e6552cd79c6945c4bb75e18a90809f83, type: 3}
+      propertyPath: fadeInDuration
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7407339096306504551, guid: e6552cd79c6945c4bb75e18a90809f83, type: 3}
+      propertyPath: fadeOutDuration
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
