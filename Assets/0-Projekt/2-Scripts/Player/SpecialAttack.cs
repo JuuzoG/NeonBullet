@@ -23,6 +23,8 @@ public class SpecialAttack : MonoBehaviour
 
     private Player player;
     private DashAbility dash;
+    private Gamble gamble;
+
     private float cooldown = 1f;
 
 
@@ -61,7 +63,7 @@ public class SpecialAttack : MonoBehaviour
         {
             if(Explosion) TriggerExplosion();
             if (Dash) TriggerDash();
-            if(Gambeling) Debug.Log("ItsGambelingTime");
+            if(Gambeling) ItsGambelingTime();
         }
             
     }
@@ -93,9 +95,9 @@ public class SpecialAttack : MonoBehaviour
     {
         if (GameManager.instance.state == GameStates.GameOver) return;
         if (GameManager.instance.state == GameStates.paused) return;
-        //if (cooldown > 0) return;
-        //if (energyCost > player.GainEnergy(0)) return;
 
-
+        if (gamble != null)
+            gamble.ActivateGamble();
     }
+
 }
