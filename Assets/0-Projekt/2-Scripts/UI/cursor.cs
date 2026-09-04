@@ -9,6 +9,7 @@ public class Cursor : MonoBehaviour
     [SerializeField] private InputActionReference pointerPositionAction; //InputSystem UI/Point
     [SerializeField] private TMP_Text textField; //Amo count
     [SerializeField] private GameObject[] cursorObj; //Object with Animation.cs, Image(Cursor) and Animator
+    [SerializeField] private GameObject[] Gun;
     [SerializeField] private GameObject idleRailgun;
 
     [Header("private")]
@@ -99,18 +100,27 @@ public class Cursor : MonoBehaviour
             {
                 case 0:
                     cursorObj[0].SetActive(true);
+                    Gun[0].SetActive(true);
                     cursorObj[1].SetActive(false);
+                    Gun[1].SetActive(false);
                     cursorObj[2].SetActive(false);
+                    Gun[2].SetActive(false);
                     break;
                 case 1:
                     cursorObj[0].SetActive(false);
+                    Gun[0].SetActive(false);
                     cursorObj[1].SetActive(true);
+                    Gun[1].SetActive(true);
                     cursorObj[2].SetActive(false);
+                    Gun[2].SetActive(false);
                     break;
                 case 2:
                     cursorObj[0].SetActive(false);
+                    Gun[0].SetActive(false);
                     cursorObj[1].SetActive(false);
+                    Gun[1].SetActive(false);
                     cursorObj[2].SetActive(true);
+                    Gun[2].SetActive(true);
                     break;
                 default:
                     Debug.Log("Oh shit",this);

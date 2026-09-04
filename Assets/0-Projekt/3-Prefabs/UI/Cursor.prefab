@@ -600,6 +600,10 @@ MonoBehaviour:
   - {fileID: 9018395218115303709}
   - {fileID: 7487612343660683045}
   - {fileID: 5696438099269381734}
+  Gun:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   idleRailgun: {fileID: 3216935642080178124}
 --- !u!1 &9018395218115303709
 GameObject:
