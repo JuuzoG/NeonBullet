@@ -22035,17 +22035,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6994616263932019157, guid: 66de222a46a8e134b9c58ee9f6edab6e, type: 3}
   m_PrefabInstance: {fileID: 132943591}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &118936136 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7085316043144488208, guid: 662b74e9df5cc6941b5ab0c1d909e39e, type: 3}
-  m_PrefabInstance: {fileID: 666546026}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &120374805
 GameObject:
   m_ObjectHideFlags: 0
@@ -114841,6 +114830,10 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4621085225882650546, guid: 662b74e9df5cc6941b5ab0c1d909e39e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -122.63
+      objectReference: {fileID: 0}
     - target: {fileID: 4958495845817404645, guid: 662b74e9df5cc6941b5ab0c1d909e39e, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -114994,7 +114987,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 3435391728871328635, guid: 662b74e9df5cc6941b5ab0c1d909e39e, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 662b74e9df5cc6941b5ab0c1d909e39e, type: 3}
@@ -341009,11 +341003,11 @@ PrefabInstance:
     - target: {fileID: 3675448477761170151, guid: be731c627218c72458c99b5c3c62a7d5, type: 3}
       propertyPath: EButton
       value: 
-      objectReference: {fileID: 118936136}
+      objectReference: {fileID: 0}
     - target: {fileID: 3675448477761170151, guid: be731c627218c72458c99b5c3c62a7d5, type: 3}
       propertyPath: QButton
       value: 
-      objectReference: {fileID: 118936136}
+      objectReference: {fileID: 0}
     - target: {fileID: 3675448477761170151, guid: be731c627218c72458c99b5c3c62a7d5, type: 3}
       propertyPath: cooldownImage
       value: 

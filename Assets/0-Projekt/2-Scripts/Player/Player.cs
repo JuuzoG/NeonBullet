@@ -49,23 +49,17 @@ public class Player : MonoBehaviour, IDamageable
     [Header("Unlocked")]
     public bool Rifle = true;
     public bool Railgun = true;
-    public bool Dash = true;
 
     [Header("Special Ability")]
-    [Tooltip("Which special ability is currently equipped. Only one can be active - equipping a " +
-             "new one (via ItemData.Activate) swaps out whichever was equipped before.")]
     public AbilityType equippedAbility = AbilityType.None;
 
     private Vector3 position;
     private Vector3 muselpos;
-    //private DashAbility dashAbility;
 
     void Start()
     {
         GameOverScreen.SetActive(false);
         railgun = GetComponent<Railgun>();
-        //dashAbility = GetComponent<DashAbility>();
-
     }
 
     void Awake()
@@ -150,10 +144,7 @@ public class Player : MonoBehaviour, IDamageable
     {
         munition += amount;
     }
-
-    // Equips exactly one special ability, unequipping whichever was active before.
-    // Call this from ItemData.Activate() (isAbility items) rather than touching
-    // SpecialAttack's flags directly, so the "only one equipped" rule stays in one place.
+    
     public void EquipAbility(AbilityType ability)
     {
         equippedAbility = ability;

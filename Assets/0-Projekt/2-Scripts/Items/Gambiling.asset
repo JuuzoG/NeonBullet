@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Gambiling
   m_EditorClassIdentifier: 
   prefab: {fileID: 6214552142655132801, guid: a25bb29ced98f064b93db9857198decf, type: 3}
-  image: {fileID: 0}
+  image: {fileID: 21300000, guid: 1368e047708c0be4485c093bb6642537, type: 3}
   id: Gambiling
   description: 
   useable: 1
+  isAbility: 1
+  abilityType: 3

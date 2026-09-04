@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Dash
   m_EditorClassIdentifier: 
   prefab: {fileID: 2611539882976511946, guid: a89d4f26ecb3ea74999f6f90ffa44a8c, type: 3}
-  image: {fileID: 0}
+  image: {fileID: 21300000, guid: d2fd288f1b750cb44a10310845e6243e, type: 3}
   id: Dash
   description: 
   useable: 1
+  isAbility: 1
+  abilityType: 1

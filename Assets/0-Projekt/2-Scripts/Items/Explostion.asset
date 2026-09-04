@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Explostion
   m_EditorClassIdentifier: 
   prefab: {fileID: 2611168661111733095, guid: c0b9eed785a22f544824ef0bddc08292, type: 3}
-  image: {fileID: 0}
+  image: {fileID: 21300000, guid: ea89636be7815ee43a902aa9a7d49245, type: 3}
   id: Explostion
   description: 
   useable: 1
+  isAbility: 1
+  abilityType: 2
