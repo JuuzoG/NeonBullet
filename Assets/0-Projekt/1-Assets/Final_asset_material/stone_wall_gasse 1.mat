@@ -1,5 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7823471695629989506
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 10
 --- !u!21 &2100000
 Material:
   serializedVersion: 8
@@ -7,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: tile_wall_gasse
+  m_Name: stone_wall_gasse 1
   m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -27,15 +40,15 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: ee5399052443764409e72a28b09eb8c5, type: 3}
+        m_Texture: {fileID: 2800000, guid: 9c5198666d7a97841823dc33820e8979, type: 3}
         m_Scale: {x: 5, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Base_Color:
-        m_Texture: {fileID: 2800000, guid: ee5399052443764409e72a28b09eb8c5, type: 3}
+        m_Texture: {fileID: 2800000, guid: 9c5198666d7a97841823dc33820e8979, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: 31536b6464e8cd44188e92fb3759f354, type: 3}
+        m_Texture: {fileID: 2800000, guid: 835392048966b334abeec28cb302732d, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -59,27 +72,27 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: ee5399052443764409e72a28b09eb8c5, type: 3}
+        m_Texture: {fileID: 2800000, guid: 9c5198666d7a97841823dc33820e8979, type: 3}
         m_Scale: {x: 5, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: ddd0b2b3c406adb429ad32794fbb9696, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Metallic_Smoothness:
-        m_Texture: {fileID: 2800000, guid: d8feb18c196522749ac36b4762dd64b8, type: 3}
+        m_Texture: {fileID: 2800000, guid: 4cd4a4d56103b2145a41253b506d59f4, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Normal_Map:
-        m_Texture: {fileID: 2800000, guid: 31536b6464e8cd44188e92fb3759f354, type: 3}
+        m_Texture: {fileID: 2800000, guid: 835392048966b334abeec28cb302732d, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
-        m_Texture: {fileID: 2800000, guid: 1a2383f4a6b8465409f7e13d910800df, type: 3}
+        m_Texture: {fileID: 2800000, guid: 20468441aa9b7a040b27218339f1d6d9, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
-        m_Texture: {fileID: 2800000, guid: 9731446257c32d746ac8a7ddd26d0f81, type: 3}
+        m_Texture: {fileID: 2800000, guid: f6d5b0081f3e6384a91ab040fe3f7a5e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Second_Color:
@@ -138,7 +151,7 @@ Material:
     - _Use_Emssion: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
-    - _smoothness: 0.541
+    - _smoothness: 0.141
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
@@ -146,16 +159,3 @@ Material:
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
---- !u!114 &6649957911022182092
-MonoBehaviour:
-  m_ObjectHideFlags: 11
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 10
