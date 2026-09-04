@@ -14,7 +14,7 @@ public class GameOverMenu : MonoBehaviour
         }
         else
         {
-            SceneManager.LoadScene("Final");
+            SceneManager.LoadScene("JasminLvl1 Gasse");
         }
     }
 

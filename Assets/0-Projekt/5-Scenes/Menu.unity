@@ -137,7 +137,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1293342930062188912, guid: a903054a8461a164ba5fb6f7292c8a70, type: 3}
       propertyPath: newGameSceneName
-      value: Final 1
+      value: JasminLvl1 Gasse
       objectReference: {fileID: 0}
     - target: {fileID: 5040361296118657141, guid: a903054a8461a164ba5fb6f7292c8a70, type: 3}
       propertyPath: m_LocalPosition.x

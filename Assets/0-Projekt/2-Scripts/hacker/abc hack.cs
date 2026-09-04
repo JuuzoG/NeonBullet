@@ -49,9 +49,11 @@ public class abchack : MonoBehaviour
         if (string.IsNullOrEmpty(playerTag) || other.CompareTag(playerTag))
         {
             _inTrigger = false;
+            _isTyping =false;
 
             if (promptUI != null) promptUI.SetActive(false);
             if (sequenceUI != null) sequenceUI.SetActive(false);
+            GameManager.instance.state = GameStates.inGame;
         }
     }
 
