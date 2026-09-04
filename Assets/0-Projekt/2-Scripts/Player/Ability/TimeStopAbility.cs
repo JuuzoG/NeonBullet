@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class TimeStopAbility : MonoBehaviour
 {
-    [Header("Einstellungen")]
-    [Tooltip("Taste zum Aktivieren der Fähigkeit")]
-    public KeyCode activationKey = KeyCode.Space;
+    //[Header("Einstellungen")]
+    //[Tooltip("Taste zum Aktivieren der Fähigkeit")]
+    //public KeyCode activationKey = KeyCode.Space;
 
     [Tooltip("Wie lange die Zeit gestoppt bleibt (in Sekunden)")]
     public float duration = 3f;
@@ -17,8 +17,8 @@ public class TimeStopAbility : MonoBehaviour
     [Tooltip("Geschwindigkeit des Spielers während des Zeitstopps")]
     public float speed = 5f;
 
-    private bool isTimeStopped = false;
-    private bool isOnCooldown = false;
+    //private bool isTimeStopped = false;
+    //private bool isOnCooldown = false;
     private Rigidbody2D rb;
 
     void Start()
@@ -30,10 +30,9 @@ public class TimeStopAbility : MonoBehaviour
     void Update()
     {
         // Eingabe prüfen
-        if (Input.GetKeyDown(activationKey) && !isTimeStopped && !isOnCooldown)
-        {
-            StartCoroutine(StopTimeRoutine());
-        }
+        //{
+            //StartCoroutine(StopTimeRoutine());
+        //}
 
         // Eigenständige Steuerung des Spielers
        // HandleMovement();
@@ -57,9 +56,9 @@ public class TimeStopAbility : MonoBehaviour
         }
     }
 
-    IEnumerator StopTimeRoutine()
+    public IEnumerator StopTimeRoutine()
     {
-        isTimeStopped = true;
+        //isTimeStopped = true;
 
         // Hält die Zeit für die Spielwelt an
         Time.timeScale = 0f;
@@ -69,12 +68,12 @@ public class TimeStopAbility : MonoBehaviour
 
         // Setzt die Zeit wieder auf normal
         Time.timeScale = 1f;
-        isTimeStopped = false;
+        //isTimeStopped = false;
 
         // Abklingzeit starten
-        isOnCooldown = true;
+        //isOnCooldown = true;
         yield return new WaitForSecondsRealtime(cooldown);
-        isOnCooldown = false;
+        //isOnCooldown = false;
     }
 
     void OnDisable()

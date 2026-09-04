@@ -68,7 +68,7 @@ public class SpecialAttack : MonoBehaviour
             
     }
 
-    public void TriggerDash()
+    private void TriggerDash()
     {
         if (dashEnergyCost > player.GainEnergy(0)) return;
 
@@ -77,7 +77,7 @@ public class SpecialAttack : MonoBehaviour
     }
 
 
-    public void TriggerExplosion()
+    private void TriggerExplosion()
     {
         if (cooldown > 0) return;
         if (energyCost > player.GainEnergy(0)) return;
@@ -91,11 +91,8 @@ public class SpecialAttack : MonoBehaviour
         player.GainEnergy(-energyCost);
     }
 
-    public void ItsGambelingTime()
+    private void ItsGambelingTime()
     {
-        if (GameManager.instance.state == GameStates.GameOver) return;
-        if (GameManager.instance.state == GameStates.paused) return;
-
         if (gamble != null)
             gamble.ActivateGamble();
     }
