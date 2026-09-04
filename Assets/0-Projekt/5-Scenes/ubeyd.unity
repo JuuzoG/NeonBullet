@@ -18667,13 +18667,27 @@ MonoBehaviour:
   health: 0
   munition: 10
   shot: 323
-  Ability: 113
+  E: 0
   Inventar: 105
-  Dash: 324
+  Q: 0
+  G: 0
   Menu: 27
   projectilePrefab: {fileID: 4605803923660264602, guid: 8fe629540e53875488b308e440badb8e, type: 3}
-  ui: {fileID: 8809748955790972720}
-  GameOverScreen: {fileID: 8809748955790972722}
+  muselVFX: {fileID: 0}
+  ui: {fileID: 0}
+  GameOverScreen: {fileID: 0}
+  lowHealthVignette: {fileID: 0}
+  lowHealthThreshold: 35
+  vignettePulseSpeed: 2
+  vignetteMinAlpha: 0.15
+  vignetteMaxAlpha: 0.55
+  rifleShotCount: 5
+  rifleSpreadAngle: 5
+  rifleSpawnInterval: 0.05
+  muzzlePoint: {fileID: 0}
+  Rifle: 1
+  Railgun: 1
+  equippedAbility: 0
 --- !u!1 &186616560076788890
 GameObject:
   m_ObjectHideFlags: 0
@@ -25593,7 +25607,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe392c81f83de174fa6eba6d4520ba29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundLibrary: {fileID: 0}
   soundObject: {fileID: 2414415693718056550, guid: 2c91c854f08757a4bbf53ba45d37ee96, type: 3}
+  sfxMixerGroup: {fileID: 0}
+  usePitchVariance: 1
+  minPitch: 0.95
+  maxPitch: 1.05
 --- !u!1 &2432105128363706761
 GameObject:
   m_ObjectHideFlags: 0
@@ -25644,7 +25663,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   inventory: {fileID: 7537596639096307325}
+  WeaponSelect: {fileID: 0}
   player: {fileID: 179296702859047211}
+  specialAttack: {fileID: 0}
 --- !u!198 &2490389233343066458
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -30871,6 +30892,7 @@ GameObject:
   - component: {fileID: 179296702859047211}
   - component: {fileID: 4286457092328892150}
   - component: {fileID: 4197785735290477637}
+  - component: {fileID: 7394514175606921185}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -36648,14 +36670,12 @@ MonoBehaviour:
   energyCost: 5
   cooldownTime: 2
   attackPrefab: {fileID: 5248535632084003900, guid: 742f454fe152eee4bb0219b7e33aa488, type: 3}
-  dashAbility: {fileID: 0}
-  railgun: {fileID: 0}
   QButton: {fileID: 0}
-  DashButton: {fileID: 0}
-  cooldownImage: {fileID: 8809748955790972723}
-  pressedColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  normalColor: {r: 1, g: 1, b: 1, a: 1}
-  flashDuration: 0.15
+  EButton: {fileID: 0}
+  cooldownImage: {fileID: 0}
+  Dash: 0
+  Explosion: 0
+  Gambeling: 1
 --- !u!54 &4289862059873909721
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -38194,6 +38214,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8533f15b19046684bb3c99e26314b26e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boundBoxWidth: 400
+  boundBoxHeight: 250
+  mousePanSpeed: 3
+  maxMouseOffset: 3
 --- !u!222 &6056339956382482556
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -44208,6 +44232,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 7186639819559841407}
+  cam: {fileID: 1401194084495362197}
+--- !u!114 &7394514175606921185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2834042571401668006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60f18d8202222164786a7cf8b4be5772, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activationKey: 116
+  duration: 3
+  cooldown: 5
+  speed: 5
 --- !u!222 &7423195884727401066
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -50223,33 +50264,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 662b74e9df5cc6941b5ab0c1d909e39e, type: 3}
---- !u!114 &8809748955790972720 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4573133728511911192, guid: 662b74e9df5cc6941b5ab0c1d909e39e, type: 3}
-  m_PrefabInstance: {fileID: 8809748955790972718}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: acc9e893292ad3849bddb3d9fd395ca8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1 &8809748955790972722 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6461986643289341721, guid: 662b74e9df5cc6941b5ab0c1d909e39e, type: 3}
-  m_PrefabInstance: {fileID: 8809748955790972718}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &8809748955790972723 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1495022182277395931, guid: 662b74e9df5cc6941b5ab0c1d909e39e, type: 3}
-  m_PrefabInstance: {fileID: 8809748955790972718}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &8828707369668236695
 GameObject:
   m_ObjectHideFlags: 0
