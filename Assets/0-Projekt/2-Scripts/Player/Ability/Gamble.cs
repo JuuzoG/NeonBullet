@@ -12,8 +12,8 @@ public class Gamble : MonoBehaviour
     public float rollSpeed = 0.1f;
 
     [Header("Symbol Position")]
-    public float symbolSpacing = 0.6f;
-    public float symbolHeight = 1.5f;
+    public float symbolSpacing = 1f;
+    public float symbolHeight = 3f;
 
     [Header("Effect Duration")]
     public float effectDuration = 10f;

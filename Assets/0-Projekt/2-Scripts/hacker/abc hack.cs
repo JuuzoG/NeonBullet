@@ -9,6 +9,7 @@ public class abchack : MonoBehaviour
     [SerializeField] private int letterAmount = 5;
     [SerializeField] private string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     [SerializeField] private GameObject door;
+    [SerializeField] private GameObject doorlinks;
 
     [Header("Interaction")]
     [SerializeField] private KeyCode Action = KeyCode.F;
@@ -150,6 +151,7 @@ public class abchack : MonoBehaviour
         Destroy(door);
         OnActivated?.Invoke();
         Destroy(gameObject);
+        doorlinks.SetActive(true);
     }
 
     void LateUpdate()
